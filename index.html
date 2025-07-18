@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanduku La Maoni - DIT-MWANZA-CAMPUS</title>
-    <!-- Supabase CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <title data-lang-key="app_title">Sanduku La Maoni - TMG DIGTECH</title>
     <!-- Importing Google Fonts for a modern look -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         /* Global body styling for full-page background and centering */
         body {
@@ -18,7 +18,8 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(to right top, #6a11cb, #2575fc); /* Purple to Blue gradient */
+            /* Blue background as seen in Canva-style gradients */
+            background: linear-gradient(to right top, #6a11cb, #2575fc); /* Deep purple to bright blue */
             color: #ffffff; /* White text for contrast */
             overflow-y: auto; /* Allow scrolling for content overflow */
             overflow-x: hidden; /* Prevent horizontal scroll */
@@ -77,45 +78,8 @@
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        /* --- Welcome Page Specific Styles --- */
-        #welcome_page h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4em; /* Large font size */
-            margin-bottom: 5px;
-            letter-spacing: 5px; /* Spacing between letters */
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-            animation: textFadeIn 2s ease-out; /* Fade-in animation for text */
-        }
-
-        #welcome_page h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2em; /* Smaller than h1 but still large */
-            margin-top: 0;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
-            animation: textFadeIn 2.2s ease-out; /* Fade-in animation for text */
-        }
-
-        @keyframes textFadeIn {
-            0% { opacity: 0; transform: translateY(-20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .logo-img {
-            max-width: 180px; /* Max width for responsiveness */
-            height: auto; /* Maintain aspect ratio */
-            margin-bottom: 40px;
-            animation: bounce 2s infinite ease-in-out; /* Bouncing animation */
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); /* Soft glow effect */
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-30px); } /* Bounce up */
-            60% { transform: translateY(-15px); } /* Slight bounce down */
-        }
-
-        .welcome-button {
+        /* Common button style for navigation */
+        .action-button {
             background-color: #2ecc71; /* Vibrant green */
             color: white;
             padding: 15px 40px;
@@ -128,106 +92,179 @@
             display: inline-block; /* Allow padding and margin */
             transition: all 0.3s ease; /* Smooth transitions for hover effects */
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Initial shadow */
-            animation: pulse 2s infinite; /* Pulsating animation */
+            margin-top: 20px; /* Add margin for spacing between buttons */
         }
 
-        .welcome-button:hover {
+        .action-button:hover {
             background-color: #27ae60; /* Darker green on hover */
             transform: translateY(-3px) scale(1.02); /* Slight lift and scale */
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Larger shadow on hover */
-            animation: none; /* Stop pulsing on hover */
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
-            50% { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); }
-            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
-        }
-
-        .tmg-digtech-button {
-            display: inline-block; /* Make it behave like a block but inline */
-            margin-top: 40px; /* Space from KARIBU button */
-            padding: 10px 25px;
-            background-color: rgba(255, 255, 255, 0.15); /* Slightly transparent white */
-            border: 2px solid rgba(255, 255, 255, 0.5); /* White border */
-            border-radius: 30px; /* More rounded */
-            text-decoration: none;
-            color: #ffffff;
-            font-family: 'Open Sans', sans-serif;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            animation: pulseSmall 1.5s infinite ease-in-out; /* A subtle pulse */
-        }
-
-        .tmg-digtech-button:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-            animation: none; /* Stop pulse on hover */
-        }
-
-        .tmg-digtech-button span {
+        .back-link {
             display: block;
-            font-size: 0.7em; /* Smaller for "from" */
-            margin-bottom: 3px;
-            opacity: 0.8;
-        }
-
-        .tmg-digtech-button strong {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1em; /* Larger for "TMG DIGTECH" */
-            letter-spacing: 1px;
-        }
-
-        /* Keyframes for a subtle pulse animation */
-        @keyframes pulseSmall {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-
-        /* Style for admin login link on welcome page */
-        #welcome_page .admin-login-link-welcome {
-            display: block;
-            margin-top: 20px;
-            font-size: 1em;
-            color: #ffffff; /* White text for contrast */
+            margin-top: 25px;
+            font-size: 0.9em;
+            color: #ffffff; /* White color for back links */
             text-decoration: none;
-            transition: color 0.3s ease, transform 0.3s ease;
-            opacity: 0.7;
+            transition: color 0.3s ease;
         }
 
-        #welcome_page .admin-login-link-welcome:hover {
+        .back-link:hover {
             color: #e0e0e0;
-            transform: translateY(-2px);
-            opacity: 1;
             text-decoration: underline;
         }
 
-
-        /* --- Initial Landing Page Specific Styles (from original index.html) --- */
-        #initial_landing_page .container { /* Use a more specific selector */
-            background-color: rgba(255, 255, 255, 0.9); /* Rangi nyeupe iliyofifia kidogo ili kuonekana vizuri juu ya background */
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
-            width: 100%;
-            animation: fadeInScale 1s ease-out; /* Animation ya kuonekana */
-            position: relative; /* Hakikisha inakaa juu ya background bubbles */
-            z-index: 1; 
+        /* --- Intro Page Specific Styles --- */
+        #intro_page h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.8em; /* Large font size for "SUGGESTION BOX" */
+            margin-bottom: 5px; /* Space between h1 and "from" */
+            letter-spacing: 5px; /* Spacing between letters */
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7); /* Soft glow effect */
+            animation: textFadeIn 2s ease-out; /* Fade-in animation for text */
         }
 
-        #initial_landing_page h1 {
-            color: #007bff; /* Bluu ya kuvutia */
+        #intro_page p.from-text {
+            font-size: 1.5em; /* Size for "from" */
+            margin: 10px 0 5px; /* Space around "from" */
+            opacity: 0.8; /* Slightly less prominent */
+            animation: textFadeIn 2.2s ease-out;
+        }
+
+        #intro_page p.company-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2em; /* Larger for "TMG DIGTECH" */
+            margin-top: 0;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: textFadeIn 2.4s ease-out;
+        }
+
+        @keyframes textFadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Language Selection Page Specific Styles --- */
+        #language_selection_page .language-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            color: #333; /* Dark text for contrast on light background */
+        }
+
+        #language_selection_page h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2.2em;
+        }
+
+        #language_selection_page p {
+            color: #555;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        #language_selection_page .language-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        #language_selection_page .language-option {
+            background-color: #ecf0f1;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+            color: #34495e;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        #language_selection_page .language-option:hover {
+            background-color: #dbe4e8;
+            border-color: #a0a0a0;
+            transform: translateY(-2px);
+        }
+
+        #language_selection_page input[type="radio"] {
+            /* Hide default radio button */
+            display: none;
+        }
+
+        #language_selection_page input[type="radio"] + label {
+            cursor: pointer;
+            position: relative;
+            padding-left: 25px; /* Space for custom radio */
+            line-height: 20px;
+        }
+
+        #language_selection_page input[type="radio"] + label::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #007bff;
+            border-radius: 50%;
+            background-color: #fff;
+            transition: all 0.2s ease;
+        }
+
+        #language_selection_page input[type="radio"]:checked + label::before {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        #language_selection_page input[type="radio"]:checked + label::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+        #language_selection_page button#proceedButton {
+            background-color: #007bff; /* Blue for proceed button */
+            margin-top: 20px;
+            width: auto; /* Allow button to size based on content */
+            padding: 15px 50px;
+        }
+
+        #language_selection_page button#proceedButton:hover {
+            background-color: #0056b3;
+        }
+
+        /* --- Main Landing Page Specific Styles --- */
+        #main_landing_page h1 {
+            font-family: 'Montserrat', sans-serif;
             font-size: 3.5em; /* Herufi kubwa sana */
             margin-bottom: 20px;
             text-transform: uppercase; /* Herufi kubwa zote */
             letter-spacing: 3px; /* Nafasi kati ya herufi */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            color: #ffffff; /* White text for contrast */
         }
 
-        #initial_landing_page .feedback-image-container {
+        #main_landing_page .image-button-container {
             margin: 30px auto;
             width: 180px; /* Ukubwa wa picha */
             height: 180px;
@@ -235,50 +272,25 @@
             position: relative; /* Muhimu kwa kuweka maandishi juu ya picha */
         }
 
-        #initial_landing_page .feedback-image {
+        #main_landing_page .bouncing-image {
             width: 100%;
             height: 100%;
             object-fit: contain; /* Picha ienee ndani ya box bila kupotosha */
             transform-style: preserve-3d;
-            animation: rotateY 8s infinite linear; /* Animation ya kuzunguka */
-            cursor: pointer;
+            animation: bounce 2s infinite ease-in-out; /* Animation ya kuzunguka */
+            cursor: default; /* Change cursor to default, as it's no longer clickable */
             transition: transform 0.3s ease-out;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); /* Soft glow effect */
         }
 
-        #initial_landing_page .feedback-image:hover {
-            transform: scale(1.05) rotateY(var(--rotation)); /* Ikuwe kidogo na iendelee kuzunguka */
+        #main_landing_page .bouncing-image:hover {
+            transform: scale(1.05) translateY(-5px); /* Ikuwe kidogo na iendelee kuzunguka */
         }
 
-        @keyframes rotateY {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(360deg); }
-        }
-
-        #initial_landing_page .feedback-text-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: black; /* Rangi ya maandishi ya "Bonyeza Hapa" */
-            font-size: 1.5em;
-            font-weight: bold;
-            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); /* Kivuli cheupe kwa maandishi */
-            pointer-events: none; /* Ruhusu click ipite hadi kwenye picha */
-            z-index: 2; /* Hakikisha maandishi yapo juu ya picha */
-        }
-
-        #initial_landing_page .admin-login-link {
-            display: block;
-            margin-top: 30px;
-            font-size: 1.1em;
-            color: #6c757d;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        #initial_landing_page .admin-login-link:hover {
-            color: #495057;
-            text-decoration: underline;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); } /* Bounce up */
+            60% { transform: translateY(-15px); } /* Slight bounce down */
         }
 
         /* --- Feedback Form Page Specific Styles --- */
@@ -356,7 +368,7 @@
             font-size: 1em;
         }
 
-        #feedback_form_page button {
+        #feedback_form_page button[type="submit"] {
             background-color: #28a745; /* Kijani */
             color: white;
             padding: 14px 25px;
@@ -369,22 +381,8 @@
             transition: background-color 0.3s ease;
         }
 
-        #feedback_form_page button:hover {
+        #feedback_form_page button[type="submit"]:hover {
             background-color: #218838; /* Kijani iliyokolea zaidi */
-        }
-
-        #feedback_form_page .back-link {
-            display: block;
-            margin-top: 25px;
-            font-size: 0.9em;
-            color: #6c757d;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        #feedback_form_page .back-link:hover {
-            color: #495057;
-            text-decoration: underline;
         }
 
         #feedback_form_page .feedback-success-message {
@@ -483,6 +481,7 @@
             font-size: 0.95em;
         }
 
+        #admin_login_page input[type="email"],
         #admin_login_page input[type="password"] {
             width: 100%;
             padding: 12px;
@@ -494,13 +493,14 @@
             background-color: #ecf0f1;
         }
 
+        #admin_login_page input[type="email"]:focus,
         #admin_login_page input[type="password"]:focus {
             border-color: #007bff;
             outline: none;
             box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
         }
 
-        #admin_login_page button {
+        #admin_login_page button[type="submit"] {
             background-color: #007bff; /* Bluu */
             color: white;
             padding: 14px 25px;
@@ -513,7 +513,7 @@
             transition: background-color 0.3s ease;
         }
 
-        #admin_login_page button:hover {
+        #admin_login_page button[type="submit"]:hover {
             background-color: #0056b3; /* Bluu iliyokolea zaidi */
         }
 
@@ -522,20 +522,6 @@
             margin-top: 15px;
             font-size: 0.9em;
             display: none; /* Imefichwa mwanzoni */
-        }
-
-        #admin_login_page .back-link {
-            display: block;
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #6c757d;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        #admin_login_page .back-link:hover {
-            color: #495057;
-            text-decoration: underline;
         }
 
         /* --- Admin Dashboard Page Specific Styles --- */
@@ -930,44 +916,273 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
+        /* --- Institution Registration Page Specific Styles --- */
+        #institution_registration_page .registration-form {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+            color: #333; /* Dark text for form elements */
+            text-align: left;
+        }
+
+        #institution_registration_page .form-group {
+            margin-bottom: 20px;
+        }
+
+        #institution_registration_page label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        #institution_registration_page input[type="text"],
+        #institution_registration_page input[type="email"],
+        #institution_registration_page input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+            background-color: #ecf0f1;
+            color: #333;
+        }
+
+        #institution_registration_page input[type="text"]:focus,
+        #institution_registration_page input[type="email"]:focus,
+        #institution_registration_page input[type="password"]:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+
+        #institution_registration_page .submit-button {
+            background-color: #28a745; /* Green */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        #institution_registration_page .submit-button:hover {
+            background-color: #218838; /* Darker green */
+        }
+
+        /* --- Institution Selection Page Specific Styles --- */
+        #institution_selection_page .selection-form, #institution_selection_page .confirmation-section {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+            color: #333; /* Dark text for form elements */
+            text-align: left;
+        }
+
+        #institution_selection_page select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+            background-color: #ecf0f1;
+            color: #333;
+        }
+
+        #institution_selection_page select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+
+        #institution_selection_page .action-button {
+            background-color: #28a745; /* Green */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        #institution_selection_page .action-button:hover {
+            background-color: #218838; /* Darker green */
+        }
+
+        #institution_selection_page .confirmation-section {
+            display: none; /* Hidden by default */
+            text-align: center;
+            color: #333;
+        }
+
+        #institution_selection_page .confirmation-section h2 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        #institution_selection_page .confirmation-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        #institution_selection_page .confirmation-button {
+            background-color: #007bff; /* Blue */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #institution_selection_page .confirmation-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* --- OTP Verification Page Specific Styles --- */
+        #otp_verification_page .otp-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            color: #333;
+        }
+
+        #otp_verification_page h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        #otp_verification_page p {
+            color: #555;
+            margin-bottom: 25px;
+            font-size: 1em;
+        }
+
+        #otp_verification_page .form-group {
+            margin-bottom: 20px;
+        }
+
+        #otp_verification_page input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1.2em;
+            text-align: center;
+            letter-spacing: 5px; /* Space out the OTP digits */
+            color: #333;
+            background-color: #ecf0f1;
+        }
+
+        #otp_verification_page input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+
+        #otp_verification_page .action-button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px 25px;
+            font-size: 1.1em;
+        }
+
+        #otp_verification_page .resend-button {
+            background-color: #6c757d; /* Grey for resend */
+            margin-top: 10px;
+        }
+
+        #otp_verification_page .resend-button:hover {
+            background-color: #5a6268;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .page-container {
                 padding: 30px 20px;
             }
-            #welcome_page h1, #initial_landing_page h1 {
-                font-size: 2.8em;
+            #intro_page h1 {
+                font-size: 2.5em;
                 letter-spacing: 3px;
             }
-            #welcome_page h2 {
-                font-size: 1.6em;
-                margin-bottom: 20px;
+            #intro_page p.from-text {
+                font-size: 1.2em;
             }
-            .logo-img {
-                max-width: 140px;
-                margin-bottom: 30px;
+            #intro_page p.company-name {
+                font-size: 1.8em;
+                letter-spacing: 1px;
             }
-            .welcome-button {
+            #language_selection_page h2 {
+                font-size: 1.8em;
+            }
+            #language_selection_page p {
+                font-size: 1em;
+            }
+            #language_selection_page .language-option {
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+            #language_selection_page button#proceedButton {
+                padding: 12px 30px;
+                font-size: 1.2em;
+            }
+            #main_landing_page h1 {
+                font-size: 2.8em;
+                letter-spacing: 2px;
+            }
+            #main_landing_page .image-button-container {
+                width: 150px;
+                height: 150px;
+            }
+            .action-button {
                 font-size: 1.2em;
                 padding: 12px 30px;
-            }
-            .tmg-digtech-button {
-                font-size: 0.9em;
-                padding: 8px 20px;
-            }
-            .tmg-digtech-button strong {
-                font-size: 1em;
             }
             #feedback_form_page .feedback-container,
             #admin_login_page .login-container,
             #admin_dashboard_page main,
-            #tmg_digtech_info_page .info-container {
+            #tmg_digtech_info_page .info-container,
+            #institution_registration_page .registration-form,
+            #institution_selection_page .selection-form,
+            #institution_selection_page .confirmation-section,
+            #otp_verification_page .otp-container {
                 padding: 30px;
             }
-            #feedback_form_page h2, #admin_login_page h2 {
+            #feedback_form_page h2, #admin_login_page h2, #institution_registration_page h2, #institution_selection_page h2, #otp_verification_page h2 {
                 font-size: 1.8em;
             }
-            #feedback_form_page button, #admin_login_page button {
+            #feedback_form_page button, #admin_login_page button, #institution_registration_page .submit-button, #institution_selection_page .action-button, #institution_selection_page .confirmation-button, #otp_verification_page .action-button {
                 padding: 12px 20px;
                 font-size: 1em;
             }
@@ -1011,190 +1226,1317 @@
     <!-- Main application container -->
     <div id="app-container">
 
-        <!-- Initial Landing Page Content (formerly index.html's main content) -->
-        <!-- This page is now hidden by default and can be navigated to via the "Rudi Ukurasa Mkuu" links -->
-        <div id="initial_landing_page" class="page-container">
-            <div class="container">
-                <h1>SANDUKU LA MAONI</h1>
-                <div class="feedback-image-container">
-                    <a href="#" onclick="navigateTo('feedback_form_page'); return false;">
-                        <img src="sanduku-removebg-preview.png" alt="Bonyeza Hapa Kutoa Maoni" class="feedback-image">
-                        <span class="feedback-text-overlay">BONYEZA HAPA</span>
-                    </a>
+        <!-- Intro Page -->
+        <div id="intro_page" class="page-container active">
+            <h1>SUGGESTION BOX</h1>
+            <p class="from-text">from</p>
+            <p class="company-name">TMG DIGTECH</p>
+        </div>
+
+        <!-- Language Selection Page -->
+        <div id="language_selection_page" class="page-container">
+            <div class="language-container">
+                <h2 data-lang-key="choose_language_title">Chagua Lugha</h2>
+                <p data-lang-key="choose_language_instruction">Tafadhali chagua lugha unayopendelea kwa tovuti nzima:</p>
+                <div class="language-options">
+                    <label class="language-option">
+                        <input type="radio" id="lang_sw" name="language" value="sw" checked>
+                        <span data-lang-key="kiswahili">Kiswahili</span>
+                    </label>
+                    <label class="language-option">
+                        <input type="radio" id="lang_en" name="language" value="en">
+                        <span data-lang-key="english">Kingereza</span>
+                    </label>
+                    <label class="language-option">
+                        <input type="radio" id="lang_fr" name="language" value="fr">
+                        <span data-lang-key="french">Kifaransa</span>
+                    </label>
+                    <label class="language-option">
+                        <input type="radio" id="lang_de" name="language" value="de">
+                        <span data-lang-key="german">Kijerumani</span>
+                    </label>
+                    <label class="language-option">
+                        <input type="radio" id="lang_ar" name="language" value="ar">
+                        <span data-lang-key="arabic">Kiarabu</span>
+                    </label>
+                    <label class="language-option">
+                        <input type="radio" id="lang_zh" name="language" value="zh">
+                        <span data-lang-key="chinese">Kichina</span>
+                    </label>
+                    <label class="language-option">
+                        <input type="radio" id="lang_pt" name="language" value="pt">
+                        <span data-lang-key="portuguese">Kireno</span>
+                    </label>
+                    <label class="language-option">
+                        <input type="radio" id="lang_ru" name="language" value="ru">
+                        <span data-lang-key="russian">Kirusi</span>
+                    </label>
                 </div>
-                <a href="#" onclick="navigateTo('admin_login_page'); return false;" class="admin-login-link">Mimi ni Msimamizi (Ingia)</a>
+                <button id="proceedButton" class="action-button" data-lang-key="continue_button">Endelea</button>
             </div>
         </div>
 
-        <!-- Welcome Page Content (formerly welcome_page.html) -->
-        <!-- This is now the default starting page -->
-        <div id="welcome_page" class="page-container">
-            <h1>DIT MWANZA CAMPUS</h1>
-            <h2>SANDUKU LA MAONI</h2>
-            <img src="sanduku-removebg-preview.png" alt="DIT Logo" class="logo-img"> 
-            <a href="#" onclick="navigateTo('feedback_form_page'); return false;" class="welcome-button">KARIBU</a>
-            <a href="#" onclick="navigateTo('tmg_digtech_info_page'); return false;" class="tmg-digtech-button">
-                <span>from</span>
-                <strong>TMG DIGTECH</strong>
-            </a>
-            <!-- NEW: Admin Login Link added to Welcome Page -->
-            <a href="#" onclick="navigateTo('admin_login_page'); return false;" class="admin-login-link-welcome">Mimi ni Msimamizi (Ingia)</a>
+        <!-- Main Landing Page Content (New Page) -->
+        <div id="main_landing_page" class="page-container">
+            <h1 data-lang-key="main_page_title">SANDUKU LA MAONI</h1>
+            <div class="image-button-container">
+                <!-- Removed anchor tag, image is now purely decorative -->
+                <img src="sanduku-removebg-preview.png" alt="Sanduku La Maoni" class="bouncing-image"> 
+            </div>
+            <button class="action-button" onclick="navigateTo('institution_selection_page'); return false;" data-lang-key="main_page_karibu_button">KARIBU</button>
+            <button class="action-button" onclick="navigateTo('institution_registration_page'); return false;" data-lang-key="main_page_register_institution_button">Sajili Taasisi yako</button>
+            <button class="action-button" onclick="navigateTo('admin_login_page'); return false;" data-lang-key="main_page_admin_login_button">Ingia kama Msimamizi</button>
+            <a href="#" onclick="navigateTo('language_selection_page'); return false;" class="back-link" data-lang-key="back_button">Rudi Nyuma</a>
         </div>
 
-        <!-- Feedback Form Page Content (formerly feedback_form.html) -->
+        <!-- Institution Registration Page Content -->
+        <div id="institution_registration_page" class="page-container">
+            <h1 data-lang-key="institution_reg_title">USAJILI WA TAASISI</h1>
+            <div class="registration-form">
+                <form id="institutionRegistrationForm">
+                    <div class="form-group">
+                        <label for="institutionName" data-lang-key="institution_name_label">Jina la Taasisi:</label>
+                        <input type="text" id="institutionName" name="institutionName" placeholder="Ingiza jina la taasisi" required data-lang-key="institution_name_placeholder">
+                    </div>
+                    <div class="form-group">
+                        <label for="institutionEmail" data-lang-key="institution_email_label">Barua Pepe ya Taasisi:</label>
+                        <input type="email" id="institutionEmail" name="institutionEmail" placeholder="Ingiza barua pepe ya taasisi" required data-lang-key="institution_email_placeholder">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminName" data-lang-key="admin_name_label">Jina la Msimamizi:</label>
+                        <input type="text" id="adminName" name="adminName" placeholder="Ingiza jina la msimamizi" required data-lang-key="admin_name_placeholder">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminEmail" data-lang-key="admin_email_label">Barua Pepe ya Msimamizi:</label>
+                        <input type="email" id="adminEmail" name="adminEmail" placeholder="Ingiza barua pepe ya msimamizi" required data-lang-key="admin_email_placeholder">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminPasswordReg" data-lang-key="admin_password_label">Nenosiri la Msimamizi:</label>
+                        <input type="password" id="adminPasswordReg" name="adminPasswordReg" placeholder="Weka nenosiri" required data-lang-key="admin_password_placeholder">
+                    </div>
+                    <button type="submit" class="submit-button" data-lang-key="register_button">Jisajili</button>
+                </form>
+            </div>
+            <a href="#" onclick="navigateTo('main_landing_page'); return false;" class="back-link" data-lang-key="back_to_main_page">Rudi Ukurasa Mkuu</a>
+        </div>
+
+        <!-- Institution Selection Page Content -->
+        <div id="institution_selection_page" class="page-container">
+            <div id="selectionSection">
+                <h1 data-lang-key="select_institution_title">CHAGUA TAASISI</h1>
+                <div class="selection-form">
+                    <div class="form-group">
+                        <label for="institutionSelect" data-lang-key="select_institution_label">Chagua Taasisi:</label>
+                        <select id="institutionSelect" required>
+                            <option value="" data-lang-key="select_institution_default">-- Chagua Taasisi --</option>
+                            <!-- Institution options will be loaded dynamically -->
+                        </select>
+                    </div>
+                    <button id="selectInstitutionButton" class="action-button" data-lang-key="select_institution_button">Chagua Taasisi</button>
+                </div>
+            </div>
+
+            <div id="confirmationSection" class="confirmation-section">
+                <h2 id="confirmationTitle"></h2>
+                <p data-lang-key="proceed_to_feedback_instruction">Bonyeza kitufe hapa chini kuendelea na fomu ya maoni.</p>
+                <button id="proceedToFeedbackButton" class="confirmation-button" data-lang-key="proceed_button">Bonyeza Hapa Kuendelea</button>
+            </div>
+
+            <a href="#" onclick="navigateTo('main_landing_page'); return false;" class="back-link" data-lang-key="back_to_main_page">Rudi Ukurasa Mkuu</a>
+        </div>
+
+        <!-- Feedback Form Page Content -->
         <div id="feedback_form_page" class="page-container">
             <div class="feedback-container">
-                <h2>Tuma Maoni Yako</h2>
+                <h2 data-lang-key="feedback_form_title">Tuma Maoni Yako</h2>
                 <div id="successMessage" class="feedback-success-message">
                     <img src="sanduku-removebg-preview.png" alt="Maoni Yametumwa"> 
-                    <h3>Asante Sana!</h3>
-                    <p>Maoni yako yametumwa kwa mafanikio. Tunayathamini sana.</p>
+                    <h3 data-lang-key="feedback_success_title">Asante Sana!</h3>
+                    <p data-lang-key="feedback_success_message">Maoni yako yametumwa kwa mafanikio. Tunayathamini sana.</p>
                 </div>
                 <div id="feedbackFormWrapper">
                     <form id="feedbackForm">
                         <div class="form-group">
-                            <label for="feedbackType">Aina ya Maoni:</label>
+                            <label for="feedbackType" data-lang-key="feedback_type_label">Aina ya Maoni:</label>
                             <select id="feedbackType" name="feedbackType" required>
-                                <option value="">Chagua Aina ya Maoni</option>
-                                <option value="pendekezo">Pendekezo</option>
-                                <option value="malalamiko">Malalamiko</option>
-                                <option value="pongezi">Pongezi</option>
-                                <option value="swali">Swali</option>
-                                <option value="nyingine">Nyingine</option>
+                                <option value="" data-lang-key="select_feedback_type">Chagua Aina ya Maoni</option>
+                                <option value="pendekezo" data-lang-key="type_suggestion">Pendekezo</option>
+                                <option value="malalamiko" data-lang-key="type_complaint">Malalamiko</option>
+                                <option value="pongezi" data-lang-key="type_compliment">Pongezi</option>
+                                <option value="swali" data-lang-key="type_question">Swali</option>
+                                <option value="nyingine" data-lang-key="type_other">Nyingine</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="feedbackText">Maoni Yako:</label>
-                            <textarea id="feedbackText" name="feedbackText" placeholder="Andika maoni yako hapa..." required></textarea>
+                        <!-- New input field for specifying "Other" feedback type -->
+                        <div class="form-group" id="otherFeedbackTypeGroup" style="display: none;">
+                            <label for="otherFeedbackType" data-lang-key="other_feedback_type_label">Taja Aina Nyingine ya Maoni:</label>
+                            <input type="text" id="otherFeedbackType" name="otherFeedbackType" placeholder="Mfano: Huduma kwa Wateja" data-lang-key="other_feedback_type_placeholder">
                         </div>
                         <div class="form-group">
-                            <label for="priority">Kipaumbele:</label>
+                            <label for="feedbackText" data-lang-key="feedback_text_label">Maoni Yako:</label>
+                            <textarea id="feedbackText" name="feedbackText" placeholder="Andika maoni yako hapa..." required data-lang-key="feedback_text_placeholder"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="priority" data-lang-key="priority_label">Kipaumbele:</label>
                             <select id="priority" name="priority" required>
-                                <option value="medium">Kati</option>
-                                <option value="high">Juu</option>
-                                <option value="low">Chini</option>
+                                <option value="medium" data-lang-key="priority_medium">Kati</option>
+                                <option value="high" data-lang-key="priority_high">Juu</option>
+                                <option value="low" data-lang-key="priority_low">Chini</option>
                             </select>
                         </div>
                         <div class="checkbox-group">
                             <input type="checkbox" id="anonymous" name="anonymous" checked>
-                            <label for="anonymous">Tuma Bila Kujitambulisha</label>
+                            <label for="anonymous" data-lang-key="anonymous_label">Tuma Bila Kujitambulisha</label>
                         </div>
                         <div class="form-group" id="studentNameGroup" style="display: none;">
-                            <label for="studentName">Jina Lako (Hiari):</label>
-                            <input type="text" id="studentName" name="studentName" placeholder="Ingiza jina lako...">
+                            <label for="studentName" data-lang-key="student_name_label">Jina Lako (Hiari):</label>
+                            <input type="text" id="studentName" name="studentName" placeholder="Ingiza jina lako..." data-lang-key="student_name_placeholder">
                         </div>
-                        <button type="submit">Tuma Maoni</button>
+                        <button type="submit" data-lang-key="submit_feedback_button">Tuma Maoni</button>
                     </form>
                 </div>
-                <a href="#" onclick="navigateTo('welcome_page'); return false;" class="back-link">Rudi Ukurasa Mkuu</a>
+                <a href="#" onclick="navigateTo('institution_selection_page'); return false;" class="back-link" data-lang-key="back_to_institution_selection">Rudi Kwenye Uchaguzi wa Taasisi</a>
             </div>
         </div>
 
-        <!-- Admin Login Page Content (formerly admin_login.html) -->
+        <!-- Admin Login Page Content -->
         <div id="admin_login_page" class="page-container">
             <div class="login-container">
-                <h2>Ingia Kama Msimamizi</h2>
+                <h2 data-lang-key="admin_login_title">Ingia Kama Msimamizi</h2>
                 <form id="adminLoginForm">
                     <div class="form-group">
-                        <label for="password">Nenosiri:</label>
+                        <label for="email" data-lang-key="admin_email_label">Barua Pepe:</label>
+                        <input type="email" id="email" name="email" placeholder="Ingiza barua pepe yako" required data-lang-key="admin_email_placeholder">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" data-lang-key="admin_password_label">Nenosiri:</label>
                         <input type="password" id="password" name="password" required>
                     </div>
-                    <p class="error-message" id="loginErrorMessage">Nenosiri si sahihi.</p>
-                    <button type="submit">Ingia</button>
+                    <p class="error-message" id="loginErrorMessage" data-lang-key="admin_login_error">Barua pepe au nenosiri si sahihi.</p>
+                    <button type="submit" data-lang-key="admin_login_button">Ingia</button>
                 </form>
-                <a href="#" onclick="navigateTo('welcome_page'); return false;" class="back-link">Rudi Ukurasa Mkuu</a>
+                <a href="#" onclick="navigateTo('main_landing_page'); return false;" class="back-link" data-lang-key="back_to_main_page">Rudi Ukurasa Mkuu</a>
             </div>
         </div>
 
-        <!-- Admin Dashboard Page Content (formerly admin_dashboard.html) -->
+        <!-- OTP Verification Page -->
+        <div id="otp_verification_page" class="page-container">
+            <div class="otp-container">
+                <h2 data-lang-key="otp_verification_title">Thibitisha Barua Pepe Yako</h2>
+                <p data-lang-key="otp_verification_instruction">Tumetuma msimbo wa nambari 6 kwa barua pepe yako. Tafadhali ingiza hapa chini ili kuthibitisha akaunti yako.</p>
+                <div class="form-group">
+                    <label for="otpCode" data-lang-key="otp_code_label">Msimbo wa OTP:</label>
+                    <input type="text" id="otpCode" name="otpCode" placeholder="Ingiza msimbo wa nambari 6" maxlength="6" required data-lang-key="otp_code_placeholder">
+                </div>
+                <p class="error-message" id="otpErrorMessage" data-lang-key="otp_error_message" style="display: none;"></p>
+                <button id="verifyOtpButton" class="action-button" data-lang-key="verify_otp_button">Thibitisha Msimbo</button>
+                <button id="resendOtpButton" class="action-button resend-button" data-lang-key="resend_otp_button">Tuma Msimbo Tena</button>
+                <a href="#" onclick="navigateTo('institution_registration_page'); return false;" class="back-link" data-lang-key="back_to_institution_registration">Rudi Kwenye Usajili wa Taasisi</a>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard Page Content -->
         <div id="admin_dashboard_page" class="page-container">
             <header>
-                <h1>Dashibodi ya Maoni ya Wanafunzi</h1>
-                <button class="logout-button" onclick="navigateTo('admin_login_page'); return false;">Ondoka</button>
+                <h1 data-lang-key="admin_dashboard_header">Dashibodi ya Maoni ya Wanafunzi</h1>
+                <button class="logout-button" onclick="handleAdminLogout(); return false;" data-lang-key="admin_logout_button">Ondoka</button>
             </header>
             <main>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <h3>Jumla ya Maoni</h3>
+                        <h3 data-lang-key="total_feedback_stats">Jumla ya Maoni</h3>
                         <p id="totalFeedback">0</p>
                     </div>
                     <div class="stat-card">
-                        <h3>Maoni Mapya</h3>
+                        <h3 data-lang-key="new_feedback_stats">Maoni Mapya</h3>
                         <p id="newFeedback">0</p>
                     </div>
                     <div class="stat-card">
-                        <h3>Maoni Yaliyosuluhishwa</h3>
+                        <h3 data-lang-key="resolved_feedback_stats">Maoni Yaliyosuluhishwa</h3>
                         <p id="resolvedFeedback">0</p>
                     </div>
                 </div>
                 <div class="filters-search">
                     <div>
-                        <label for="filterStatus">Hali:</label>
+                        <label for="filterStatus" data-lang-key="filter_status_label">Hali:</label>
                         <select id="filterStatus">
-                            <option value="all">Zote</option>
-                            <option value="new">Mpya</option>
-                            <option value="in-progress">Inaendelea</option>
-                            <option value="resolved">Imesuluhishwa</option>
-                            <option value="viewed">Imetazamwa</option>
+                            <option value="all" data-lang-key="filter_all">Zote</option>
+                            <option value="new" data-lang-key="filter_new">Mpya</option>
+                            <option value="in-progress" data-lang-key="filter_in_progress">Inaendelea</option>
+                            <option value="resolved" data-lang-key="filter_resolved">Imesuluhishwa</option>
+                            <option value="viewed" data-lang-key="filter_viewed">Imetazamwa</option>
                         </select>
                     </div>
                     <div>
-                        <label for="filterType">Aina:</label>
+                        <label for="filterType" data-lang-key="filter_type_label">Aina:</label>
                         <select id="filterType">
-                            <option value="all">Zote</option>
-                            <option value="pendekezo">Pendekezo</option>
-                            <option value="malalamiko">Malalamiko</option>
-                            <option value="pongezi">Pongezi</option>
-                            <option value="swali">Swali</option>
-                            <option value="nyingine">Nyingine</option>
+                            <option value="all" data-lang-key="filter_all">Zote</option>
+                            <option value="pendekezo" data-lang-key="type_suggestion">Pendekezo</option>
+                            <option value="malalamiko" data-lang-key="type_complaint">Malalamiko</option>
+                            <option value="pongezi" data-lang-key="type_compliment">Pongezi</option>
+                            <option value="swali" data-lang-key="type_question">Swali</option>
+                            <option value="nyingine" data-lang-key="type_other">Nyingine</option>
                         </select>
                     </div>
                     <div>
-                        <label for="filterAnonymous">Bila Jina:</label>
+                        <label for="filterAnonymous" data-lang-key="filter_anonymous_label">Bila Jina:</label>
                         <select id="filterAnonymous">
-                            <option value="all">Zote</option>
-                            <option value="yes">Ndiyo</option>
-                            <option value="no">Hapana</option>
+                            <option value="all" data-lang-key="filter_all">Zote</option>
+                            <option value="yes" data-lang-key="filter_yes">Ndiyo</option>
+                            <option value="no" data-lang-key="filter_no">Hapana</option>
                         </select>
                     </div>
-                    <input type="text" id="search" placeholder="Tafuta maoni...">
+                    <input type="text" id="search" placeholder="Tafuta maoni..." data-lang-key="search_placeholder">
                 </div>
                 <div class="feedback-list" id="feedbackList">
-                    <p style="text-align: center; color: #6c757d; margin-top: 50px;">Inapakia maoni...</p>
+                    <p style="text-align: center; color: #6c757d; margin-top: 50px;" data-lang-key="loading_feedback_message">Inapakia maoni...</p>
                 </div>
             </main>
             <footer>
-                &copy; 2025 Chuo Huru. Haki zote zimehifadhiwa.
+                &copy; 2025 <span data-lang-key="footer_text">Chuo Huru. Haki zote zimehifadhiwa.</span>
             </footer>
         </div>
 
-        <!-- TMG DigTech Info Page Content (formerly tmg_digtech_info.html) -->
+        <!-- TMG DigTech Info Page Content -->
         <div id="tmg_digtech_info_page" class="page-container">
             <div class="info-container">
-                <h1>Kuhusu TMG DigTech</h1>
-                <p>Sanduku la Maoni la Chuo cha DIT limetengenezwa na TMG DigTech, kampuni ya ubunifu wa kidigitali inayolenga kutatua changamoto za wanafunzi na taasisi kwa kutumia teknolojia rahisi na bora.</p>
-                <p>Msimamizi na mtengenezaji wa tovuti hii ni <strong>Trust Erastus</strong>, mwanzilishi wa TMG DigTech na mwanafunzi wa Chuo cha DIT, Campus ya Mwanza.</p>
-                <p>Tunajivunia kutoa suluhisho hili ili wanafunzi, walimu na uongozi wawe na nafasi rahisi na ya siri ya kutoa maoni, mapendekezo na hoja zenye kujenga chuo chetu.</p>
+                <h1 data-lang-key="about_tmg_title">Kuhusu TMG DigTech</h1>
+                <p data-lang-key="about_tmg_text_1">Sanduku la Maoni la Chuo cha DIT limetengenezwa na TMG DigTech, kampuni ya ubunifu wa kidigitali inayolenga kutatua changamoto za wanafunzi na taasisi kwa kutumia teknolojia rahisi na bora.</p>
+                <p data-lang-key="about_tmg_text_2">Msimamizi na mtengenezaji wa tovuti hii ni <strong>Trust Erastus</strong>, mwanzilishi wa TMG DigTech na mwanafunzi wa Chuo cha DIT, Campus ya Mwanza.</p>
+                <p data-lang-key="about_tmg_text_3">Tunajivunia kutoa suluhisho hili ili wanafunzi, walimu na uongozi wawe na nafasi rahisi na ya siri ya kutoa maoni, mapendekezo na hoja zenye kujenga chuo chetu.</p>
                 <div class="contact-info">
-                    <p><strong>Contact:</strong></p>
+                    <p data-lang-key="contact_title"><strong>Mawasiliano:</strong></p>
                     <p>📧 <a href="mailto:trusterastus@gmail.com">trusterastus@gmail.com</a></p>
                     <p>📱 <a href="tel:+255786701705">+255 786 701 705</a></p>
-                    <p>🌐 TMG DigTech - Ndoto Zako, Ubunifu Wetu</p>
+                    <p>🌐 <span data-lang-key="tmg_slogan">TMG DigTech - Ndoto Zako, Ubunifu Wetu</span></p>
                 </div>
-                <a href="#" onclick="navigateTo('welcome_page'); return false;" class="back-button">Rudi Nyuma</a>
+                <a href="#" onclick="navigateTo('main_landing_page'); return false;" class="back-link" data-lang-key="back_to_main_page">Rudi Ukurasa Mkuu</a>
             </div>
         </div>
 
     </div>
 
     <script>
-        // Supabase client setup
-        // Hizi ndizo funguo zako za Supabase. HAKIKISHA unazibadilisha na zile HALISI kutoka mradi wako wa Supabase.
-        // Unaweza kuzipata kwenye dashibodi yako ya Supabase chini ya Project Settings -> API.
-        const SUPABASE_URL = 'https://ykklasdqoulltvzihklt.supabase.co'; 
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlra2xhc2Rxb3VsbHR2emloa2x0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIxMTE5NTcsImV4cCI6MjA2NzY4Nzk1N30.aVw_hXPc36zVFC2VFKSg8lO3_NKlAuk6ywtviEpECWU'; 
-        
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        // Declare supabase globally but initialize within DOMContentLoaded
+        var supabase; 
+        var selectedInstitutionId = null; 
+        var selectedInstitutionName = ''; 
+        var emailForVerification = ''; // Global variable to store email for OTP verification
+
+        // Language Dictionary
+        const translations = {
+            "sw": {
+                "app_title": "Sanduku La Maoni - TMG DIGTECH",
+                "choose_language_title": "Chagua Lugha",
+                "choose_language_instruction": "Tafadhali chagua lugha unayopendelea kwa tovuti nzima:",
+                "kiswahili": "Kiswahili",
+                "english": "Kingereza",
+                "french": "Kifaransa",
+                "german": "Kijerumani",
+                "arabic": "Kiarabu",
+                "chinese": "Kichina",
+                "portuguese": "Kireno",
+                "russian": "Kirusi",
+                "continue_button": "Endelea",
+                "back_button": "Rudi Nyuma",
+                "main_page_title": "SANDUKU LA MAONI",
+                "main_page_karibu_button": "KARIBU",
+                "main_page_register_institution_button": "Sajili Taasisi yako",
+                "main_page_admin_login_button": "Ingia kama Msimamizi",
+                "back_to_main_page": "Rudi Ukurasa Mkuu",
+                "institution_reg_title": "USAJILI WA TAASISI",
+                "institution_name_label": "Jina la Taasisi:",
+                "institution_name_placeholder": "Ingiza jina la taasisi",
+                "institution_email_label": "Barua Pepe ya Taasisi:",
+                "institution_email_placeholder": "Ingiza barua pepe ya taasisi",
+                "admin_name_label": "Jina la Msimamizi:",
+                "admin_name_placeholder": "Ingiza jina la msimamizi",
+                "admin_email_label": "Barua Pepe ya Msimamizi:",
+                "admin_email_placeholder": "Ingiza barua pepe ya msimamizi",
+                "admin_password_label": "Nenosiri la Msimamizi:",
+                "admin_password_placeholder": "Weka nenosiri",
+                "register_button": "Jisajili",
+                "select_institution_title": "CHAGUA TAASISI",
+                "select_institution_label": "Chagua Taasisi:",
+                "select_institution_default": "-- Chagua Taasisi --",
+                "select_institution_button": "Chagua Taasisi",
+                "proceed_to_feedback_instruction": "Bonyeza kitufe hapa chini kuendelea na fomu ya maoni.",
+                "proceed_button": "Bonyeza Hapa Kuendelea",
+                "back_to_institution_selection": "Rudi Kwenye Uchaguzi wa Taasisi",
+                "feedback_form_title": "Tuma Maoni Yako",
+                "feedback_success_title": "Asante Sana!",
+                "feedback_success_message": "Maoni yako yametumwa kwa mafanikio. Tunayathamini sana.",
+                "feedback_type_label": "Aina ya Maoni:",
+                "select_feedback_type": "Chagua Aina ya Maoni",
+                "type_suggestion": "Pendekezo",
+                "type_complaint": "Malalamiko",
+                "type_compliment": "Pongezi",
+                "type_question": "Swali",
+                "type_other": "Nyingine",
+                "other_feedback_type_label": "Taja Aina Nyingine ya Maoni:",
+                "other_feedback_type_placeholder": "Mfano: Huduma kwa Wateja",
+                "feedback_text_label": "Maoni Yako:",
+                "feedback_text_placeholder": "Andika maoni yako hapa...",
+                "priority_label": "Kipaumbele:",
+                "priority_medium": "Kati",
+                "priority_high": "Juu",
+                "priority_low": "Chini",
+                "anonymous_label": "Tuma Bila Kujitambulisha",
+                "student_name_label": "Jina Lako (Hiari):",
+                "student_name_placeholder": "Ingiza jina lako...",
+                "submit_feedback_button": "Tuma Maoni",
+                "admin_login_title": "Ingia Kama Msimamizi",
+                "admin_password_label": "Nenosiri:",
+                "admin_login_error": "Barua pepe au nenosiri si sahihi.",
+                "admin_login_button": "Ingia",
+                "admin_dashboard_header": "Dashibodi ya Maoni ya Wanafunzi",
+                "admin_logout_button": "Ondoka",
+                "total_feedback_stats": "Jumla ya Maoni",
+                "new_feedback_stats": "Maoni Mapya",
+                "resolved_feedback_stats": "Maoni Yaliyosuluhishwa",
+                "filter_status_label": "Hali:",
+                "filter_all": "Zote",
+                "filter_new": "Mpya",
+                "filter_in_progress": "Inaendelea",
+                "filter_resolved": "Imesuluhishwa",
+                "filter_viewed": "Imetazamwa",
+                "filter_type_label": "Aina:",
+                "filter_anonymous_label": "Bila Jina:",
+                "filter_yes": "Ndiyo",
+                "filter_no": "Hapana",
+                "search_placeholder": "Tafuta maoni...",
+                "loading_feedback_message": "Inapakia maoni...",
+                "footer_text": "Chuo Huru. Haki zote zimehifadhiwa.",
+                "about_tmg_title": "Kuhusu TMG DigTech",
+                "about_tmg_text_1": "Sanduku la Maoni la Chuo cha DIT limetengenezwa na TMG DigTech, kampuni ya ubunifu wa kidigitali inayolenga kutatua changamoto za wanafunzi na taasisi kwa kutumia teknolojia rahisi na bora.",
+                "about_tmg_text_2": "Msimamizi na mtengenezaji wa tovuti hii ni Trust Erastus, mwanzilishi wa TMG DigTech na mwanafunzi wa Chuo cha DIT, Campus ya Mwanza.",
+                "about_tmg_text_3": "Tunajivunia kutoa suluhisho hili ili wanafunzi, walimu na uongozi wawe na nafasi rahisi na ya siri ya kutoa maoni, mapendekezo na hoja zenye kujenga chuo chetu.",
+                "contact_title": "Mawasiliano:",
+                "tmg_slogan": "TMG DigTech - Ndoto Zako, Ubunifu Wetu",
+                "no_matching_feedback": "Hakuna maoni yanayolingana na vigezo vilivyochaguliwa.",
+                "anonymous_student": "Mwanafunzi (Bila Jina)",
+                "unspecified": "Hajatajwa",
+                "viewed_button": "Imetazamwa",
+                "mark_viewed_button": "Weka Imetazamwa",
+                "reopen_button": "Fungua Tena",
+                "resolve_button": "Suluhisha",
+                "mark_new_button": "Weka Mpya",
+                "mark_in_progress_button": "Weka Inaendelea",
+                "summarize_button": "Fupisha Maoni",
+                "reported_by": "Na",
+                "date": "Tarehe",
+                "viewed_at_display": "Imetazamwa",
+                "not_viewed_display": "Haijatazamwa",
+                "institution_registration_success": "Taasisi imesajiliwa kwa mafanikio!",
+                "institution_registration_error": "Kuna hitilafu wakati wa kusajili taasisi. Tafadhali jaribu tena.",
+                "supabase_not_init": "Hitilafu: Supabase haijasanidiwa ipasavyo. Tafadhali hakikisha URL na funguo zako za Supabase zimebadilishwa.",
+                "user_already_exists": "Mtumiaji mwenye barua pepe hii tayari amesajiliwa.",
+                "password_too_short": "Nenosiri linapaswa kuwa na angalau herufi 6.",
+                "otp_verification_title": "Thibitisha Barua Pepe Yako",
+                "otp_verification_instruction": "Tumetuma msimbo wa nambari 6 kwa barua pepe yako. Tafadhali ingiza hapa chini ili kuthibitisha akaunti yako.",
+                "otp_code_label": "Msimbo wa OTP:",
+                "otp_code_placeholder": "Ingiza msimbo wa nambari 6",
+                "verify_otp_button": "Thibitisha Msimbo",
+                "resend_otp_button": "Tuma Msimbo Tena",
+                "back_to_institution_registration": "Rudi Kwenye Usajili wa Taasisi",
+                "otp_success": "Barua pepe imethibitishwa kwa mafanikio! Sasa unaweza kuingia.",
+                "otp_error": "Msimbo wa OTP si sahihi au umeisha muda wake. Tafadhali jaribu tena.",
+                "resend_otp_success": "Msimbo mpya wa OTP umetuma kwa barua pepe yako.",
+                "resend_otp_error": "Kuna hitilafu wakati wa kutuma msimbo tena. Tafadhali jaribu tena.",
+                "email_required_for_otp": "Barua pepe inahitajika kutuma au kuthibitisha OTP.",
+                "otp_code_required": "Tafadhali ingiza msimbo wa OTP."
+            },
+            "en": {
+                "app_title": "Feedback Box - TMG DIGTECH",
+                "choose_language_title": "Choose Language",
+                "choose_language_instruction": "Please select your preferred language for the entire website:",
+                "kiswahili": "Kiswahili",
+                "english": "English",
+                "french": "French",
+                "german": "German",
+                "arabic": "Arabic",
+                "chinese": "Chinese",
+                "portuguese": "Portuguese",
+                "russian": "Russian",
+                "continue_button": "Continue",
+                "back_button": "Go Back",
+                "main_page_title": "FEEDBACK BOX",
+                "main_page_karibu_button": "WELCOME",
+                "main_page_register_institution_button": "Register Your Institution",
+                "main_page_admin_login_button": "Login as Administrator",
+                "back_to_main_page": "Back to Main Page",
+                "institution_reg_title": "INSTITUTION REGISTRATION",
+                "institution_name_label": "Institution Name:",
+                "institution_name_placeholder": "Enter institution name",
+                "institution_email_label": "Institution Email:",
+                "institution_email_placeholder": "Enter institution email",
+                "admin_name_label": "Administrator Name:",
+                "admin_name_placeholder": "Enter administrator name",
+                "admin_email_label": "Administrator Email:",
+                "admin_email_placeholder": "Enter administrator email",
+                "admin_password_label": "Administrator Password:",
+                "admin_password_placeholder": "Set password",
+                "register_button": "Register",
+                "select_institution_title": "SELECT INSTITUTION",
+                "select_institution_label": "Select Institution:",
+                "select_institution_default": "-- Select Institution --",
+                "select_institution_button": "Select Institution",
+                "proceed_to_feedback_instruction": "Click the button below to proceed to the feedback form.",
+                "proceed_button": "Click Here to Proceed",
+                "back_to_institution_selection": "Back to Institution Selection",
+                "feedback_form_title": "Submit Your Feedback",
+                "feedback_success_title": "Thank You!",
+                "feedback_success_message": "Your feedback has been successfully submitted. We highly appreciate it.",
+                "feedback_type_label": "Feedback Type:",
+                "select_feedback_type": "Select Feedback Type",
+                "type_suggestion": "Suggestion",
+                "type_complaint": "Complaint",
+                "type_compliment": "Compliment",
+                "type_question": "Question",
+                "type_other": "Other",
+                "other_feedback_type_label": "Specify Other Feedback Type:",
+                "other_feedback_type_placeholder": "Example: Customer Service",
+                "feedback_text_label": "Your Feedback:",
+                "feedback_text_placeholder": "Write your feedback here...",
+                "priority_label": "Priority:",
+                "priority_medium": "Medium",
+                "priority_high": "High",
+                "priority_low": "Low",
+                "anonymous_label": "Submit Anonymously",
+                "student_name_label": "Your Name (Optional):",
+                "student_name_placeholder": "Enter your name...",
+                "submit_feedback_button": "Submit Feedback",
+                "admin_login_title": "Administrator Login",
+                "admin_password_label": "Password:",
+                "admin_login_error": "Email or password is incorrect.",
+                "admin_login_button": "Login",
+                "admin_dashboard_header": "Student Feedback Dashboard",
+                "admin_logout_button": "Logout",
+                "total_feedback_stats": "Total Feedback",
+                "new_feedback_stats": "New Feedback",
+                "resolved_feedback_stats": "Resolved Feedback",
+                "filter_status_label": "Status:",
+                "filter_all": "All",
+                "filter_new": "New",
+                "filter_in_progress": "In Progress",
+                "filter_resolved": "Resolved",
+                "filter_viewed": "Viewed",
+                "filter_type_label": "Type:",
+                "filter_anonymous_label": "Anonymous:",
+                "filter_yes": "Yes",
+                "filter_no": "No",
+                "search_placeholder": "Search feedback...",
+                "loading_feedback_message": "Loading feedback...",
+                "footer_text": "Chuo Huru. All rights reserved.",
+                "about_tmg_title": "About TMG DigTech",
+                "about_tmg_text_1": "DIT Feedback Box was developed by TMG DigTech, an innovative digital company focused on solving student and institutional challenges using simple and effective technology.",
+                "about_tmg_text_2": "The administrator and developer of this website is Trust Erastus, founder of TMG DigTech and a student at DIT, Mwanza Campus.",
+                "about_tmg_text_3": "We are proud to offer this solution so that students, teachers, and leadership have an easy and confidential way to provide feedback, suggestions, and constructive arguments to build our college.",
+                "contact_title": "Contact:",
+                "tmg_slogan": "TMG DigTech - Your Dreams, Our Innovation",
+                "no_matching_feedback": "No feedback matching selected criteria.",
+                "anonymous_student": "Student (Anonymous)",
+                "unspecified": "Unspecified",
+                "viewed_button": "Viewed",
+                "mark_viewed_button": "Mark Viewed",
+                "reopen_button": "Reopen",
+                "resolve_button": "Resolve",
+                "mark_new_button": "Mark New",
+                "mark_in_progress_button": "Mark In Progress",
+                "summarize_button": "Summarize Feedback",
+                "reported_by": "By",
+                "date": "Date",
+                "viewed_at_display": "Viewed",
+                "not_viewed_display": "Not Viewed",
+                "institution_registration_success": "Institution registered successfully!",
+                "institution_registration_error": "Error registering institution. Please try again.",
+                "supabase_not_init": "Error: Supabase is not initialized correctly. Please ensure your Supabase URL and keys are replaced.",
+                "user_already_exists": "User with this email is already registered.",
+                "password_too_short": "Password should be at least 6 characters.",
+                "otp_verification_title": "Verify Your Email",
+                "otp_verification_instruction": "We have sent a 6-digit code to your email. Please enter it below to verify your account.",
+                "otp_code_label": "OTP Code:",
+                "otp_code_placeholder": "Enter 6-digit code",
+                "verify_otp_button": "Verify Code",
+                "resend_otp_button": "Resend Code",
+                "back_to_institution_registration": "Back to Institution Registration",
+                "otp_success": "Email verified successfully! You can now log in.",
+                "otp_error": "Invalid or expired OTP code. Please try again.",
+                "resend_otp_success": "New OTP code sent to your email.",
+                "resend_otp_error": "Error resending OTP code. Please try again.",
+                "email_required_for_otp": "Email is required to send or verify OTP.",
+                "otp_code_required": "Please enter the OTP code."
+            },
+            "fr": {
+                "app_title": "Boîte à Suggestions - TMG DIGTECH",
+                "choose_language_title": "Choisir la Langue",
+                "choose_language_instruction": "Veuillez sélectionner votre langue préférée pour l'ensemble du site web :",
+                "kiswahili": "Swahili",
+                "english": "Anglais",
+                "french": "Français",
+                "german": "Allemand",
+                "arabic": "Arabe",
+                "chinese": "Chinois",
+                "portuguese": "Portugais",
+                "russian": "Russe",
+                "continue_button": "Continuer",
+                "back_button": "Retour",
+                "main_page_title": "BOÎTE À SUGGESTIONS",
+                "main_page_karibu_button": "BIENVENUE",
+                "main_page_register_institution_button": "Enregistrer votre institution",
+                "main_page_admin_login_button": "Se connecter en tant qu'administrateur",
+                "back_to_main_page": "Retour à la page principale",
+                "institution_reg_title": "ENREGISTREMENT DE L'INSTITUTION",
+                "institution_name_label": "Nom de l'institution :",
+                "institution_name_placeholder": "Entrez le nom de l'institution",
+                "institution_email_label": "E-mail de l'institution :",
+                "institution_email_placeholder": "Entrez l'e-mail de l'institution",
+                "admin_name_label": "Nom de l'administrateur :",
+                "admin_name_placeholder": "Entrez le nom de l'administrateur",
+                "admin_email_label": "E-mail de l'administrateur :",
+                "admin_email_placeholder": "Entrez l'e-mail de l'administrateur",
+                "admin_password_label": "Mot de passe administrateur :",
+                "admin_password_placeholder": "Définir le mot de passe",
+                "register_button": "S'inscrire",
+                "select_institution_title": "SÉLECTIONNER L'INSTITUTION",
+                "select_institution_label": "Sélectionner l'institution :",
+                "select_institution_default": "-- Sélectionner l'institution --",
+                "select_institution_button": "Sélectionner l'institution",
+                "proceed_to_feedback_instruction": "Cliquez sur le bouton ci-dessous pour accéder au formulaire de commentaires.",
+                "proceed_button": "Cliquez ici pour continuer",
+                "back_to_institution_selection": "Retour à la sélection de l'institution",
+                "feedback_form_title": "Soumettre vos commentaires",
+                "feedback_success_title": "Merci beaucoup !",
+                "feedback_success_message": "Vos commentaires ont été soumis avec succès. Nous les apprécions énormément.",
+                "feedback_type_label": "Type de commentaire :",
+                "select_feedback_type": "Sélectionner le type de commentaire",
+                "type_suggestion": "Suggestion",
+                "type_complaint": "Plainte",
+                "type_compliment": "Compliment",
+                "type_question": "Question",
+                "type_other": "Autre",
+                "other_feedback_type_label": "Spécifiez un autre type de commentaire :",
+                "other_feedback_type_placeholder": "Exemple : Service client",
+                "feedback_text_label": "Vos commentaires :",
+                "feedback_text_placeholder": "Écrivez vos commentaires ici...",
+                "priority_label": "Priorité :",
+                "priority_medium": "Moyenne",
+                "priority_high": "Haute",
+                "priority_low": "Basse",
+                "anonymous_label": "Soumettre anonymement",
+                "student_name_label": "Votre nom (facultatif) :",
+                "student_name_placeholder": "Entrez votre nom...",
+                "submit_feedback_button": "Soumettre les commentaires",
+                "admin_login_title": "Connexion Administrateur",
+                "admin_password_label": "Mot de passe :",
+                "admin_login_error": "L'e-mail ou le mot de passe est incorrect.",
+                "admin_login_button": "Connexion",
+                "admin_dashboard_header": "Tableau de bord des commentaires des étudiants",
+                "admin_logout_button": "Déconnexion",
+                "total_feedback_stats": "Total des commentaires",
+                "new_feedback_stats": "Nouveaux commentaires",
+                "resolved_feedback_stats": "Commentaires résolus",
+                "filter_status_label": "Statut :",
+                "filter_all": "Tous",
+                "filter_new": "Nouveau",
+                "filter_in_progress": "En cours",
+                "filter_resolved": "Résolu",
+                "filter_viewed": "Vu",
+                "filter_type_label": "Type :",
+                "filter_anonymous_label": "Anonyme :",
+                "filter_yes": "Oui",
+                "filter_no": "Non",
+                "search_placeholder": "Rechercher des commentaires...",
+                "loading_feedback_message": "Chargement des commentaires...",
+                "footer_text": "Chuo Huru. Tous droits réservés.",
+                "about_tmg_title": "À propos de TMG DigTech",
+                "about_tmg_text_1": "La boîte à suggestions de DIT a été développée par TMG DigTech, une entreprise numérique innovante axée sur la résolution des défis des étudiants et des institutions à l'aide d'une technologie simple et efficace.",
+                "about_tmg_text_2": "L'administrateur et développeur de ce site web est Trust Erastus, fondateur de TMG DigTech et étudiant au DIT, Campus de Mwanza.",
+                "about_tmg_text_3": "Nous sommes fiers d'offrir cette solution afin que les étudiants, les enseignants et la direction aient un moyen facile et confidentiel de fournir des commentaires, des suggestions et des arguments constructifs pour bâtir notre collège.",
+                "contact_title": "Contact :",
+                "tmg_slogan": "TMG DigTech - Vos Rêves, Notre Innovation",
+                "no_matching_feedback": "Aucun commentaire correspondant aux critères sélectionnés.",
+                "anonymous_student": "Étudiant (Anonyme)",
+                "unspecified": "Non spécifié",
+                "viewed_button": "Vu",
+                "mark_viewed_button": "Marquer comme vu",
+                "reopen_button": "Rouvrir",
+                "resolve_button": "Résoudre",
+                "mark_new_button": "Marquer comme nouveau",
+                "mark_in_progress_button": "Marquer comme en cours",
+                "summarize_button": "Résumer les commentaires",
+                "reported_by": "Par",
+                "date": "Date",
+                "viewed_at_display": "Vu le",
+                "not_viewed_display": "Non vu",
+                "institution_registration_success": "Institution enregistrée avec succès !",
+                "institution_registration_error": "Erreur lors de l'enregistrement de l'institution. Veuillez réessayer.",
+                "supabase_not_init": "Erreur : Supabase n'est pas initialisé correctement. Veuillez vous assurer que votre URL et vos clés Supabase sont remplacées.",
+                "user_already_exists": "Un utilisateur avec cet e-mail est déjà enregistré.",
+                "password_too_short": "Le mot de passe doit contenir au moins 6 caractères.",
+                "otp_verification_title": "Vérifiez votre e-mail",
+                "otp_verification_instruction": "Nous avons envoyé un code à 6 chiffres à votre e-mail. Veuillez le saisir ci-dessous pour vérifier votre compte.",
+                "otp_code_label": "Code OTP :",
+                "otp_code_placeholder": "Saisir le code à 6 chiffres",
+                "verify_otp_button": "Vérifier le code",
+                "resend_otp_button": "Renvoyer le code",
+                "back_to_institution_registration": "Retour à l'enregistrement de l'institution",
+                "otp_success": "E-mail vérifié avec succès ! Vous pouvez maintenant vous connecter.",
+                "otp_error": "Code OTP invalide ou expiré. Veuillez réessayer.",
+                "resend_otp_success": "Nouveau code OTP envoyé à votre e-mail.",
+                "resend_otp_error": "Erreur lors du renvoi du code OTP. Veuillez réessayer.",
+                "email_required_for_otp": "L'e-mail est requis pour envoyer ou vérifier l'OTP.",
+                "otp_code_required": "Veuillez saisir le code OTP."
+            },
+            "de": {
+                "app_title": "Vorschlagsbox - TMG DIGTECH",
+                "choose_language_title": "Sprache wählen",
+                "choose_language_instruction": "Bitte wählen Sie Ihre bevorzugte Sprache für die gesamte Website:",
+                "kiswahili": "Swahili",
+                "english": "Englisch",
+                "french": "Französisch",
+                "german": "Deutsch",
+                "arabic": "Arabisch",
+                "chinese": "Chinesisch",
+                "portuguese": "Portugiesisch",
+                "russian": "Russisch",
+                "continue_button": "Weiter",
+                "back_button": "Zurück",
+                "main_page_title": "VORSCHLAGSBOX",
+                "main_page_karibu_button": "WILLKOMMEN",
+                "main_page_register_institution_button": "Ihre Institution registrieren",
+                "main_page_admin_login_button": "Als Administrator anmelden",
+                "back_to_main_page": "Zurück zur Hauptseite",
+                "institution_reg_title": "INSTITUTIONSREGISTRIERUNG",
+                "institution_name_label": "Name der Institution:",
+                "institution_name_placeholder": "Namen der Institution eingeben",
+                "institution_email_label": "E-Mail der Institution:",
+                "institution_email_placeholder": "E-Mail der Institution eingeben",
+                "admin_name_label": "Administratorname:",
+                "admin_name_placeholder": "Administratornamen eingeben",
+                "admin_email_label": "Administrator-E-Mail:",
+                "admin_email_placeholder": "Administrator-E-Mail eingeben",
+                "admin_password_label": "Administrator-Passwort:",
+                "admin_password_placeholder": "Passwort festlegen",
+                "register_button": "Registrieren",
+                "select_institution_title": "INSTITUTION AUSWÄHLEN",
+                "select_institution_label": "Institution auswählen:",
+                "select_institution_default": "-- Institution auswählen --",
+                "select_institution_button": "Institution auswählen",
+                "proceed_to_feedback_instruction": "Klicken Sie auf die Schaltfläche unten, um zum Feedback-Formular zu gelangen.",
+                "proceed_button": "Hier klicken zum Fortfahren",
+                "back_to_institution_selection": "Zurück zur Institutionsauswahl",
+                "feedback_form_title": "Ihr Feedback einreichen",
+                "feedback_success_title": "Vielen Dank!",
+                "feedback_success_message": "Ihr Feedback wurde erfolgreich übermittelt. Wir wissen es sehr zu schätzen.",
+                "feedback_type_label": "Feedback-Typ:",
+                "select_feedback_type": "Feedback-Typ auswählen",
+                "type_suggestion": "Vorschlag",
+                "type_complaint": "Beschwerde",
+                "type_compliment": "Kompliment",
+                "type_question": "Frage",
+                "type_other": "Andere",
+                "other_feedback_type_label": "Anderen Feedback-Typ angeben:",
+                "other_feedback_type_placeholder": "Beispiel: Kundenservice",
+                "feedback_text_label": "Ihr Feedback:",
+                "feedback_text_placeholder": "Schreiben Sie hier Ihr Feedback...",
+                "priority_label": "Priorität:",
+                "priority_medium": "Mittel",
+                "priority_high": "Hoch",
+                "priority_low": "Niedrig",
+                "anonymous_label": "Anonym einreichen",
+                "student_name_label": "Ihr Name (optional):",
+                "student_name_placeholder": "Geben Sie Ihren Namen ein...",
+                "submit_feedback_button": "Feedback senden",
+                "admin_login_title": "Admin-Login",
+                "admin_password_label": "Passwort:",
+                "admin_login_error": "E-Mail oder Passwort ist falsch.",
+                "admin_login_button": "Anmelden",
+                "admin_dashboard_header": "Studenten-Feedback-Dashboard",
+                "admin_logout_button": "Abmelden",
+                "total_feedback_stats": "Gesamtes Feedback",
+                "new_feedback_stats": "Neues Feedback",
+                "resolved_feedback_stats": "Gelöstes Feedback",
+                "filter_status_label": "Status:",
+                "filter_all": "Alle",
+                "filter_new": "Neu",
+                "filter_in_progress": "In Bearbeitung",
+                "filter_resolved": "Gelöst",
+                "filter_viewed": "Angesehen",
+                "filter_type_label": "Typ:",
+                "filter_anonymous_label": "Anonym:",
+                "filter_yes": "Ja",
+                "filter_no": "Nein",
+                "search_placeholder": "Feedback suchen...",
+                "loading_feedback_message": "Feedback wird geladen...",
+                "footer_text": "Chuo Huru. Alle Rechte vorbehalten.",
+                "about_tmg_title": "Über TMG DigTech",
+                "about_tmg_text_1": "Die DIT Vorschlagsbox wurde von TMG DigTech entwickelt, einem innovativen Digitalunternehmen, das sich auf die Lösung von Studenten- und Institutionsherausforderungen mit einfacher und effektiver Technologie konzentriert.",
+                "about_tmg_text_2": "Der Administrator und Entwickler dieser Website ist Trust Erastus, Gründer von TMG DigTech und Student am DIT, Campus Mwanza.",
+                "about_tmg_text_3": "Wir sind stolz darauf, diese Lösung anzubieten, damit Studenten, Lehrer und die Leitung eine einfache und vertrauliche Möglichkeit haben, Feedback, Vorschläge und konstruktive Argumente zur Entwicklung unserer Hochschule zu geben.",
+                "contact_title": "Kontakt:",
+                "tmg_slogan": "TMG DigTech - Ihre Träume, Unsere Innovation",
+                "no_matching_feedback": "Kein Feedback, das den ausgewählten Kriterien entspricht.",
+                "anonymous_student": "Student (anonym)",
+                "unspecified": "Nicht angegeben",
+                "viewed_button": "Angesehen",
+                "mark_viewed_button": "Als angesehen markieren",
+                "reopen_button": "Wieder öffnen",
+                "resolve_button": "Lösen",
+                "mark_new_button": "Als neu markieren",
+                "mark_in_progress_button": "Als in Bearbeitung markieren",
+                "summarize_button": "Feedback zusammenfassen",
+                "reported_by": "Von",
+                "date": "Datum",
+                "viewed_at_display": "Angesehen am",
+                "not_viewed_display": "Nicht angesehen",
+                "institution_registration_success": "Institution erfolgreich registriert!",
+                "institution_registration_error": "Fehler bei der Registrierung der Institution. Bitte versuchen Sie es erneut.",
+                "supabase_not_init": "Fehler: Supabase wurde nicht korrekt initialisiert. Bitte stellen Sie sicher, dass Ihre Supabase URL und Schlüssel ersetzt wurden.",
+                "user_already_exists": "Benutzer mit dieser E-Mail ist bereits registriert.",
+                "password_too_short": "Das Passwort sollte mindestens 6 Zeichen lang sein.",
+                "otp_verification_title": "E-Mail bestätigen",
+                "otp_verification_instruction": "Wir haben einen 6-stelligen Code an Ihre E-Mail gesendet. Bitte geben Sie ihn unten ein, um Ihr Konto zu bestätigen.",
+                "otp_code_label": "OTP-Code:",
+                "otp_code_placeholder": "6-stelligen Code eingeben",
+                "verify_otp_button": "Code bestätigen",
+                "resend_otp_button": "Code erneut senden",
+                "back_to_institution_registration": "Zurück zur Institutionsregistrierung",
+                "otp_success": "E-Mail erfolgreich bestätigt! Sie können sich jetzt anmelden.",
+                "otp_error": "Ungültiger oder abgelaufener OTP-Code. Bitte versuchen Sie es erneut.",
+                "resend_otp_success": "Neuer OTP-Code an Ihre E-Mail gesendet.",
+                "resend_otp_error": "Fehler beim erneuten Senden des OTP-Codes. Bitte versuchen Sie es erneut.",
+                "email_required_for_otp": "E-Mail ist zum Senden oder Bestätigen von OTP erforderlich.",
+                "otp_code_required": "Bitte geben Sie den OTP-Code ein."
+            },
+            "ar": {
+                "app_title": "صندوق الاقتراحات - TMG DIGTECH",
+                "choose_language_title": "اختر اللغة",
+                "choose_language_instruction": "الرجاء اختيار لغتك المفضلة للموقع بأكمله:",
+                "kiswahili": "السواحلية",
+                "english": "الإنجليزية",
+                "french": "الفرنسية",
+                "german": "الألمانية",
+                "arabic": "العربية",
+                "chinese": "الصينية",
+                "portuguese": "البرتغالية",
+                "russian": "الروسية",
+                "continue_button": "متابعة",
+                "back_button": "العودة",
+                "main_page_title": "صندوق الاقتراحات",
+                "main_page_karibu_button": "أهلاً وسهلاً",
+                "main_page_register_institution_button": "تسجيل مؤسستك",
+                "main_page_admin_login_button": "تسجيل الدخول كمسؤول",
+                "back_to_main_page": "العودة إلى الصفحة الرئيسية",
+                "institution_reg_title": "تسجيل المؤسسة",
+                "institution_name_label": "اسم المؤسسة:",
+                "institution_name_placeholder": "أدخل اسم المؤسسة",
+                "institution_email_label": "بريد المؤسسة الإلكتروني:",
+                "institution_email_placeholder": "أدخل بريد المؤسسة الإلكتروني",
+                "admin_name_label": "اسم المسؤول:",
+                "admin_name_placeholder": "أدخل اسم المسؤول",
+                "admin_email_label": "بريد المسؤول الإلكتروني:",
+                "admin_email_placeholder": "أدخل بريد المسؤول الإلكتروني",
+                "admin_password_label": "كلمة مرور المسؤول:",
+                "admin_password_placeholder": "تعيين كلمة المرور",
+                "register_button": "تسجيل",
+                "select_institution_title": "اختر المؤسسة",
+                "select_institution_label": "اختر المؤسسة:",
+                "select_institution_default": "-- اختر المؤسسة --",
+                "select_institution_button": "اختر المؤسسة",
+                "proceed_to_feedback_instruction": "انقر الزر أدناه للمتابعة إلى نموذج الملاحظات.",
+                "proceed_button": "انقر هنا للمتابعة",
+                "back_to_institution_selection": "العودة إلى اختيار المؤسسة",
+                "feedback_form_title": "أرسل ملاحظاتك",
+                "feedback_success_title": "شكرا جزيلا!",
+                "feedback_success_message": "تم إرسال ملاحظاتك بنجاح. نحن نقدرها بشدة.",
+                "feedback_type_label": "نوع الملاحظات:",
+                "select_feedback_type": "اختر نوع الملاحظات",
+                "type_suggestion": "اقتراح",
+                "type_complaint": "شكوى",
+                "type_compliment": "إطراء",
+                "type_question": "سؤال",
+                "type_other": "أخرى",
+                "other_feedback_type_label": "حدد نوع الملاحظات الأخرى:",
+                "other_feedback_type_placeholder": "مثال: خدمة العملاء",
+                "feedback_text_label": "ملاحظاتك:",
+                "feedback_text_placeholder": "اكتب ملاحظاتك هنا...",
+                "priority_label": "الأولوية:",
+                "priority_medium": "متوسطة",
+                "priority_high": "عالية",
+                "priority_low": "منخفضة",
+                "anonymous_label": "إرسال مجهول",
+                "student_name_label": "اسمك (اختياري):",
+                "student_name_placeholder": "أدخل اسمك...",
+                "submit_feedback_button": "إرسال الملاحظات",
+                "admin_login_title": "تسجيل دخول المسؤول",
+                "admin_password_label": "كلمة المرور:",
+                "admin_login_error": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+                "admin_login_button": "تسجيل الدخول",
+                "admin_dashboard_header": "لوحة تحكم ملاحظات الطلاب",
+                "admin_logout_button": "تسجيل الخروج",
+                "total_feedback_stats": "إجمالي الملاحظات",
+                "new_feedback_stats": "ملاحظات جديدة",
+                "resolved_feedback_stats": "ملاحظات تم حلها",
+                "filter_status_label": "الحالة:",
+                "filter_all": "الكل",
+                "filter_new": "جديد",
+                "filter_in_progress": "قيد التقدم",
+                "filter_resolved": "تم الحل",
+                "filter_viewed": "تمت المشاهدة",
+                "filter_type_label": "النوع:",
+                "filter_anonymous_label": "مجهول:",
+                "filter_yes": "نعم",
+                "filter_no": "لا",
+                "search_placeholder": "ابحث عن الملاحظات...",
+                "loading_feedback_message": "تحميل الملاحظات...",
+                "footer_text": "Chuo Huru. جميع الحقوق محفوظة.",
+                "about_tmg_title": "حول TMG DigTech",
+                "about_tmg_text_1": "تم تطوير صندوق ملاحظات DIT بواسطة TMG DigTech، وهي شركة رقمية مبتكرة تركز على حل تحديات الطلاب والمؤسسات باستخدام تكنولوجيا بسيطة وفعالة.",
+                "about_tmg_text_2": "مدير ومطور هذا الموقع هو Trust Erastus، مؤسس TMG DigTech وطالب في DIT، حرم موانزا.",
+                "about_tmg_text_3": "نحن فخورون بتقديم هذا الحل حتى يتمكن الطلاب والمعلمون والإدارة من توفير وسيلة سهلة وسرية لتقديم الملاحظات والاقتراحات والحجج البناءة لبناء كليتنا.",
+                "contact_title": "الاتصال:",
+                "tmg_slogan": "TMG DigTech - أحلامك، ابتكارنا",
+                "no_matching_feedback": "لا توجد ملاحظات مطابقة للمعايير المحددة.",
+                "anonymous_student": "طالب (مجهول)",
+                "unspecified": "غير محدد",
+                "viewed_button": "تمت المشاهدة",
+                "mark_viewed_button": "وضع كتمت المشاهدة",
+                "reopen_button": "إعادة فتح",
+                "resolve_button": "حل",
+                "mark_new_button": "وضع كجديد",
+                "mark_in_progress_button": "وضع كقيد التقدم",
+                "summarize_button": "تلخيص الملاحظات",
+                "reported_by": "بواسطة",
+                "date": "التاريخ",
+                "viewed_at_display": "تمت المشاهدة في",
+                "not_viewed_display": "لم تتم المشاهدة",
+                "institution_registration_success": "تم تسجيل المؤسسة بنجاح!",
+                "institution_registration_error": "حدث خطأ أثناء تسجيل المؤسسة. الرجاء المحاولة مرة أخرى.",
+                "supabase_not_init": "خطأ: Supabase لم يتم تهيئته بشكل صحيح. يرجى التأكد من استبدال عنوان URL ومفاتيح Supabase.",
+                "user_already_exists": "المستخدم بهذا البريد الإلكتروني مسجل بالفعل.",
+                "password_too_short": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.",
+                "otp_verification_title": "التحقق من بريدك الإلكتروني",
+                "otp_verification_instruction": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى بريدك الإلكتروني. يرجى إدخاله أدناه للتحقق من حسابك.",
+                "otp_code_label": "رمز OTP:",
+                "otp_code_placeholder": "أدخل الرمز المكون من 6 أرقام",
+                "verify_otp_button": "التحقق من الرمز",
+                "resend_otp_button": "إعادة إرسال الرمز",
+                "back_to_institution_registration": "العودة إلى تسجيل المؤسسة",
+                "otp_success": "تم التحقق من البريد الإلكتروني بنجاح! يمكنك الآن تسجيل الدخول.",
+                "otp_error": "رمز OTP غير صالح أو منتهي الصلاحية. يرجى المحاولة مرة أخرى.",
+                "resend_otp_success": "تم إرسال رمز OTP جديد إلى بريدك الإلكتروني.",
+                "resend_otp_error": "حدث خطأ أثناء إعادة إرسال رمز OTP. يرجى المحاولة مرة أخرى.",
+                "email_required_for_otp": "البريد الإلكتروني مطلوب لإرسال أو التحقق من OTP.",
+                "otp_code_required": "الرجاء إدخال رمز OTP."
+            },
+            "zh": {
+                "app_title": "意见箱 - TMG DIGTECH",
+                "choose_language_title": "选择语言",
+                "choose_language_instruction": "请选择您偏好的网站语言：",
+                "kiswahili": "斯瓦希里语",
+                "english": "英语",
+                "french": "法语",
+                "german": "德语",
+                "arabic": "阿拉伯语",
+                "chinese": "中文",
+                "portuguese": "葡萄牙语",
+                "russian": "俄语",
+                "continue_button": "继续",
+                "back_button": "返回",
+                "main_page_title": "意见箱",
+                "main_page_karibu_button": "欢迎",
+                "main_page_register_institution_button": "注册您的机构",
+                "main_page_admin_login_button": "管理员登录",
+                "back_to_main_page": "返回主页",
+                "institution_reg_title": "机构注册",
+                "institution_name_label": "机构名称：",
+                "institution_name_placeholder": "输入机构名称",
+                "institution_email_label": "机构邮箱：",
+                "institution_email_placeholder": "输入机构邮箱",
+                "admin_name_label": "管理员姓名：",
+                "admin_name_placeholder": "输入管理员姓名",
+                "admin_email_label": "管理员邮箱：",
+                "admin_email_placeholder": "输入管理员邮箱",
+                "admin_password_label": "管理员密码：",
+                "admin_password_placeholder": "设置密码",
+                "register_button": "注册",
+                "select_institution_title": "选择机构",
+                "select_institution_label": "选择机构：",
+                "select_institution_default": "-- 选择机构 --",
+                "select_institution_button": "选择机构",
+                "proceed_to_feedback_instruction": "点击下方按钮继续填写反馈表。",
+                "proceed_button": "点击此处继续",
+                "back_to_institution_selection": "返回机构选择",
+                "feedback_form_title": "提交您的反馈",
+                "feedback_success_title": "非常感谢！",
+                "feedback_success_message": "您的反馈已成功提交。我们非常感谢。",
+                "feedback_type_label": "反馈类型：",
+                "select_feedback_type": "选择反馈类型",
+                "type_suggestion": "建议",
+                "type_complaint": "投诉",
+                "type_compliment": "表扬",
+                "type_question": "问题",
+                "type_other": "其他",
+                "other_feedback_type_label": "指定其他反馈类型：",
+                "other_feedback_type_placeholder": "示例：客户服务",
+                "feedback_text_label": "您的反馈：",
+                "feedback_text_placeholder": "在此处填写您的反馈...",
+                "priority_label": "优先级：",
+                "priority_medium": "中",
+                "priority_high": "高",
+                "priority_low": "低",
+                "anonymous_label": "匿名提交",
+                "student_name_label": "您的姓名（可选）：",
+                "student_name_placeholder": "输入您的姓名...",
+                "submit_feedback_button": "提交反馈",
+                "admin_login_title": "管理员登录",
+                "admin_password_label": "密码：",
+                "admin_login_error": "电子邮件或密码不正确。",
+                "admin_login_button": "登录",
+                "admin_dashboard_header": "学生反馈仪表板",
+                "admin_logout_button": "退出",
+                "total_feedback_stats": "总反馈",
+                "new_feedback_stats": "新反馈",
+                "resolved_feedback_stats": "已解决的反馈",
+                "filter_status_label": "状态：",
+                "filter_all": "全部",
+                "filter_new": "新",
+                "filter_in_progress": "进行中",
+                "filter_resolved": "已解决",
+                "filter_viewed": "已查看",
+                "filter_type_label": "类型：",
+                "filter_anonymous_label": "匿名：",
+                "filter_yes": "是",
+                "filter_no": "否",
+                "search_placeholder": "搜索反馈...",
+                "loading_feedback_message": "正在加载反馈...",
+                "footer_text": "Chuo Huru. 版权所有。",
+                "about_tmg_title": "关于 TMG DigTech",
+                "about_tmg_text_1": "DIT意见箱由TMG DigTech开发，这是一家创新的数字公司，致力于利用简单有效的技术解决学生和机构的挑战。",
+                "about_tmg_text_2": "本网站的管理员和开发者是Trust Erastus，TMG DigTech的创始人，也是姆万扎校区DIT的学生。",
+                "about_tmg_text_3": "我们很荣幸提供此解决方案，以便学生、教师和管理层能够轻松、保密地提供反馈、建议和建设性意见，以建设我们的大学。",
+                "contact_title": "联系方式：",
+                "tmg_slogan": "您的梦想，我们的创新",
+                "no_matching_feedback": "没有符合条件的反馈。",
+                "anonymous_student": "学生（匿名）",
+                "unspecified": "未指定",
+                "viewed_button": "已查看",
+                "mark_viewed_button": "标记为已查看",
+                "reopen_button": "重新打开",
+                "resolve_button": "解决",
+                "mark_new_button": "标记为新",
+                "mark_in_progress_button": "标记为进行中",
+                "summarize_button": "总结反馈",
+                "reported_by": "由",
+                "date": "日期",
+                "viewed_at_display": "查看时间",
+                "not_viewed_display": "未查看",
+                "institution_registration_success": "机构注册成功！",
+                "institution_registration_error": "注册机构时出错。请重试。",
+                "supabase_not_init": "错误：Supabase 未正确初始化。请确保您的 Supabase URL 和密钥已替换。",
+                "user_already_exists": "此电子邮件的用户已注册。",
+                "password_too_short": "密码应至少为6个字符。",
+                "otp_verification_title": "验证您的电子邮件",
+                "otp_verification_instruction": "我们已向您的电子邮件发送了一个 6 位代码。请在下方输入以验证您的帐户。",
+                "otp_code_label": "OTP 代码：",
+                "otp_code_placeholder": "输入 6 位代码",
+                "verify_otp_button": "验证代码",
+                "resend_otp_button": "重新发送代码",
+                "back_to_institution_registration": "返回机构注册",
+                "otp_success": "电子邮件验证成功！您现在可以登录。",
+                "otp_error": "OTP 代码无效或已过期。请重试。",
+                "resend_otp_success": "新的 OTP 代码已发送到您的电子邮件。",
+                "resend_otp_error": "重新发送 OTP 代码时出错。请重试。",
+                "email_required_for_otp": "发送或验证 OTP 需要电子邮件。",
+                "otp_code_required": "请输入 OTP 代码。"
+            },
+            "pt": {
+                "app_title": "Caixa de Sugestões - TMG DIGTECH",
+                "choose_language_title": "Escolher Idioma",
+                "choose_language_instruction": "Por favor, selecione seu idioma preferido para todo o site:",
+                "kiswahili": "Suaíli",
+                "english": "Inglês",
+                "french": "Francês",
+                "german": "Alemão",
+                "arabic": "Árabe",
+                "chinese": "Chinês",
+                "portuguese": "Português",
+                "russian": "Russo",
+                "continue_button": "Continuar",
+                "back_button": "Voltar",
+                "main_page_title": "CAIXA DE SUGESTÕES",
+                "main_page_karibu_button": "BEM-VINDO",
+                "main_page_register_institution_button": "Registrar Sua Instituição",
+                "main_page_admin_login_button": "Entrar como Administrador",
+                "back_to_main_page": "Voltar para a Página Principal",
+                "institution_reg_title": "REGISTRO DA INSTITUIÇÃO",
+                "institution_name_label": "Nome da Instituição:",
+                "institution_name_placeholder": "Digite o nome da instituição",
+                "institution_email_label": "Email da Instituição:",
+                "institution_email_placeholder": "Digite o email da instituição",
+                "admin_name_label": "Nome do Administrador:",
+                "admin_name_placeholder": "Digite o nome do administrador",
+                "admin_email_label": "Email do Administrador:",
+                "admin_email_placeholder": "Digite o email do administrador",
+                "admin_password_label": "Senha do Administrador:",
+                "admin_password_placeholder": "Definir senha",
+                "register_button": "Registrar",
+                "select_institution_title": "SELECIONAR INSTITUIÇÃO",
+                "select_institution_label": "Selecionar Instituição:",
+                "select_institution_default": "-- Selecionar Instituição --",
+                "select_institution_button": "Selecionar Instituição",
+                "proceed_to_feedback_instruction": "Clique no botão abaixo para prosseguir para o formulário de feedback.",
+                "proceed_button": "Clique Aqui para Prosseguir",
+                "back_to_institution_selection": "Voltar para a Seleção da Instituição",
+                "feedback_form_title": "Enviar Seu Feedback",
+                "feedback_success_title": "Obrigado!",
+                "feedback_success_message": "Seu feedback foi enviado com sucesso. Agradecemos muito.",
+                "feedback_type_label": "Tipo de Feedback:",
+                "select_feedback_type": "Selecionar Tipo de Feedback",
+                "type_suggestion": "Sugestão",
+                "type_complaint": "Reclamação",
+                "type_compliment": "Elogio",
+                "type_question": "Pergunta",
+                "type_other": "Outro",
+                "other_feedback_type_label": "Especificar Outro Tipo de Feedback:",
+                "other_feedback_type_placeholder": "Exemplo: Atendimento ao Cliente",
+                "feedback_text_label": "Seu Feedback:",
+                "feedback_text_placeholder": "Escreva seu feedback aqui...",
+                "priority_label": "Prioridade:",
+                "priority_medium": "Média",
+                "priority_high": "Alta",
+                "priority_low": "Baixa",
+                "anonymous_label": "Enviar Anonimamente",
+                "student_name_label": "Seu Nome (Opcional):",
+                "student_placeholder": "Digite seu nome...",
+                "submit_feedback_button": "Enviar Feedback",
+                "admin_login_title": "Login do Administrador",
+                "admin_password_label": "Senha:",
+                "admin_login_error": "Email ou senha incorretos.",
+                "admin_login_button": "Entrar",
+                "admin_dashboard_header": "Painel de Feedback do Aluno",
+                "admin_logout_button": "Sair",
+                "total_feedback_stats": "Total de Feedback",
+                "new_feedback_stats": "Novo Feedback",
+                "resolved_feedback_stats": "Feedback Resolvido",
+                "filter_status_label": "Status:",
+                "filter_all": "Todos",
+                "filter_new": "Novo",
+                "filter_in_progress": "Em Andamento",
+                "filter_resolved": "Resolvido",
+                "filter_viewed": "Visualizado",
+                "filter_type_label": "Tipo:",
+                "filter_anonymous_label": "Anônimo:",
+                "filter_yes": "Sim",
+                "filter_no": "Não",
+                "search_placeholder": "Pesquisar feedback...",
+                "loading_feedback_message": "Carregando feedback...",
+                "footer_text": "Chuo Huru. Todos os direitos reservados.",
+                "about_tmg_title": "Sobre a TMG DigTech",
+                "about_tmg_text_1": "A Caixa de Feedback DIT foi desenvolvida pela TMG DigTech, uma empresa digital inovadora focada em resolver desafios de estudantes e instituições usando tecnologia simples e eficaz.",
+                "about_tmg_text_2": "O administrador e desenvolvedor deste site é Trust Erastus, fundador da TMG DigTech e estudante da DIT, Campus Mwanza.",
+                "about_tmg_text_3": "Temos orgulho de oferecer esta solução para que estudantes, professores e a administração tenham uma maneira fácil e confidencial de fornecer feedback, sugestões e argumentos construtivos para construir nossa faculdade.",
+                "contact_title": "Contato:",
+                "tmg_slogan": "TMG DigTech - Seus Sonhos, Nossa Inovação",
+                "no_matching_feedback": "Nenhum feedback correspondente aos critérios selecionados.",
+                "anonymous_student": "Aluno (Anônimo)",
+                "unspecified": "Não especificado",
+                "viewed_button": "Visualizado",
+                "mark_viewed_button": "Marcar como Visualizado",
+                "reopen_button": "Reabrir",
+                "resolve_button": "Resolver",
+                "mark_new_button": "Marcar como Novo",
+                "mark_in_progress_button": "Marcar como Em Andamento",
+                "summarize_button": "Resumir Feedback",
+                "reported_by": "Por",
+                "date": "Data",
+                "viewed_at_display": "Visualizado em",
+                "not_viewed_display": "Não Visualizado",
+                "institution_registration_success": "Instituição registrada com sucesso!",
+                "institution_registration_error": "Erro ao registrar a instituição. Por favor, tente novamente.",
+                "supabase_not_init": "Erro: Supabase não está inicializado corretamente. Por favor, certifique-se de que sua URL e chaves Supabase foram substituídas.",
+                "user_already_exists": "Usuário com este e-mail já está registrado.",
+                "password_too_short": "A senha deve ter pelo menos 6 caracteres.",
+                "otp_verification_title": "Verifique seu e-mail",
+                "otp_verification_instruction": "Enviamos um código de 6 dígitos para o seu e-mail. Por favor, insira-o abaixo para verificar sua conta.",
+                "otp_code_label": "Código OTP:",
+                "otp_code_placeholder": "Digite o código de 6 dígitos",
+                "verify_otp_button": "Verificar Código",
+                "resend_otp_button": "Reenviar Código",
+                "back_to_institution_registration": "Voltar para o Registro da Instituição",
+                "otp_success": "E-mail verificado com sucesso! Agora você pode fazer login.",
+                "otp_error": "Código OTP inválido ou expirado. Por favor, tente novamente.",
+                "resend_otp_success": "Novo código OTP enviado para o seu e-mail.",
+                "resend_otp_error": "Erro ao reenviar o código OTP. Por favor, tente novamente.",
+                "email_required_for_otp": "O e-mail é necessário para enviar ou verificar o OTP.",
+                "otp_code_required": "Por favor, digite o código OTP."
+            },
+            "ru": {
+                "app_title": "Ящик для предложений - TMG DIGTECH",
+                "choose_language_title": "Выбрать язык",
+                "choose_language_instruction": "Пожалуйста, выберите предпочитаемый язык для всего веб-сайта:",
+                "kiswahili": "Суахили",
+                "english": "Английский",
+                "french": "Французский",
+                "german": "Немецкий",
+                "arabic": "Арабский",
+                "chinese": "Китайский",
+                "portuguese": "Португальский",
+                "russian": "Русский",
+                "continue_button": "Продолжить",
+                "back_button": "Назад",
+                "main_page_title": "ЯЩИК ДЛЯ ПРЕДЛОЖЕНИЙ",
+                "main_page_karibu_button": "ДОБРО ПОЖАЛОВАТЬ",
+                "main_page_register_institution_button": "Зарегистрировать ваше учреждение",
+                "main_page_admin_login_button": "Войти как администратор",
+                "back_to_main_page": "Вернуться на главную страницу",
+                "institution_reg_title": "РЕГИСТРАЦИЯ УЧРЕЖДЕНИЯ",
+                "institution_name_label": "Название учреждения:",
+                "institution_name_placeholder": "Введите название учреждения",
+                "institution_email_label": "Электронная почта учреждения:",
+                "institution_email_placeholder": "Введите электронную почту учреждения",
+                "admin_name_label": "Имя администратора:",
+                "admin_name_placeholder": "Введите имя администратора",
+                "admin_email_label": "Электронная почта администратора:",
+                "admin_email_placeholder": "Введите электронную почту администратора",
+                "admin_password_label": "Пароль администратора:",
+                "admin_password_placeholder": "Установить пароль",
+                "register_button": "Зарегистрироваться",
+                "select_institution_title": "ВЫБРАТЬ УЧРЕЖДЕНИЕ",
+                "select_institution_label": "Выбрать учреждение:",
+                "select_institution_default": "-- Выбрать учреждение --",
+                "select_institution_button": "Выбрать учреждение",
+                "proceed_to_feedback_instruction": "Нажмите кнопку ниже, чтобы перейти к форме обратной связи.",
+                "proceed_button": "Нажмите здесь, чтобы продолжить",
+                "back_to_institution_selection": "Вернуться к выбору учреждения",
+                "feedback_form_title": "Отправить свой отзыв",
+                "feedback_success_title": "Спасибо!",
+                "feedback_success_message": "Ваш отзыв успешно отправлен. Мы очень ценим его.",
+                "feedback_type_label": "Тип отзыва:",
+                "select_feedback_type": "Выберите тип отзыва",
+                "type_suggestion": "Предложение",
+                "type_complaint": "Жалоба",
+                "type_compliment": "Комплимент",
+                "type_question": "Вопрос",
+                "type_other": "Другое",
+                "other_feedback_type_label": "Укажите другой тип отзыва:",
+                "other_feedback_type_placeholder": "Пример: Обслуживание клиентов",
+                "feedback_text_label": "Ваш отзыв:",
+                "feedback_text_placeholder": "Напишите свой отзыв здесь...",
+                "priority_label": "Приоритет:",
+                "priority_medium": "Средний",
+                "priority_high": "Высокий",
+                "priority_low": "Низкий",
+                "anonymous_label": "Отправить анонимно",
+                "student_name_label": "Ваше имя (необязательно):",
+                "student_name_placeholder": "Введите ваше имя...",
+                "submit_feedback_button": "Отправить отзыв",
+                "admin_login_title": "Вход для администратора",
+                "admin_password_label": "Пароль:",
+                "admin_login_error": "Электронная почта или пароль неверны.",
+                "admin_login_button": "Войти",
+                "admin_dashboard_header": "Панель управления отзывами студентов",
+                "admin_logout_button": "Выйти",
+                "total_feedback_stats": "Всего отзывов",
+                "new_feedback_stats": "Новые отзывы",
+                "resolved_feedback_stats": "Решенные отзывы",
+                "filter_status_label": "Статус:",
+                "filter_all": "Все",
+                "filter_new": "Новый",
+                "filter_in_progress": "В процессе",
+                "filter_resolved": "Решено",
+                "filter_viewed": "Просмотрено",
+                "filter_type_label": "Тип:",
+                "filter_anonymous_label": "Анонимно:",
+                "filter_yes": "Да",
+                "filter_no": "Нет",
+                "search_placeholder": "Поиск отзывов...",
+                "loading_feedback_message": "Загрузка отзывов...",
+                "footer_text": "Chuo Huru. Все права защищены.",
+                "about_tmg_title": "О TMG DigTech",
+                "about_tmg_text_1": "Ящик для отзывов DIT был разработан TMG DigTech, инновационной цифровой компанией, ориентированной на решение проблем студентов и учреждений с использованием простых и эффективных технологий.",
+                "about_tmg_text_2": "Администратор и разработчик этого веб-сайта - Траст Эрастус, основатель TMG DigTech и студент DIT, кампус Мванза.",
+                "about_tmg_text_3": "Мы гордимся тем, что предлагаем это решение, чтобы студенты, преподаватели и руководство имели простой и конфиденциальный способ оставлять отзывы, предложения и конструктивные аргументы для развития нашего колледжа.",
+                "contact_title": "Контакты:",
+                "tmg_slogan": "TMG DigTech - Ваши мечты, Наши инновации",
+                "no_matching_feedback": "Нет отзывов, соответствующих выбранным критериям.",
+                "anonymous_student": "Студент (аноним)",
+                "unspecified": "Не указано",
+                "viewed_button": "Просмотрено",
+                "mark_viewed_button": "Отметить как просмотренное",
+                "reopen_button": "Открыть снова",
+                "resolve_button": "Решить",
+                "mark_new_button": "Отметить как новое",
+                "mark_in_progress_button": "Отметить как в процессе",
+                "summarize_button": "Резюмировать отзыв",
+                "reported_by": "От",
+                "date": "Дата",
+                "viewed_at_display": "Просмотрено",
+                "not_viewed_display": "Не просмотрено",
+                "institution_registration_success": "Учреждение успешно зарегистрировано!",
+                "institution_registration_error": "Ошибка при регистрации учреждения. Пожалуйста, попробуйте еще раз.",
+                "supabase_not_init": "Ошибка: Supabase не инициализирован. Пожалуйста, убедитесь, что ваш URL и ключи Supabase заменены.",
+                "user_already_exists": "Пользователь с этой электронной почтой уже зарегистрирован.",
+                "password_too_short": "Пароль должен быть не менее 6 символов.",
+                "otp_verification_title": "Подтвердите свою электронную почту",
+                "otp_verification_instruction": "Мы отправили 6-значный код на вашу электронную почту. Пожалуйста, введите его ниже, чтобы подтвердить свою учетную запись.",
+                "otp_code_label": "Код OTP:",
+                "otp_code_placeholder": "Введите 6-значный код",
+                "verify_otp_button": "Подтвердить код",
+                "resend_otp_button": "Отправить код повторно",
+                "back_to_institution_registration": "Вернуться к регистрации учреждения",
+                "otp_success": "Электронная почта успешно подтверждена! Теперь вы можете войти.",
+                "otp_error": "Неверный или просроченный код OTP. Пожалуйста, попробуйте еще раз.",
+                "resend_otp_success": "Новый код OTP отправлен на вашу электронную почту.",
+                "resend_otp_error": "Ошибка при повторной отправке кода OTP. Пожалуйста, попробуйте еще раз.",
+                "email_required_for_otp": "Электронная почта требуется для отправки или подтверждения OTP.",
+                "otp_code_required": "Пожалуйста, введите код OTP."
+            }
+        };
+
+        var currentLanguage = localStorage.getItem('selectedLanguage') || 'sw'; // Default to Kiswahili
+        var selectedInstitutionId = null; // To store the ID of the selected institution
+        var selectedInstitutionName = ''; // To store the name of the selected institution
+        var emailForVerification = ''; // Global variable to store email for OTP verification
+
+        // Function to apply translations to elements with data-lang-key
+        function applyLanguage(lang) {
+            // Ensure the language exists in our translations. If not, default to 'sw'.
+            if (!translations[lang]) {
+                console.warn(`Translation for language '${lang}' not found. Defaulting to 'sw'.`);
+                lang = 'sw'; 
+            }
+
+            currentLanguage = lang;
+            localStorage.setItem('selectedLanguage', lang); // Save selected language
+
+            // Update document title
+            const titleElement = document.querySelector('title');
+            if (titleElement && translations[lang]['app_title']) {
+                titleElement.textContent = translations[lang]['app_title'];
+            }
+
+            document.querySelectorAll('[data-lang-key]').forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[lang][key]) { 
+                    // For select options, update text content appropriately
+                    if (element.tagName === 'OPTION') {
+                        element.textContent = translations[lang][key];
+                    } else if (element.tagName === 'INPUT' && element.placeholder) {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // Update the text of the proceed button on the language selection page
+            const proceedButton = document.getElementById('proceedButton');
+            if (proceedButton) {
+                proceedButton.textContent = translations[currentLanguage]['continue_button']; // Use currentLanguage here
+            }
+        }
 
         // --- Global Navigation Logic ---
         function navigateTo(pageId) {
@@ -1213,6 +2555,9 @@
                 console.error(`Page with ID '${pageId}' not found.`);
             }
 
+            // Apply current language to the new page
+            applyLanguage(currentLanguage);
+
             // Perform specific initializations for pages that need it
             if (pageId === 'admin_dashboard_page') {
                 fetchAndRenderFeedback(); // Reload data for dashboard
@@ -1222,6 +2567,9 @@
                 const anonymousCheckbox = document.getElementById('anonymous');
                 const studentNameGroup = document.getElementById('studentNameGroup');
                 const studentNameInput = document.getElementById('studentName');
+                const feedbackTypeSelect = document.getElementById('feedbackType');
+                const otherFeedbackTypeGroup = document.getElementById('otherFeedbackTypeGroup');
+                const otherFeedbackTypeInput = document.getElementById('otherFeedbackType');
 
                 if (feedbackForm) {
                     feedbackForm.reset();
@@ -1231,19 +2579,63 @@
                     studentNameGroup.style.display = 'none';
                     studentNameInput.value = '';
                 }
+                if (feedbackTypeSelect && otherFeedbackTypeGroup && otherFeedbackTypeInput) {
+                    feedbackTypeSelect.value = ""; // Reset dropdown to default
+                    otherFeedbackTypeGroup.style.display = 'none';
+                    otherFeedbackTypeInput.removeAttribute('required');
+                    otherFeedbackTypeInput.value = '';
+                }
+
                 const feedbackFormWrapper = document.getElementById('feedbackFormWrapper');
                 const successMessageDiv = document.getElementById('successMessage');
                 if (feedbackFormWrapper) feedbackFormWrapper.style.display = 'block';
                 if (feedbackFormWrapper) feedbackFormWrapper.classList.remove('hide');
                 if (successMessageDiv) successMessageDiv.classList.remove('show');
+            } else if (pageId === 'institution_selection_page') {
+                loadInstitutions(); // Load institutions when navigating to this page
+                // Reset confirmation section visibility
+                const selectionSection = document.getElementById('selectionSection');
+                const confirmationSection = document.getElementById('confirmationSection');
+                if (selectionSection) selectionSection.style.display = 'block';
+                if (confirmationSection) confirmationSection.style.display = 'none';
+            } else if (pageId === 'institution_registration_page') {
+                const institutionRegistrationForm = document.getElementById('institutionRegistrationForm');
+                if (institutionRegistrationForm) {
+                    institutionRegistrationForm.reset();
+                }
+            } else if (pageId === 'otp_verification_page') {
+                const otpCodeInput = document.getElementById('otpCode');
+                const otpErrorMessage = document.getElementById('otpErrorMessage');
+                if (otpCodeInput) otpCodeInput.value = '';
+                if (otpErrorMessage) otpErrorMessage.style.display = 'none';
             }
         }
 
-        // --- JavaScript from Feedback Form (feedback_form.html) ---
+        // --- All DOMContentLoaded related logic combined here ---
         document.addEventListener('DOMContentLoaded', () => {
+            // Supabase client setup - MOVED HERE
+            const SUPABASE_URL = 'https://ykklasdqoulltvzihklt.supabase.co'; // <--- BADILISHA HAPA NA URL YAKO HALISI
+            const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlra2xhc2Rxb3VsbHR2emloa2x0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIxMTE5NTcsImV4cCI6MjA2NzY4Nzk1N30.aVw_hXPc36zVFC2VFKSg8lO3_NKlAuk6ywtviEpECWU'; // <--- BADILISHA HAPA NA KEY YAKO HALISI
+            
+            // Initialize Supabase client
+            try {
+                supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+                if (SUPABASE_URL === 'YOUR_SUPABASE_PROJECT_URL' || SUPABASE_ANON_KEY === 'YOUR_SUPABASE_ANON_KEY') {
+                    console.error("Supabase Configuration Error: Tafadhali badilisha 'YOUR_SUPABASE_PROJECT_URL' na 'YOUR_SUPABASE_ANON_KEY' na funguo zako halisi za Supabase.");
+                    alert(translations[currentLanguage]['supabase_not_init'] || "Supabase Configuration Error: Tafadhali badilisha URL na funguo zako halisi za Supabase katika msimbo wa HTML.");
+                }
+            } catch (e) {
+                console.error("Supabase Initialization Error: Hakikisha URL na funguo za Supabase ni sahihi.", e);
+                alert((translations[currentLanguage]['supabase_not_init'] || "Supabase Initialization Error: Hakikisha URL na funguo za Supabase ni sahihi.") + " (Hitilafu: " + e.message + ")");
+            }
+
+            // --- JavaScript from Feedback Form (feedback_form.html) ---
             const anonymousCheckbox = document.getElementById('anonymous');
             const studentNameGroup = document.getElementById('studentNameGroup');
             const studentNameInput = document.getElementById('studentName');
+            const feedbackTypeSelect = document.getElementById('feedbackType');
+            const otherFeedbackTypeGroup = document.getElementById('otherFeedbackTypeGroup');
+            const otherFeedbackTypeInput = document.getElementById('otherFeedbackType');
 
             if (anonymousCheckbox && studentNameGroup && studentNameInput) {
                 function toggleStudentNameInput() {
@@ -1255,104 +2647,383 @@
                     }
                 }
                 anonymousCheckbox.addEventListener('change', toggleStudentNameInput);
-                toggleStudentNameInput();
-            } else {
-                console.warn("Feedback form elements (anonymous, studentNameGroup, or studentName) not found on initial load. This is expected if not on feedback_form_page.");
+                toggleStudentNameInput(); // Initial call
             }
-        });
 
-        // Event listener for feedback form submission
-        const feedbackForm = document.getElementById('feedbackForm');
-        if (feedbackForm) { // Check if element exists before adding listener
-            feedbackForm.addEventListener('submit', async function(event) {
-                event.preventDefault();
+            if (feedbackTypeSelect && otherFeedbackTypeGroup && otherFeedbackTypeInput) {
+                function toggleOtherFeedbackTypeInput() {
+                    if (feedbackTypeSelect.value === 'nyingine') {
+                        otherFeedbackTypeGroup.style.display = 'block';
+                        otherFeedbackTypeInput.setAttribute('required', 'required');
+                    } else {
+                        otherFeedbackTypeGroup.style.display = 'none';
+                        otherFeedbackTypeInput.removeAttribute('required');
+                        otherFeedbackTypeInput.value = '';
+                    }
+                }
+                feedbackTypeSelect.addEventListener('change', toggleOtherFeedbackTypeInput);
+                toggleOtherFeedbackTypeInput(); // Initial call
+            }
 
-                const type = document.getElementById('feedbackType').value;
-                const message = document.getElementById('feedbackText').value;
-                const priority = document.getElementById('priority').value;
-                const isAnonymous = document.getElementById('anonymous').checked;
+            // Event listener for feedback form submission
+            const feedbackForm = document.getElementById('feedbackForm');
+            if (feedbackForm) {
+                feedbackForm.addEventListener('submit', async function(event) {
+                    event.preventDefault();
 
-                const studentNameInput = document.getElementById('studentName');
-                const student_name = isAnonymous ? null : (studentNameInput && studentNameInput.value.trim() === '' ? null : (studentNameInput ? studentNameInput.value.trim() : null));
+                    let type = document.getElementById('feedbackType').value;
+                    const message = document.getElementById('feedbackText').value;
+                    const priority = document.getElementById('priority').value;
+                    const isAnonymous = document.getElementById('anonymous').checked;
 
-                if (type === "" || message.trim() === "") {
-                    alert("Tafadhali jaza aina ya maoni na maoni yako.");
+                    const studentNameInput = document.getElementById('studentName');
+                    const student_name = isAnonymous ? null : (studentNameInput && studentNameInput.value.trim() === '' ? null : (studentNameInput ? studentNameInput.value.trim() : null));
+
+                    // If "nyingine" is selected, use the value from the new input field
+                    if (type === 'nyingine') {
+                        if (otherFeedbackTypeInput.value.trim() === '') {
+                            alert(translations[currentLanguage]['other_feedback_type_placeholder'] || "Tafadhali taja aina nyingine ya maoni.");
+                            return;
+                        }
+                        type = otherFeedbackTypeInput.value.trim(); // Use the specified type
+                    }
+
+                    if (type === "" || message.trim() === "") {
+                        alert(translations[currentLanguage]['fill_feedback_fields'] || "Tafadhali jaza aina ya maoni na maoni yako.");
+                        return;
+                    }
+
+                    if (!selectedInstitutionId) {
+                        alert(translations[currentLanguage]['no_institution_selected'] || "Tafadhali chagua taasisi kwanza kabla ya kutuma maoni.");
+                        return;
+                    }
+
+                    const feedbackData = {
+                        institution_id: selectedInstitutionId, // Add institution ID
+                        type: type,
+                        message: message,
+                        priority: priority,
+                        is_anonymous: isAnonymous,
+                        student_name: student_name,
+                        status: 'new'
+                    };
+
+                    const feedbackFormWrapper = document.getElementById('feedbackFormWrapper');
+                    const successMessageDiv = document.getElementById('successMessage');
+
+                    try {
+                        const { data, error } = await supabase
+                            .from('feedback')
+                            .insert([feedbackData]);
+
+                        if (error) {
+                            console.error('Kuna hitilafu wakati wa kutuma maoni:', error);
+                            alert(translations[currentLanguage]['feedback_submit_error'] || 'Imeshindwa kutuma maoni. Tafadhali jaribu tena. (Hitilafu: ' + error.message + ')');
+                        } else {
+                            if (feedbackFormWrapper) feedbackFormWrapper.classList.add('hide');
+                            setTimeout(() => {
+                                if (feedbackFormWrapper) feedbackFormWrapper.style.display = 'none';
+                                if (successMessageDiv) successMessageDiv.classList.add('show');
+
+                                setTimeout(() => {
+                                    if (feedbackForm) feedbackForm.reset();
+                                    if (anonymousCheckbox) anonymousCheckbox.checked = true;
+                                    if (studentNameGroup) studentNameGroup.style.display = 'none';
+                                    if (studentNameInput) studentNameInput.value = '';
+                                    if (feedbackTypeSelect) feedbackTypeSelect.value = "";
+                                    if (otherFeedbackTypeGroup) otherFeedbackTypeGroup.style.display = 'none';
+                                    if (otherFeedbackTypeInput) otherFeedbackTypeInput.value = '';
+                                    if (otherFeedbackTypeInput) otherFeedbackTypeInput.removeAttribute('required');
+                                    
+                                    if (successMessageDiv) successMessageDiv.classList.remove('show');
+                                    if (feedbackFormWrapper) feedbackFormWrapper.style.display = 'block';
+                                    if (feedbackFormWrapper) feedbackFormWrapper.classList.remove('hide');
+                                    
+                                }, 4000);
+                            }, 500);
+                        }
+                    } catch (err) {
+                        console.error('Hitilafu isiyotarajiwa wakati wa kutuma maoni:', err);
+                        alert(translations[currentLanguage]['unexpected_error'] || 'Kuna hitilafu isiyotarajiwa. Tafadhali jaribu tena.');
+                    }
+                });
+            }
+
+            // --- JavaScript from Admin Login (admin_login.html) ---
+            const adminLoginForm = document.getElementById('adminLoginForm');
+            if (adminLoginForm) {
+                adminLoginForm.addEventListener('submit', async function(event) {
+                    event.preventDefault();
+
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    const errorMessageDiv = document.getElementById('loginErrorMessage');
+
+                    if (errorMessageDiv) errorMessageDiv.style.display = 'none';
+
+                    if (!supabase) {
+                        if (errorMessageDiv) errorMessageDiv.textContent = translations[currentLanguage]['supabase_not_init'] || "Hitilafu: Supabase haijasanidiwa ipasavyo.";
+                        if (errorMessageDiv) errorMessageDiv.style.display = 'block';
+                        return;
+                    }
+
+                    try {
+                        const { data, error } = await supabase.auth.signInWithPassword({
+                            email: email,
+                            password: password,
+                        });
+
+                        if (error) {
+                            console.error('Hitilafu ya kuingia:', error.message);
+                            if (errorMessageDiv) errorMessageDiv.textContent = translations[currentLanguage]['admin_login_error'] || 'Barua pepe au nenosiri si sahihi.';
+                            if (errorMessageDiv) errorMessageDiv.style.display = 'block';
+                        } else {
+                            console.log('Msimamizi ameingia kwa mafanikio:', data.user);
+                            navigateTo('admin_dashboard_page');
+                        }
+                    } catch (err) {
+                        console.error('Hitilafu isiyotarajiwa:', err.message);
+                        if (errorMessageDiv) errorMessageDiv.textContent = translations[currentLanguage]['unexpected_error'] || 'Kuna hitilafu isiyotarajiwa. Tafadhali jaribu tena.';
+                        if (errorMessageDiv) errorMessageDiv.style.display = 'block';
+                    }
+                });
+            }
+
+            // --- JavaScript for Institution Registration (institution_registration_page) ---
+            const institutionRegistrationForm = document.getElementById('institutionRegistrationForm');
+            if (institutionRegistrationForm) {
+                institutionRegistrationForm.addEventListener('submit', async function(event) {
+                    event.preventDefault();
+
+                    // Immediate check for Supabase client
+                    if (!supabase) {
+                        alert(translations[currentLanguage]['supabase_not_init'] || "Hitilafu: Supabase haijasanidiwa ipasavyo. Tafadhali hakikisha URL na funguo zako za Supabase zimebadilishwa.");
+                        console.error("Supabase client is not initialized. Please check your SUPABASE_URL and SUPABASE_ANON_KEY.");
+                        return; // Stop execution if Supabase is not ready
+                    }
+
+                    const institutionName = document.getElementById('institutionName').value;
+                    const institutionEmail = document.getElementById('institutionEmail').value;
+                    const adminName = document.getElementById('adminName').value;
+                    const adminEmail = document.getElementById('adminEmail').value;
+                    const adminPasswordReg = document.getElementById('adminPasswordReg').value;
+
+                    try {
+                        // Register the admin user in Supabase Auth
+                        const { data: authData, error: authError } = await supabase.auth.signUp({
+                            email: adminEmail,
+                            password: adminPasswordReg,
+                        });
+
+                        if (authError) {
+                            console.error('Error registering admin user:', authError.message);
+                            let errorMessage = translations[currentLanguage]['institution_registration_error'] || "Kuna hitilafu wakati wa kusajili taasisi. Tafadhali jaribu tena.";
+                            if (authError.message.includes("User already registered")) {
+                                errorMessage = translations[currentLanguage]['user_already_exists'] || "Mtumiaji mwenye barua pepe hii tayari amesajiliwa.";
+                            } else if (authError.message.includes("Password should be at least 6 characters")) {
+                                errorMessage = translations[currentLanguage]['password_too_short'] || "Nenosiri linapaswa kuwa na angalau herufi 6.";
+                            }
+                            alert(errorMessage + ' (Hitilafu: ' + authError.message + ')');
+                            return;
+                        }
+
+                        const userId = authData.user.id;
+
+                        // Insert institution data into 'institutions' table
+                        const { data: institutionData, error: institutionError } = await supabase
+                            .from('institutions')
+                            .insert([
+                                { 
+                                    name: institutionName, 
+                                    email: institutionEmail, 
+                                    admin_name: adminName, 
+                                    admin_email: adminEmail,
+                                    admin_user_id: userId // Link to Supabase Auth user ID
+                                }
+                            ]);
+
+                        if (institutionError) {
+                            console.error('Error inserting institution data:', institutionError.message);
+                            // If institution data insertion fails, you might want to delete the user created in auth
+                            // This requires a service_role key and should ideally be done server-side for security
+                            // await supabase.auth.admin.deleteUser(userId); 
+                            alert(translations[currentLanguage]['institution_registration_error'] + ' (DB Error: ' + institutionError.message + ')');
+                            return;
+                        }
+
+                        // Store email for OTP verification globally
+                        emailForVerification = adminEmail;
+                        alert(translations[currentLanguage]['institution_registration_success'] || "Taasisi imesajiliwa kwa mafanikio! Sasa thibitisha barua pepe yako.");
+                        institutionRegistrationForm.reset();
+                        navigateTo('otp_verification_page'); // Redirect to OTP verification page
+                    } catch (err) {
+                        console.error('Unexpected error during institution registration:', err.message);
+                        alert(translations[currentLanguage]['unexpected_error'] || 'Kuna hitilafu isiyotarajiwa. Tafadhali jaribu tena.');
+                    }
+                });
+            }
+
+            // --- JavaScript for Institution Selection (institution_selection_page) ---
+            const institutionSelect = document.getElementById('institutionSelect');
+            const selectInstitutionButton = document.getElementById('selectInstitutionButton');
+            const selectionSection = document.getElementById('selectionSection');
+            const confirmationSection = document.getElementById('confirmationSection');
+            const confirmationTitle = document.getElementById('confirmationTitle');
+            const proceedToFeedbackButton = document.getElementById('proceedToFeedbackButton');
+
+            async function loadInstitutions() {
+                if (!supabase) {
+                    console.error("Supabase client not initialized. Cannot load institutions.");
+                    return;
+                }
+                const { data, error } = await supabase
+                    .from('institutions')
+                    .select('id, name');
+
+                if (error) {
+                    console.error('Error loading institutions:', error);
                     return;
                 }
 
-                const feedbackData = {
-                    type: type,
-                    message: message,
-                    priority: priority,
-                    is_anonymous: isAnonymous,
-                    student_name: student_name,
-                    status: 'new'
-                };
-
-                const { data, error } = await supabase
-                    .from('feedback')
-                    .insert([feedbackData]);
-
-                const feedbackFormWrapper = document.getElementById('feedbackFormWrapper');
-                const successMessageDiv = document.getElementById('successMessage');
-
-                if (error) {
-                    console.error('Kuna hitilafu wakati wa kutuma maoni:', error);
-                    alert('Imeshindwa kutuma maoni. Tafadhali jaribu tena. (Hitilafu: ' + error.message + ')');
-                } else {
-                    // Ficha fomu na uonyeshe ujumbe wa mafanikio
-                    if (feedbackFormWrapper) feedbackFormWrapper.classList.add('hide');
-                    setTimeout(() => {
-                        if (feedbackFormWrapper) feedbackFormWrapper.style.display = 'none';
-                        if (successMessageDiv) successMessageDiv.classList.add('show');
-
-                        // Reset form and show it again after a delay
-                        setTimeout(() => {
-                            if (feedbackForm) feedbackForm.reset();
-                            const anonymousCheckbox = document.getElementById('anonymous');
-                            const studentNameGroup = document.getElementById('studentNameGroup');
-                            const studentNameInput = document.getElementById('studentName');
-
-                            if (anonymousCheckbox && studentNameGroup && studentNameInput) {
-                                anonymousCheckbox.checked = true;
-                                studentNameGroup.style.display = 'none';
-                                studentNameInput.value = '';
-                            }
-                            
-                            if (successMessageDiv) successMessageDiv.classList.remove('show');
-                            if (feedbackFormWrapper) feedbackFormWrapper.style.display = 'block';
-                            if (feedbackFormWrapper) feedbackFormWrapper.classList.remove('hide');
-                            
-                        }, 4000); // Form will reappear after 4 seconds
-                    }, 500); // Hide form after 0.5s (animation duration)
+                if (institutionSelect) {
+                    institutionSelect.innerHTML = `<option value="">${translations[currentLanguage]['select_institution_default'] || '-- Chagua Taasisi --'}</option>`;
+                    data.forEach(institution => {
+                        const option = document.createElement('option');
+                        option.value = institution.id; // Store institution ID
+                        option.textContent = institution.name;
+                        institutionSelect.appendChild(option);
+                    });
                 }
-            });
-        }
+            }
 
+            if (selectInstitutionButton) {
+                selectInstitutionButton.addEventListener('click', () => {
+                    const selectedOption = institutionSelect.options[institutionSelect.selectedIndex];
+                    if (!selectedOption || selectedOption.value === "") {
+                        alert(translations[currentLanguage]['select_institution_default'] || "Tafadhali chagua taasisi kwanza.");
+                        return;
+                    }
+                    selectedInstitutionId = selectedOption.value; // Store the ID
+                    selectedInstitutionName = selectedOption.textContent; // Store the name
 
-        // --- JavaScript from Admin Login (admin_login.html) ---
-        const adminLoginForm = document.getElementById('adminLoginForm');
-        if (adminLoginForm) { // Check if element exists before adding listener
-            adminLoginForm.addEventListener('submit', function(event) {
-                event.preventDefault();
+                    if (confirmationTitle) confirmationTitle.textContent = `${translations[currentLanguage]['feedback_box_for'] || 'Sanduku la Maoni la'} ${selectedInstitutionName}`;
 
-                const password = document.getElementById('password').value;
-                const errorMessageDiv = document.getElementById('loginErrorMessage');
+                    if (selectionSection) selectionSection.style.display = 'none';
+                    if (confirmationSection) confirmationSection.style.display = 'block';
+                });
+            }
 
-                if (errorMessageDiv) errorMessageDiv.style.display = 'none';
+            if (proceedToFeedbackButton) {
+                proceedToFeedbackButton.addEventListener('click', () => {
+                    if (selectedInstitutionId) {
+                        navigateTo('feedback_form_page');
+                    } else {
+                        alert(translations[currentLanguage]['no_institution_selected'] || "Tafadhali chagua taasisi kwanza.");
+                    }
+                });
+            }
 
-                const correctPassword = '1234'; // Dummy password
+            // --- OTP Verification Logic ---
+            const otpCodeInput = document.getElementById('otpCode');
+            const verifyOtpButton = document.getElementById('verifyOtpButton');
+            const resendOtpButton = document.getElementById('resendOtpButton');
+            const otpErrorMessage = document.getElementById('otpErrorMessage');
 
-                if (password === correctPassword) {
-                    navigateTo('admin_dashboard_page'); // Navigate to dashboard
-                } else {
-                    if (errorMessageDiv) errorMessageDiv.style.display = 'block';
-                    alert("Nenosiri si sahihi. Tafadhali jaribu tena.");
+            if (verifyOtpButton) {
+                verifyOtpButton.addEventListener('click', async () => {
+                    const otp = otpCodeInput.value.trim();
+                    if (!otp) {
+                        displayOtpError(translations[currentLanguage]['otp_code_required'] || "Tafadhali ingiza msimbo wa OTP.");
+                        return;
+                    }
+                    if (!emailForVerification) {
+                        displayOtpError(translations[currentLanguage]['email_required_for_otp'] || "Barua pepe inahitajika kuthibitisha OTP.");
+                        return;
+                    }
+
+                    try {
+                        const { data, error } = await supabase.auth.verifyOtp({
+                            email: emailForVerification,
+                            token: otp,
+                            type: 'email',
+                        });
+
+                        if (error) {
+                            console.error('OTP verification error:', error.message);
+                            displayOtpError(translations[currentLanguage]['otp_error'] || "Msimbo wa OTP si sahihi au umeisha muda wake. Tafadhali jaribu tena.");
+                        } else {
+                            console.log('OTP verified successfully:', data);
+                            alert(translations[currentLanguage]['otp_success'] || "Barua pepe imethibitishwa kwa mafanikio! Sasa unaweza kuingia.");
+                            navigateTo('admin_login_page');
+                        }
+                    } catch (err) {
+                        console.error('Unexpected OTP verification error:', err.message);
+                        displayOtpError(translations[currentLanguage]['unexpected_error'] || 'Kuna hitilafu isiyotarajiwa. Tafadhali jaribu tena.');
+                    }
+                });
+            }
+
+            if (resendOtpButton) {
+                resendOtpButton.addEventListener('click', async () => {
+                    if (!emailForVerification) {
+                        displayOtpError(translations[currentLanguage]['email_required_for_otp'] || "Barua pepe inahitajika kutuma OTP.");
+                        return;
+                    }
+
+                    try {
+                        const { error } = await supabase.auth.resend({
+                            type: 'signup',
+                            email: emailForVerification,
+                        });
+
+                        if (error) {
+                            console.error('Resend OTP error:', error.message);
+                            displayOtpError(translations[currentLanguage]['resend_otp_error'] || "Kuna hitilafu wakati wa kutuma msimbo tena. Tafadhali jaribu tena.");
+                        } else {
+                            alert(translations[currentLanguage]['resend_otp_success'] || "Msimbo mpya wa OTP umetuma kwa barua pepe yako.");
+                            otpErrorMessage.style.display = 'none'; // Clear any previous errors
+                        }
+                    } catch (err) {
+                        console.error('Unexpected resend OTP error:', err.message);
+                        displayOtpError(translations[currentLanguage]['unexpected_error'] || 'Kuna hitilafu isiyotarajiwa. Tafadhali jaribu tena.');
+                    }
+                });
+            }
+
+            function displayOtpError(message) {
+                if (otpErrorMessage) {
+                    otpErrorMessage.textContent = message;
+                    otpErrorMessage.style.display = 'block';
                 }
-            });
-        }
+            }
 
-        // --- JavaScript from Admin Dashboard (admin_dashboard.html) ---
+
+            // --- JavaScript for Admin Dashboard (moved outside DOMContentLoaded to be accessible) ---
+            const filterStatus = document.getElementById('filterStatus');
+            const filterType = document.getElementById('filterType');
+            const filterAnonymous = document.getElementById('filterAnonymous');
+            const search = document.getElementById('search');
+
+            if (filterStatus) filterStatus.addEventListener('change', fetchAndRenderFeedback);
+            if (filterType) filterType.addEventListener('change', fetchAndRenderFeedback);
+            if (filterAnonymous) filterAnonymous.addEventListener('change', fetchAndRenderFeedback);
+            if (search) search.addEventListener('keyup', fetchAndRenderFeedback);
+            
+            // Initial page load logic - Always navigate to language selection page
+            const storedLanguage = localStorage.getItem('selectedLanguage') || 'sw'; // Default to sw if nothing stored
+            applyLanguage(storedLanguage); 
+            const radioToSelect = document.getElementById(`lang_${storedLanguage}`);
+            if (radioToSelect) {
+                radioToSelect.checked = true;
+            }
+            // Navigate to intro page first, then to language selection after a delay
+            navigateTo('intro_page');
+            setTimeout(() => {
+                navigateTo('language_selection_page');
+            }, 7000); // Navigate after 7 seconds (adjust as needed)
+        });
+
+        // --- JavaScript for Admin Dashboard (moved outside DOMContentLoaded to be accessible) ---
         function getStatusBadgeClass(status) {
             switch (status) {
                 case 'new': return 'status-new';
@@ -1380,7 +3051,7 @@
 
             if (error) {
                 console.error('Error updating feedback status:', error);
-                alert('Failed to update status. Please try again. (Error: ' + error.message + ')');
+                alert(translations[currentLanguage]['status_update_error'] || 'Failed to update status. Please try again. (Error: ' + error.message + ')');
             } else {
                 console.log('Feedback status updated:', data);
                 await fetchAndRenderFeedback();
@@ -1396,7 +3067,7 @@
 
             if (error) {
                 console.error('Error marking feedback as checked:', error);
-                alert('Failed to mark feedback as checked. Please try again. (Error: ' + error.message + ')');
+                alert(translations[currentLanguage]['mark_viewed_error'] || 'Failed to mark feedback as checked. Please try again. (Error: ' + error.message + ')');
             } else {
                 console.log('Feedback marked as checked:', data);
                 await fetchAndRenderFeedback();
@@ -1407,7 +3078,7 @@
             buttonElement.classList.add('loading');
             buttonElement.disabled = true;
             const originalButtonText = buttonElement.innerHTML;
-            buttonElement.innerHTML = '<span class="spinner"></span> Inafupisha...';
+            buttonElement.innerHTML = `<span class="spinner"></span> ${translations[currentLanguage]['summarizing_text'] || 'Inafupisha...'}`;
 
             const summaryOutputDiv = buttonElement.closest('.feedback-item').querySelector('.summary-output');
             if (summaryOutputDiv) {
@@ -1440,7 +3111,7 @@
                     }
                 } else {
                     if (summaryOutputDiv) {
-                        summaryOutputDiv.innerText = 'Imeshindwa kufupisha maoni. Jaribu tena.';
+                        summaryOutputDiv.innerText = translations[currentLanguage]['summarize_error'] || 'Imeshindwa kufupisha maoni. Jaribu tena.';
                         summaryOutputDiv.classList.add('show');
                     }
                     console.error('Gemini API response structure unexpected:', result);
@@ -1448,7 +3119,7 @@
             } catch (error) {
                 console.error('Error calling Gemini API:', error);
                 if (summaryOutputDiv) {
-                    summaryOutputDiv.innerText = 'Hitilafu ya mtandao au API. Tafadhali jaribu tena.';
+                    summaryOutputDiv.innerText = translations[currentLanguage]['network_api_error'] || 'Hitilafu ya mtandao au API. Tafadhali jaribu tena.';
                     summaryOutputDiv.classList.add('show');
                 }
             } finally {
@@ -1458,105 +3129,15 @@
             }
         }
 
-        async function renderFeedback(feedbackToDisplay) {
-            const feedbackListDiv = document.getElementById('feedbackList');
-            if (!feedbackListDiv) return; // Exit if dashboard is not active
-
-            feedbackListDiv.innerHTML = '';
-
-            if (!feedbackToDisplay || feedbackToDisplay.length === 0) {
-                feedbackListDiv.innerHTML = '<p style="text-align: center; color: #6c757d; margin-top: 50px;">Hakuna maoni yanayolingana na vigezo vilivyochaguliwa.</p>';
-                return;
-            }
-
-            feedbackToDisplay.forEach(item => {
-                const feedbackItemDiv = document.createElement('div');
-                feedbackItemDiv.classList.add('feedback-item');
-
-                const reportedByText = item.is_anonymous ? 'Mwanafunzi (Bila Jina)' : (item.student_name || 'Hajatajwa');
-                
-                const isChecked = item.viewed_at !== null;
-                const checkButtonText = isChecked ? 'Imetazamwa' : 'Weka Imetazamwa';
-                const checkButtonDisabled = isChecked ? 'disabled' : '';
-
-                feedbackItemDiv.innerHTML = `
-                    <h4>
-                        ${item.type.charAt(0).toUpperCase() + item.type.slice(1)} - 
-                        <span class="${getStatusBadgeClass(item.status)}">${item.status.toUpperCase()}</span> -
-                        <span class="${getPriorityClass(item.priority)}">Kipaumbele: ${item.priority.toUpperCase()}</span>
-                    </h4>
-                    <p>${item.message}</p>
-                    <div class="feedback-meta">
-                        <span>Na: ${reportedByText}</span>
-                        <span>Tarehe: ${new Date(item.created_at).toLocaleString()}</span>
-                        ${item.viewed_at ? `<span>Imetazamwa: ${new Date(item.viewed_at).toLocaleString()}</span>` : '<span>Haijatazamwa</span>'}
-                    </div>
-                    <div class="feedback-actions">
-                        <button class="action-button check-button" data-id="${item.id}" data-checked="${isChecked}" ${checkButtonDisabled}>
-                            ${checkButtonText}
-                        </button>
-                        <button class="action-button resolve-button" data-id="${item.id}" data-current-status="${item.status}">
-                            ${item.status === 'resolved' ? 'Fungua Tena' : 'Suluhisha'}
-                        </button>
-                        ${item.status !== 'new' && item.status !== 'resolved' ? 
-                            `<button class="action-button in-progress-button" data-id="${item.id}" data-current-status="${item.status}">
-                                ${item.status === 'in-progress' ? 'Weka Mpya' : 'Weka Inaendelea'}
-                            </button>`
-                        : ''}
-                        <button class="action-button gemini-button" data-id="${item.id}" data-feedback-text="${item.message}">
-                            ✨ Fupisha Maoni
-                            <span class="spinner"></span>
-                        </button>
-                    </div>
-                    <div class="summary-output"></div>
-                `;
-                feedbackListDiv.appendChild(feedbackItemDiv);
-            });
-
-            // Attach event listeners for all buttons
-            document.querySelectorAll('.resolve-button').forEach(button => {
-                button.addEventListener('click', async (event) => {
-                    const feedbackId = event.target.dataset.id;
-                    const currentStatus = event.target.dataset.currentStatus;
-                    const newStatus = currentStatus === 'resolved' ? 'new' : 'resolved';
-                    await updateFeedbackStatus(feedbackId, newStatus);
-                });
-            });
-
-            document.querySelectorAll('.in-progress-button').forEach(button => {
-                button.addEventListener('click', async (event) => {
-                    const feedbackId = event.target.dataset.id;
-                    const currentStatus = event.target.dataset.currentStatus;
-                    const newStatus = currentStatus === 'in-progress' ? 'new' : 'in-progress';
-                    await updateFeedbackStatus(feedbackId, newStatus);
-                });
-            });
-
-            document.querySelectorAll('.check-button').forEach(button => {
-                button.addEventListener('click', async (event) => {
-                    const feedbackId = event.target.dataset.id;
-                    await markFeedbackAsChecked(feedbackId);
-                });
-            });
-
-            document.querySelectorAll('.gemini-button').forEach(button => {
-                button.addEventListener('click', async (event) => {
-                    const feedbackText = button.dataset.feedbackText; // Use button.dataset for data attributes
-                    await summarizeFeedback(feedbackText, button); // Pass the button element
-                });
-            });
-        }
-
         async function fetchAndRenderFeedback() {
             const statusFilterElement = document.getElementById('filterStatus');
             const typeFilterElement = document.getElementById('filterType');
             const anonymousFilterElement = document.getElementById('filterAnonymous');
             const searchElement = document.getElementById('search');
 
-            // Check if dashboard elements exist before trying to access their values
             if (!statusFilterElement || !typeFilterElement || !anonymousFilterElement || !searchElement) {
                 console.warn("Dashboard filter/search elements not found. Skipping feedback fetch.");
-                return; // Exit if dashboard elements are not present (i.e., not on dashboard page)
+                return;
             }
 
             const statusFilter = statusFilterElement.value;
@@ -1578,6 +3159,36 @@
                 query = query.eq('is_anonymous', false);
             }
 
+            // Add filter by institution_id for admin dashboard
+            const user = (await supabase.auth.getUser()).data.user;
+            if (user) {
+                const { data: adminInstitution, error: adminInstitutionError } = await supabase
+                    .from('institutions')
+                    .select('id')
+                    .eq('admin_user_id', user.id)
+                    .single();
+
+                if (adminInstitutionError) {
+                    console.error('Error fetching admin institution:', adminInstitutionError);
+                    alert(translations[currentLanguage]['admin_institution_error'] || 'Kuna hitilafu kupata taasisi ya msimamizi.');
+                    return;
+                }
+                if (adminInstitution) {
+                    query = query.eq('institution_id', adminInstitution.id);
+                } else {
+                    console.warn("Admin user not linked to any institution.");
+                    renderFeedback([]); // Show no feedback if admin is not linked to an institution
+                    updateStats([]);
+                    return;
+                }
+            } else {
+                console.warn("User not authenticated. Cannot fetch admin dashboard feedback.");
+                renderFeedback([]); // Show no feedback if not authenticated
+                updateStats([]);
+                return;
+            }
+
+
             query = query.order('status', { ascending: true, nullsFirst: false });
             query = query.order('viewed_at', { ascending: true, nullsFirst: true }); 
             query = query.order('created_at', { ascending: false }); 
@@ -1586,7 +3197,7 @@
 
             if (error) {
                 console.error('Error fetching feedback:', error);
-                alert('Failed to load feedback. Please try again. (Error: ' + error.message + ')');
+                alert(translations[currentLanguage]['feedback_load_error'] || 'Failed to load feedback. Please try again. (Error: ' + error.message + ')');
                 return;
             }
 
@@ -1601,6 +3212,72 @@
             updateStats(data);
         }
 
+        function renderFeedback(feedbackItems) {
+            const feedbackListDiv = document.getElementById('feedbackList');
+            if (!feedbackListDiv) {
+                console.error("Feedback list div not found.");
+                return;
+            }
+
+            feedbackListDiv.innerHTML = ''; // Clear previous feedback items
+
+            if (feedbackItems.length === 0) {
+                feedbackListDiv.innerHTML = `<p style="text-align: center; color: #6c757d; margin-top: 50px;">${translations[currentLanguage]['no_matching_feedback'] || 'Hakuna maoni yanayolingana na vigezo vilivyochaguliwa.'}</p>`;
+                return;
+            }
+
+            feedbackItems.forEach(item => {
+                const feedbackItemDiv = document.createElement('div');
+                feedbackItemDiv.className = 'feedback-item';
+                feedbackItemDiv.setAttribute('data-id', item.id); // Add data-id for easy access
+
+                const reportedBy = item.is_anonymous ? (translations[currentLanguage]['anonymous_student'] || 'Mwanafunzi (Bila Jina)') : (item.student_name || (translations[currentLanguage]['unspecified'] || 'Hajatajwa'));
+                const feedbackDate = new Date(item.created_at).toLocaleDateString(currentLanguage);
+                const feedbackTime = new Date(item.created_at).toLocaleTimeString(currentLanguage, { hour: '2-digit', minute: '2-digit' });
+
+                const viewedAtText = item.viewed_at 
+                    ? `${translations[currentLanguage]['viewed_at_display'] || 'Imetazamwa'} ${new Date(item.viewed_at).toLocaleDateString(currentLanguage)} ${new Date(item.viewed_at).toLocaleTimeString(currentLanguage, { hour: '2-digit', minute: '2-digit' })}`
+                    : (translations[currentLanguage]['not_viewed_display'] || 'Haijatazamwa');
+
+                feedbackItemDiv.innerHTML = `
+                    <h4>
+                        <span>${item.type}</span>
+                        <span class="status-badge ${getStatusBadgeClass(item.status)}">${translations[currentLanguage][`status_${item.status}`] || item.status}</span>
+                    </h4>
+                    <p>${item.message}</p>
+                    <div class="feedback-meta">
+                        <span>${translations[currentLanguage]['reported_by'] || 'Na'}: ${reportedBy}</span>
+                        <span>${translations[currentLanguage]['date'] || 'Tarehe'}: ${feedbackDate} ${feedbackTime}</span>
+                        <span>${translations[currentLanguage]['priority_label'] || 'Kipaumbele'}: <span class="${getPriorityClass(item.priority)}">${translations[currentLanguage][`priority_${item.priority}`] || item.priority}</span></span>
+                        <span>${viewedAtText}</span>
+                    </div>
+                    <div class="feedback-actions">
+                        <button class="action-button gemini-button" onclick="summarizeFeedback('${item.message.replace(/'/g, "\\'")}', this)">
+                            ${translations[currentLanguage]['summarize_button'] || 'Fupisha Maoni'}
+                        </button>
+                        <button class="action-button check-button" 
+                                onclick="markFeedbackAsChecked('${item.id}')" 
+                                ${item.viewed_at ? 'disabled data-checked="true"' : ''}>
+                            ${item.viewed_at ? (translations[currentLanguage]['viewed_button'] || 'Imetazamwa') : (translations[currentLanguage]['mark_viewed_button'] || 'Weka Imetazamwa')}
+                        </button>
+                        <button class="action-button in-progress-button" 
+                                onclick="updateFeedbackStatus('${item.id}', 'in-progress')" 
+                                ${item.status === 'in-progress' ? 'disabled' : ''}>
+                            ${translations[currentLanguage]['mark_in_progress_button'] || 'Weka Inaendelea'}
+                        </button>
+                        <button class="action-button resolve-button" 
+                                data-current-status="${item.status}"
+                                onclick="updateFeedbackStatus('${item.id}', '${item.status === 'resolved' ? 'new' : 'resolved'}')">
+                            ${item.status === 'resolved' ? (translations[currentLanguage]['reopen_button'] || 'Fungua Tena') : (translations[currentLanguage]['resolve_button'] || 'Suluhisha')}
+                        </button>
+                    </div>
+                    <div class="summary-output"></div>
+                `;
+                feedbackListDiv.appendChild(feedbackItemDiv);
+            });
+        }
+
+
         function updateStats(allFeedback) {
             const totalFeedbackElement = document.getElementById('totalFeedback');
             const newFeedbackElement = document.getElementById('newFeedback');
@@ -1611,22 +3288,49 @@
             if (resolvedFeedbackElement) resolvedFeedbackElement.innerText = allFeedback.filter(item => item.status === 'resolved').length;
         }
 
-        // Event listeners for dashboard filters and search (only if elements exist)
-        document.addEventListener('DOMContentLoaded', () => {
-            const filterStatus = document.getElementById('filterStatus');
-            const filterType = document.getElementById('filterType');
-            const filterAnonymous = document.getElementById('filterAnonymous');
-            const search = document.getElementById('search');
+        // Logout button functionality for admin dashboard
+        async function handleAdminLogout() {
+            const { error } = await supabase.auth.signOut();
+            if (error) {
+                console.error('Error logging out:', error.message);
+                alert(translations[currentLanguage]['logout_error'] || 'Kuna hitilafu wakati wa kutoka. Tafadhali jaribu tena.');
+            } else {
+                console.log('Admin logged out successfully.');
+                navigateTo('admin_login_page');
+            }
+        }
 
-            if (filterStatus) filterStatus.addEventListener('change', fetchAndRenderFeedback);
-            if (filterType) filterType.addEventListener('change', fetchAndRenderFeedback);
-            if (filterAnonymous) filterAnonymous.addEventListener('change', fetchAndRenderFeedback);
-            if (search) search.addEventListener('keyup', fetchAndRenderFeedback);
+        // --- Language Selection Logic ---
+        // Event listener for radio button changes
+        document.querySelectorAll('input[name="language"]').forEach(radio => {
+            radio.addEventListener('change', (event) => {
+                const selectedLang = event.target.value;
+                applyLanguage(selectedLang); 
+            });
         });
-        
-        // Initial page load: default to welcome_page
+
+        // Event listener for the proceed button on the language selection page
+        const proceedButton = document.getElementById('proceedButton');
+        if (proceedButton) {
+            proceedButton.addEventListener('click', () => {
+                const selectedLang = document.querySelector('input[name="language"]:checked').value;
+                applyLanguage(selectedLang); // Apply and save the language
+                navigateTo('main_landing_page'); // Navigate to the new main landing page
+            });
+        }
+
+        // Initial page load logic - Always navigate to intro page first
         document.addEventListener('DOMContentLoaded', () => {
-            navigateTo('welcome_page'); // Start with the welcome page
+            const storedLanguage = localStorage.getItem('selectedLanguage') || 'sw'; 
+            applyLanguage(storedLanguage); 
+            const radioToSelect = document.getElementById(`lang_${storedLanguage}`);
+            if (radioToSelect) {
+                radioToSelect.checked = true;
+            }
+            navigateTo('intro_page'); // Start with the intro page
+            setTimeout(() => {
+                navigateTo('language_selection_page'); // Then navigate to language selection after a delay
+            }, 7000); // 7 seconds delay for intro page
         });
     </script>
 </body>
