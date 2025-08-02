@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        var path = window.location.pathname;
+        // Hii ni muhimu kwa GitHub Pages project pages
+        var repoName = '/SANDUKU-DIT'; // <-- HAKIKISHA HILI LINALINGANA NA JINA LA REPOSITORY YAKO
+        
+        var newPath = repoName + '/index.html' + window.location.search + window.location.hash;
+        
+        window.location.replace(newPath);
+    </script>
+</head>
+<body>
+    <p>If you are not redirected automatically, follow this <a href="/">link to the main page</a>.</p>
+</body>
+</html>
