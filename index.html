@@ -2870,31 +2870,61 @@
             const confirmationSection = document.getElementById('confirmationSection');
             const confirmationTitle = document.getElementById('confirmationTitle');
             const proceedToFeedbackButton = document.getElementById('proceedToFeedbackButton');
+// Function ya kupakia taasisi kutoka Supabase na kuzionyesha kwenye dropdown
+async function loadInstitutions() {
+    console.log('Inapakia taasisi...');
+    const selectElement = document.getElementById('institutionSelect'); // Hakikisha ID ni sahihi
 
-            async function loadInstitutions() {
-                if (!supabase) {
-                    console.error("Supabase client not initialized. Cannot load institutions.");
-                    return;
-                }
-                const { data, error } = await supabase
-                    .from('institutions')
-                    .select('id, name');
+    // Weka chaguo la kupakia wakati data inapakia
+    selectElement.innerHTML = `<option value="">${translations[currentLanguage]['select_institution_placeholder'] || '-- Inapakia Taasisi --'}</option>`;
 
-                if (error) {
-                    console.error('Error loading institutions:', error);
-                    return;
-                }
+    if (!supabase) {
+        console.error("Supabase client not initialized. Cannot load institutions.");
+        selectElement.innerHTML = `<option value="">${translations[currentLanguage]['supabase_not_init'] || '-- Supabase haijasanidiwa --'}</option>`;
+        return;
+    }
 
-                if (institutionSelect) {
-                    institutionSelect.innerHTML = `<option value="">${translations[currentLanguage]['select_institution_default'] || '-- Chagua Taasisi --'}</option>`;
-                    data.forEach(institution => {
-                        const option = document.createElement('option');
-                        option.value = institution.id; // Store institution ID
-                        option.textContent = institution.name;
-                        institutionSelect.appendChild(option);
-                    });
-                }
-            }
+    const { data: institutions, error } = await supabase
+        .from('institutions') // Hakikisha jina la table ni 'institutions'
+        .select('id, name'); // Hakikisha 'id' na 'name' ni columns sahihi
+
+    // Ondoa option ya "Pakia Taasisi..."
+    selectElement.innerHTML = '';
+
+    if (error) {
+        console.error('Kuna hitilafu wakati wa kupakia taasisi:', error.message);
+        const errorOption = document.createElement('option');
+        errorOption.value = '';
+        errorOption.textContent = translations[currentLanguage]['institution_load_error'] || 'Kuna hitilafu kupakia taasisi';
+        selectElement.appendChild(errorOption);
+    } else {
+        console.log('Taasisi zimepakia:', institutions);
+        // Ongeza option mpya "Chagua Taasisi"
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = translations[currentLanguage]['select_institution_default'] || '-- Chagua Taasisi --';
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        selectElement.appendChild(defaultOption);
+
+        // Ongeza kila taasisi kwenye dropdown
+        if (institutions && institutions.length > 0) {
+            institutions.forEach(institution => {
+                const option = document.createElement('option');
+                option.value = institution.id; // Thamani ya option ni ID ya taasisi
+                option.textContent = institution.name; // Maandishi yanayoonekana ni jina la taasisi
+                selectElement.appendChild(option);
+            });
+        } else {
+            const noInstitutionsOption = document.createElement('option');
+            noInstitutionsOption.value = '';
+            noInstitutionsOption.textContent = translations[currentLanguage]['no_institutions_found'] || '-- Hakuna Taasisi Zilizopatikana --';
+            noInstitutionsOption.disabled = true;
+            selectElement.appendChild(noInstitutionsOption);
+        }
+    }
+}
+
 
             if (selectInstitutionButton) {
                 selectInstitutionButton.addEventListener('click', () => {
@@ -3335,3 +3365,4 @@
     </script>
 </body>
 </html>
+
