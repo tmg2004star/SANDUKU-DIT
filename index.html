@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-lang-key="app_title">Sanduku La Maoni - TMG DIGTECH</title>
+    <title data-lang-key="app_title">SUGGESTO</title>
     <!-- Importing Google Fonts for a modern look -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <!-- Supabase CDN -->
@@ -102,16 +102,18 @@
         }
 
         .back-link {
+            font-weight: bold;
             display: block;
             margin-top: 25px;
-            font-size: 0.9em;
-            color: #ffffff; /* White color for back links */
+            font-size: 30px;
+            color: #000000; /* White color for back links */
             text-decoration: none;
             transition: color 0.3s ease;
+            
         }
 
         .back-link:hover {
-            color: #e0e0e0;
+            color: #795353;
             text-decoration: underline;
         }
 
@@ -1062,71 +1064,6 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
-        /* --- OTP Verification Page Specific Styles --- */
-        #otp_verification_page .otp-container {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            color: #333;
-        }
-
-        #otp_verification_page h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-
-        #otp_verification_page p {
-            color: #555;
-            margin-bottom: 25px;
-            font-size: 1em;
-        }
-
-        #otp_verification_page .form-group {
-            margin-bottom: 20px;
-        }
-
-        #otp_verification_page input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            box-sizing: border-box;
-            font-size: 1.2em;
-            text-align: center;
-            letter-spacing: 5px; /* Space out the OTP digits */
-            color: #333;
-            background-color: #ecf0f1;
-        }
-
-        #otp_verification_page input[type="text"]:focus {
-            border-color: #007bff;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
-        }
-
-        #otp_verification_page .action-button {
-            width: 100%;
-            margin-top: 15px;
-            padding: 12px 25px;
-            font-size: 1.1em;
-        }
-
-        #otp_verification_page .resend-button {
-            background-color: #6c757d; /* Grey for resend */
-            margin-top: 10px;
-        }
-
-        #otp_verification_page .resend-button:hover {
-            background-color: #5a6268;
-        }
-
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .page-container {
@@ -1175,14 +1112,13 @@
             #tmg_digtech_info_page .info-container,
             #institution_registration_page .registration-form,
             #institution_selection_page .selection-form,
-            #institution_selection_page .confirmation-section,
-            #otp_verification_page .otp-container {
+            #institution_selection_page .confirmation-section {
                 padding: 30px;
             }
-            #feedback_form_page h2, #admin_login_page h2, #institution_registration_page h2, #institution_selection_page h2, #otp_verification_page h2 {
+            #feedback_form_page h2, #admin_login_page h2, #institution_registration_page h2, #institution_selection_page h2 {
                 font-size: 1.8em;
             }
-            #feedback_form_page button, #admin_login_page button, #institution_registration_page .submit-button, #institution_selection_page .action-button, #institution_selection_page .confirmation-button, #otp_verification_page .action-button {
+            #feedback_form_page button, #admin_login_page button, #institution_registration_page .submit-button, #institution_selection_page .action-button, #institution_selection_page .confirmation-button {
                 padding: 12px 20px;
                 font-size: 1em;
             }
@@ -1228,7 +1164,7 @@
 
         <!-- Intro Page -->
         <div id="intro_page" class="page-container active">
-            <h1>SUGGESTION BOX</h1>
+            <h1>SUGGESTO</h1>
             <p class="from-text">from</p>
             <p class="company-name">TMG DIGTECH</p>
         </div>
@@ -1374,7 +1310,7 @@
                         </div>
                         <div class="form-group">
                             <label for="feedbackText" data-lang-key="feedback_text_label">Maoni Yako:</label>
-                            <textarea id="feedbackText" name="feedbackText" placeholder="Andika maoni yako hapa..." required data-lang-key="feedback_text_placeholder"></textarea>
+                            <textarea id="feedbackText" name="feedbackText" placeholder="Andika maoni yako hapa..." ></textarea>
                         </div>
                         <div class="form-group">
                             <label for="priority" data-lang-key="priority_label">Kipaumbele:</label>
@@ -1419,26 +1355,10 @@
             </div>
         </div>
 
-        <!-- OTP Verification Page -->
-        <div id="otp_verification_page" class="page-container">
-            <div class="otp-container">
-                <h2 data-lang-key="otp_verification_title">Thibitisha Barua Pepe Yako</h2>
-                <p data-lang-key="otp_verification_instruction">Tumetuma msimbo wa nambari 6 kwa barua pepe yako. Tafadhali ingiza hapa chini ili kuthibitisha akaunti yako.</p>
-                <div class="form-group">
-                    <label for="otpCode" data-lang-key="otp_code_label">Msimbo wa OTP:</label>
-                    <input type="text" id="otpCode" name="otpCode" placeholder="Ingiza msimbo wa nambari 6" maxlength="6" required data-lang-key="otp_code_placeholder">
-                </div>
-                <p class="error-message" id="otpErrorMessage" data-lang-key="otp_error_message" style="display: none;"></p>
-                <button id="verifyOtpButton" class="action-button" data-lang-key="verify_otp_button">Thibitisha Msimbo</button>
-                <button id="resendOtpButton" class="action-button resend-button" data-lang-key="resend_otp_button">Tuma Msimbo Tena</button>
-                <a href="#" onclick="navigateTo('institution_registration_page'); return false;" class="back-link" data-lang-key="back_to_institution_registration">Rudi Kwenye Usajili wa Taasisi</a>
-            </div>
-        </div>
-
         <!-- Admin Dashboard Page Content -->
         <div id="admin_dashboard_page" class="page-container">
             <header>
-                <h1 data-lang-key="admin_dashboard_header">Dashibodi ya Maoni ya Wanafunzi</h1>
+                <h1 id="dashboardTitle"></h1> <!-- Changed to dynamic title -->
                 <button class="logout-button" onclick="handleAdminLogout(); return false;" data-lang-key="admin_logout_button">Ondoka</button>
             </header>
             <main>
@@ -1452,8 +1372,7 @@
                         <p id="newFeedback">0</p>
                     </div>
                     <div class="stat-card">
-                        <h3 data-lang-key="resolved_feedback_stats">Maoni Yaliyosuluhishwa</h3>
-                        <p id="resolvedFeedback">0</p>
+                       
                     </div>
                 </div>
                 <div class="filters-search">
@@ -1521,8 +1440,7 @@
         var supabase; 
         var selectedInstitutionId = null; 
         var selectedInstitutionName = ''; 
-        var emailForVerification = ''; // Global variable to store email for OTP verification
-
+        
         // Language Dictionary
         const translations = {
             "sw": {
@@ -1530,13 +1448,13 @@
                 "choose_language_title": "Chagua Lugha",
                 "choose_language_instruction": "Tafadhali chagua lugha unayopendelea kwa tovuti nzima:",
                 "kiswahili": "Kiswahili",
-                "english": "Kingereza",
-                "french": "Kifaransa",
-                "german": "Kijerumani",
-                "arabic": "Kiarabu",
-                "chinese": "Kichina",
-                "portuguese": "Kireno",
-                "russian": "Kirusi",
+                "english": "English",
+                "french": "France",
+                "german": "German",
+                "arabic": "Arabic",
+                "chinese": "Chinese",
+                "portuguese": "Portoguese",
+                "russian": "Russian",
                 "continue_button": "Endelea",
                 "back_button": "Rudi Nyuma",
                 "main_page_title": "SANDUKU LA MAONI",
@@ -1632,19 +1550,23 @@
                 "supabase_not_init": "Hitilafu: Supabase haijasanidiwa ipasavyo. Tafadhali hakikisha URL na funguo zako za Supabase zimebadilishwa.",
                 "user_already_exists": "Mtumiaji mwenye barua pepe hii tayari amesajiliwa.",
                 "password_too_short": "Nenosiri linapaswa kuwa na angalau herufi 6.",
-                "otp_verification_title": "Thibitisha Barua Pepe Yako",
-                "otp_verification_instruction": "Tumetuma msimbo wa nambari 6 kwa barua pepe yako. Tafadhali ingiza hapa chini ili kuthibitisha akaunti yako.",
-                "otp_code_label": "Msimbo wa OTP:",
-                "otp_code_placeholder": "Ingiza msimbo wa nambari 6",
-                "verify_otp_button": "Thibitisha Msimbo",
-                "resend_otp_button": "Tuma Msimbo Tena",
-                "back_to_institution_registration": "Rudi Kwenye Usajili wa Taasisi",
-                "otp_success": "Barua pepe imethibitishwa kwa mafanikio! Sasa unaweza kuingia.",
-                "otp_error": "Msimbo wa OTP si sahihi au umeisha muda wake. Tafadhali jaribu tena.",
-                "resend_otp_success": "Msimbo mpya wa OTP umetuma kwa barua pepe yako.",
-                "resend_otp_error": "Kuna hitilafu wakati wa kutuma msimbo tena. Tafadhali jaribu tena.",
-                "email_required_for_otp": "Barua pepe inahitajika kutuma au kuthibitisha OTP.",
-                "otp_code_required": "Tafadhali ingiza msimbo wa OTP."
+                "unexpected_error": "Kuna hitilafu isiyotarajiwa. Tafadhali jaribu tena.",
+                "network_api_error": "Hitilafu ya mtandao au API. Tafadhali jaribu tena.",
+                "summarizing_text": "Inafupisha...",
+                "summarize_error": "Imeshindwa kufupisha maoni. Jaribu tena.",
+                "status_update_error": "Imeshindwa kusasisha hali. Tafadhali jaribu tena.",
+                "mark_viewed_error": "Imeshindwa kuweka maoni kama yametazamwa. Tafadhali jaribu tena.",
+                "admin_institution_error": "Kuna hitilafu kupata taasisi ya msimamizi.",
+                "feedback_load_error": "Imeshindwa kupakia maoni. Tafadhali jaribu tena.",
+                "status_new": "Mpya",
+                "status_in-progress": "Inaendelea",
+                "status_resolved": "Imesuluhishwa",
+                "status_viewed": "Imetazamwa",
+                "feedback_box_for": "Sanduku la Maoni la",
+                "fill_feedback_fields": "Tafadhali jaza aina ya maoni na maoni yako.",
+                "no_institution_selected": "Tafadhali chagua taasisi kwanza kabla ya kutuma maoni.",
+                "feedback_submit_error": "Imeshindwa kutuma maoni. Tafadhali jaribu tena.",
+                "logout_error": "Kuna hitilafu wakati wa kutoka. Tafadhali jaribu tena."
             },
             "en": {
                 "app_title": "Feedback Box - TMG DIGTECH",
@@ -1753,19 +1675,23 @@
                 "supabase_not_init": "Error: Supabase is not initialized correctly. Please ensure your Supabase URL and keys are replaced.",
                 "user_already_exists": "User with this email is already registered.",
                 "password_too_short": "Password should be at least 6 characters.",
-                "otp_verification_title": "Verify Your Email",
-                "otp_verification_instruction": "We have sent a 6-digit code to your email. Please enter it below to verify your account.",
-                "otp_code_label": "OTP Code:",
-                "otp_code_placeholder": "Enter 6-digit code",
-                "verify_otp_button": "Verify Code",
-                "resend_otp_button": "Resend Code",
-                "back_to_institution_registration": "Back to Institution Registration",
-                "otp_success": "Email verified successfully! You can now log in.",
-                "otp_error": "Invalid or expired OTP code. Please try again.",
-                "resend_otp_success": "New OTP code sent to your email.",
-                "resend_otp_error": "Error resending OTP code. Please try again.",
-                "email_required_for_otp": "Email is required to send or verify OTP.",
-                "otp_code_required": "Please enter the OTP code."
+                "unexpected_error": "Unexpected error. Please try again.",
+                "network_api_error": "Network or API error. Please try again.",
+                "summarizing_text": "Summarizing...",
+                "summarize_error": "Failed to summarize feedback. Try again.",
+                "status_update_error": "Failed to update status. Please try again.",
+                "mark_viewed_error": "Failed to mark feedback as viewed. Please try again.",
+                "admin_institution_error": "Error fetching admin institution.",
+                "feedback_load_error": "Failed to load feedback. Please try again.",
+                "status_new": "New",
+                "status_in-progress": "In Progress",
+                "status_resolved": "Resolved",
+                "status_viewed": "Viewed",
+                "feedback_box_for": "Feedback Box for",
+                "fill_feedback_fields": "Please fill in the feedback type and your feedback.",
+                "no_institution_selected": "Please select an institution first before submitting feedback.",
+                "feedback_submit_error": "Failed to submit feedback. Please try again.",
+                "logout_error": "Error logging out. Please try again."
             },
             "fr": {
                 "app_title": "Boîte à Suggestions - TMG DIGTECH",
@@ -1874,19 +1800,23 @@
                 "supabase_not_init": "Erreur : Supabase n'est pas initialisé correctement. Veuillez vous assurer que votre URL et vos clés Supabase sont remplacées.",
                 "user_already_exists": "Un utilisateur avec cet e-mail est déjà enregistré.",
                 "password_too_short": "Le mot de passe doit contenir au moins 6 caractères.",
-                "otp_verification_title": "Vérifiez votre e-mail",
-                "otp_verification_instruction": "Nous avons envoyé un code à 6 chiffres à votre e-mail. Veuillez le saisir ci-dessous pour vérifier votre compte.",
-                "otp_code_label": "Code OTP :",
-                "otp_code_placeholder": "Saisir le code à 6 chiffres",
-                "verify_otp_button": "Vérifier le code",
-                "resend_otp_button": "Renvoyer le code",
-                "back_to_institution_registration": "Retour à l'enregistrement de l'institution",
-                "otp_success": "E-mail vérifié avec succès ! Vous pouvez maintenant vous connecter.",
-                "otp_error": "Code OTP invalide ou expiré. Veuillez réessayer.",
-                "resend_otp_success": "Nouveau code OTP envoyé à votre e-mail.",
-                "resend_otp_error": "Erreur lors du renvoi du code OTP. Veuillez réessayer.",
-                "email_required_for_otp": "L'e-mail est requis pour envoyer ou vérifier l'OTP.",
-                "otp_code_required": "Veuillez saisir le code OTP."
+                "unexpected_error": "Erreur inattendue. Veuillez réessayer.",
+                "network_api_error": "Erreur réseau ou API. Veuillez réessayer.",
+                "summarizing_text": "Résumé...",
+                "summarize_error": "Échec de la synthèse des commentaires. Réessayez.",
+                "status_update_error": "Échec de la mise à jour du statut. Veuillez réessayer.",
+                "mark_viewed_error": "Échec du marquage des commentaires comme vus. Veuillez réessayer.",
+                "admin_institution_error": "Erreur lors de la récupération de l'institution de l'administrateur.",
+                "feedback_load_error": "Échec du chargement des commentaires. Veuillez réessayer.",
+                "status_new": "Nouveau",
+                "status_in-progress": "En cours",
+                "status_resolved": "Résolu",
+                "status_viewed": "Vu",
+                "feedback_box_for": "Boîte à commentaires pour",
+                "fill_feedback_fields": "Veuillez remplir le type de commentaire et vos commentaires.",
+                "no_institution_selected": "Veuillez d'abord sélectionner une institution avant de soumettre des commentaires.",
+                "feedback_submit_error": "Échec de la soumission des commentaires. Veuillez réessayer.",
+                "logout_error": "Erreur de déconnexion. Veuillez réessayer."
             },
             "de": {
                 "app_title": "Vorschlagsbox - TMG DIGTECH",
@@ -1971,9 +1901,9 @@
                 "loading_feedback_message": "Feedback wird geladen...",
                 "footer_text": "Chuo Huru. Alle Rechte vorbehalten.",
                 "about_tmg_title": "Über TMG DigTech",
-                "about_tmg_text_1": "Die DIT Vorschlagsbox wurde von TMG DigTech entwickelt, einem innovativen Digitalunternehmen, das sich auf die Lösung von Studenten- und Institutionsherausforderungen mit einfacher und effektiver Technologie konzentriert.",
+                "about_tmg_text_1": "Die DIT Vorschlagsbox wurde von TMG DigTech entwickelt, einem innovativen Digitalunternehmen, das sich auf die Lösung von Studenten- und Institutionsherausforderungen mit einfacher und effektiver Technologie.",
                 "about_tmg_text_2": "Der Administrator und Entwickler dieser Website ist Trust Erastus, Gründer von TMG DigTech und Student am DIT, Campus Mwanza.",
-                "about_tmg_text_3": "Wir sind stolz darauf, diese Lösung anzubieten, damit Studenten, Lehrer und die Leitung eine einfache und vertrauliche Möglichkeit haben, Feedback, Vorschläge und konstruktive Argumente zur Entwicklung unserer Hochschule zu geben.",
+                "about_tmg_text_3": "Wir sind stolz darauf, diese Lösung anzubieten, damit Studenten, преподаватели und die Leitung eine einfache und vertrauliche Möglichkeit haben, Feedback, Vorschläge und konstruktive Argumente zur Entwicklung unserer Hochschule zu geben.",
                 "contact_title": "Kontakt:",
                 "tmg_slogan": "TMG DigTech - Ihre Träume, Unsere Innovation",
                 "no_matching_feedback": "Kein Feedback, das den ausgewählten Kriterien entspricht.",
@@ -1995,19 +1925,23 @@
                 "supabase_not_init": "Fehler: Supabase wurde nicht korrekt initialisiert. Bitte stellen Sie sicher, dass Ihre Supabase URL und Schlüssel ersetzt wurden.",
                 "user_already_exists": "Benutzer mit dieser E-Mail ist bereits registriert.",
                 "password_too_short": "Das Passwort sollte mindestens 6 Zeichen lang sein.",
-                "otp_verification_title": "E-Mail bestätigen",
-                "otp_verification_instruction": "Wir haben einen 6-stelligen Code an Ihre E-Mail gesendet. Bitte geben Sie ihn unten ein, um Ihr Konto zu bestätigen.",
-                "otp_code_label": "OTP-Code:",
-                "otp_code_placeholder": "6-stelligen Code eingeben",
-                "verify_otp_button": "Code bestätigen",
-                "resend_otp_button": "Code erneut senden",
-                "back_to_institution_registration": "Zurück zur Institutionsregistrierung",
-                "otp_success": "E-Mail erfolgreich bestätigt! Sie können sich jetzt anmelden.",
-                "otp_error": "Ungültiger oder abgelaufener OTP-Code. Bitte versuchen Sie es erneut.",
-                "resend_otp_success": "Neuer OTP-Code an Ihre E-Mail gesendet.",
-                "resend_otp_error": "Fehler beim erneuten Senden des OTP-Codes. Bitte versuchen Sie es erneut.",
-                "email_required_for_otp": "E-Mail ist zum Senden oder Bestätigen von OTP erforderlich.",
-                "otp_code_required": "Bitte geben Sie den OTP-Code ein."
+                "unexpected_error": "Unerwarteter Fehler. Bitte versuchen Sie es erneut.",
+                "network_api_error": "Netzwerk- oder API-Fehler. Bitte versuchen Sie es erneut.",
+                "summarizing_text": "Zusammenfassen...",
+                "summarize_error": "Fehler beim Zusammenfassen des Feedbacks. Versuchen Sie es erneut.",
+                "status_update_error": "Fehler beim Aktualisieren des Status. Bitte versuchen Sie es erneut.",
+                "mark_viewed_error": "Fehler beim Markieren des Feedbacks als angesehen. Bitte versuchen Sie es erneut.",
+                "admin_institution_error": "Fehler beim Abrufen der Admin-Institution.",
+                "feedback_load_error": "Fehler beim Laden des Feedbacks. Bitte versuchen Sie es erneut.",
+                "status_new": "Neu",
+                "status_in-progress": "In Bearbeitung",
+                "status_resolved": "Gelöst",
+                "status_viewed": "Angesehen",
+                "feedback_box_for": "Feedback-Box für",
+                "fill_feedback_fields": "Bitte geben Sie den Feedback-Typ und Ihr Feedback ein.",
+                "no_institution_selected": "Bitte wählen Sie zuerst eine Institution aus, bevor Sie Feedback einreichen.",
+                "feedback_submit_error": "Fehler beim Senden des Feedbacks. Bitte versuchen Sie es erneut.",
+                "logout_error": "Fehler beim Abmelden. Bitte versuchen Sie es erneut."
             },
             "ar": {
                 "app_title": "صندوق الاقتراحات - TMG DIGTECH",
@@ -2116,19 +2050,23 @@
                 "supabase_not_init": "خطأ: Supabase لم يتم تهيئته بشكل صحيح. يرجى التأكد من استبدال عنوان URL ومفاتيح Supabase.",
                 "user_already_exists": "المستخدم بهذا البريد الإلكتروني مسجل بالفعل.",
                 "password_too_short": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.",
-                "otp_verification_title": "التحقق من بريدك الإلكتروني",
-                "otp_verification_instruction": "لقد أرسلنا رمزًا مكونًا من 6 أرقام إلى بريدك الإلكتروني. يرجى إدخاله أدناه للتحقق من حسابك.",
-                "otp_code_label": "رمز OTP:",
-                "otp_code_placeholder": "أدخل الرمز المكون من 6 أرقام",
-                "verify_otp_button": "التحقق من الرمز",
-                "resend_otp_button": "إعادة إرسال الرمز",
-                "back_to_institution_registration": "العودة إلى تسجيل المؤسسة",
-                "otp_success": "تم التحقق من البريد الإلكتروني بنجاح! يمكنك الآن تسجيل الدخول.",
-                "otp_error": "رمز OTP غير صالح أو منتهي الصلاحية. يرجى المحاولة مرة أخرى.",
-                "resend_otp_success": "تم إرسال رمز OTP جديد إلى بريدك الإلكتروني.",
-                "resend_otp_error": "حدث خطأ أثناء إعادة إرسال رمز OTP. يرجى المحاولة مرة أخرى.",
-                "email_required_for_otp": "البريد الإلكتروني مطلوب لإرسال أو التحقق من OTP.",
-                "otp_code_required": "الرجاء إدخال رمز OTP."
+                "unexpected_error": "حدث خطأ غير متوقع. الرجاء المحاولة مرة أخرى.",
+                "network_api_error": "خطأ في الشبكة أو واجهة برمجة التطبيقات. الرجاء المحاولة مرة أخرى.",
+                "summarizing_text": "تلخيص...",
+                "summarize_error": "فشل في تلخيص الملاحظات. حاول مرة أخرى.",
+                "status_update_error": "فشل تحديث الحالة. الرجاء المحاولة مرة أخرى.",
+                "mark_viewed_error": "فشل وضع الملاحظات كتمت المشاهدة. الرجاء المحاولة مرة أخرى.",
+                "admin_institution_error": "خطأ في جلب مؤسسة المسؤول.",
+                "feedback_load_error": "فشل تحميل الملاحظات. الرجاء المحاولة مرة أخرى.",
+                "status_new": "جديد",
+                "status_in-progress": "قيد التقدم",
+                "status_resolved": "تم الحل",
+                "status_viewed": "تمت المشاهدة",
+                "feedback_box_for": "صندوق الملاحظات لـ",
+                "fill_feedback_fields": "الرجاء ملء نوع الملاحظات وملاحظاتك.",
+                "no_institution_selected": "الرجاء اختيار مؤسسة أولاً قبل إرسال الملاحظات.",
+                "feedback_submit_error": "فشل إرسال الملاحظات. الرجاء المحاولة مرة أخرى.",
+                "logout_error": "خطأ في تسجيل الخروج. الرجاء المحاولة مرة أخرى."
             },
             "zh": {
                 "app_title": "意见箱 - TMG DIGTECH",
@@ -2237,19 +2175,23 @@
                 "supabase_not_init": "错误：Supabase 未正确初始化。请确保您的 Supabase URL 和密钥已替换。",
                 "user_already_exists": "此电子邮件的用户已注册。",
                 "password_too_short": "密码应至少为6个字符。",
-                "otp_verification_title": "验证您的电子邮件",
-                "otp_verification_instruction": "我们已向您的电子邮件发送了一个 6 位代码。请在下方输入以验证您的帐户。",
-                "otp_code_label": "OTP 代码：",
-                "otp_code_placeholder": "输入 6 位代码",
-                "verify_otp_button": "验证代码",
-                "resend_otp_button": "重新发送代码",
-                "back_to_institution_registration": "返回机构注册",
-                "otp_success": "电子邮件验证成功！您现在可以登录。",
-                "otp_error": "OTP 代码无效或已过期。请重试。",
-                "resend_otp_success": "新的 OTP 代码已发送到您的电子邮件。",
-                "resend_otp_error": "重新发送 OTP 代码时出错。请重试。",
-                "email_required_for_otp": "发送或验证 OTP 需要电子邮件。",
-                "otp_code_required": "请输入 OTP 代码。"
+                "unexpected_error": "意外错误。请重试。",
+                "network_api_error": "网络或 API 错误。请重试。",
+                "summarizing_text": "正在总结...",
+                "summarize_error": "总结反馈失败。请重试。",
+                "status_update_error": "更新状态失败。请重试。",
+                "mark_viewed_error": "标记反馈为已查看失败。请重试。",
+                "admin_institution_error": "获取管理员机构时出错。",
+                "feedback_load_error": "加载反馈失败。请重试。",
+                "status_new": "新",
+                "status_in-progress": "进行中",
+                "status_resolved": "已解决",
+                "status_viewed": "已查看",
+                "feedback_box_for": "反馈箱",
+                "fill_feedback_fields": "请填写反馈类型和您的反馈。",
+                "no_institution_selected": "请先选择一个机构，然后提交反馈。",
+                "feedback_submit_error": "提交反馈失败。请重试。",
+                "logout_error": "注销失败。请重试。"
             },
             "pt": {
                 "app_title": "Caixa de Sugestões - TMG DIGTECH",
@@ -2309,7 +2251,7 @@
                 "priority_low": "Baixa",
                 "anonymous_label": "Enviar Anonimamente",
                 "student_name_label": "Seu Nome (Opcional):",
-                "student_placeholder": "Digite seu nome...",
+                "student_name_placeholder": "Digite seu nome...",
                 "submit_feedback_button": "Enviar Feedback",
                 "admin_login_title": "Login do Administrador",
                 "admin_password_label": "Senha:",
@@ -2358,19 +2300,23 @@
                 "supabase_not_init": "Erro: Supabase não está inicializado corretamente. Por favor, certifique-se de que sua URL e chaves Supabase foram substituídas.",
                 "user_already_exists": "Usuário com este e-mail já está registrado.",
                 "password_too_short": "A senha deve ter pelo menos 6 caracteres.",
-                "otp_verification_title": "Verifique seu e-mail",
-                "otp_verification_instruction": "Enviamos um código de 6 dígitos para o seu e-mail. Por favor, insira-o abaixo para verificar sua conta.",
-                "otp_code_label": "Código OTP:",
-                "otp_code_placeholder": "Digite o código de 6 dígitos",
-                "verify_otp_button": "Verificar Código",
-                "resend_otp_button": "Reenviar Código",
-                "back_to_institution_registration": "Voltar para o Registro da Instituição",
-                "otp_success": "E-mail verificado com sucesso! Agora você pode fazer login.",
-                "otp_error": "Código OTP inválido ou expirado. Por favor, tente novamente.",
-                "resend_otp_success": "Novo código OTP enviado para o seu e-mail.",
-                "resend_otp_error": "Erro ao reenviar o código OTP. Por favor, tente novamente.",
-                "email_required_for_otp": "O e-mail é necessário para enviar ou verificar o OTP.",
-                "otp_code_required": "Por favor, digite o código OTP."
+                "unexpected_error": "Erro inesperado. Por favor, tente novamente.",
+                "network_api_error": "Erro de rede ou API. Por favor, tente novamente.",
+                "summarizing_text": "Resumindo...",
+                "summarize_error": "Falha ao resumir o feedback. Tente novamente.",
+                "status_update_error": "Falha ao atualizar o status. Por favor, tente novamente.",
+                "mark_viewed_error": "Falha ao marcar o feedback como visualizado. Por favor, tente novamente.",
+                "admin_institution_error": "Erro ao buscar a instituição do administrador.",
+                "feedback_load_error": "Falha ao carregar o feedback. Por favor, tente novamente.",
+                "status_new": "Novo",
+                "status_in-progress": "Em Andamento",
+                "status_resolved": "Resolvido",
+                "status_viewed": "Visualizado",
+                "feedback_box_for": "Caixa de Feedback para",
+                "fill_feedback_fields": "Por favor, preencha o tipo de feedback e seu feedback.",
+                "no_institution_selected": "Por favor, selecione uma instituição primeiro antes de enviar o feedback.",
+                "feedback_submit_error": "Falha ao enviar o feedback. Por favor, tente novamente.",
+                "logout_error": "Erro ao fazer logout. Por favor, tente novamente."
             },
             "ru": {
                 "app_title": "Ящик для предложений - TMG DIGTECH",
@@ -2479,26 +2425,29 @@
                 "supabase_not_init": "Ошибка: Supabase не инициализирован. Пожалуйста, убедитесь, что ваш URL и ключи Supabase заменены.",
                 "user_already_exists": "Пользователь с этой электронной почтой уже зарегистрирован.",
                 "password_too_short": "Пароль должен быть не менее 6 символов.",
-                "otp_verification_title": "Подтвердите свою электронную почту",
-                "otp_verification_instruction": "Мы отправили 6-значный код на вашу электронную почту. Пожалуйста, введите его ниже, чтобы подтвердить свою учетную запись.",
-                "otp_code_label": "Код OTP:",
-                "otp_code_placeholder": "Введите 6-значный код",
-                "verify_otp_button": "Подтвердить код",
-                "resend_otp_button": "Отправить код повторно",
-                "back_to_institution_registration": "Вернуться к регистрации учреждения",
-                "otp_success": "Электронная почта успешно подтверждена! Теперь вы можете войти.",
-                "otp_error": "Неверный или просроченный код OTP. Пожалуйста, попробуйте еще раз.",
-                "resend_otp_success": "Новый код OTP отправлен на вашу электронную почту.",
-                "resend_otp_error": "Ошибка при повторной отправке кода OTP. Пожалуйста, попробуйте еще раз.",
-                "email_required_for_otp": "Электронная почта требуется для отправки или подтверждения OTP.",
-                "otp_code_required": "Пожалуйста, введите код OTP."
+                "unexpected_error": "Неожиданная ошибка. Пожалуйста, попробуйте еще раз.",
+                "network_api_error": "Ошибка сети или API. Пожалуйста, попробуйте еще раз.",
+                "summarizing_text": "Суммирование...",
+                "summarize_error": "Не удалось резюмировать отзыв. Повторите попытку.",
+                "status_update_error": "Не удалось обновить статус. Пожалуйста, попробуйте еще раз.",
+                "mark_viewed_error": "Не удалось отметить отзыв как просмотренный. Пожалуйста, попробуйте еще раз.",
+                "admin_institution_error": "Ошибка при получении учреждения администратора.",
+                "feedback_load_error": "Не удалось загрузить отзывы. Пожалуйста, попробуйте еще раз.",
+                "status_new": "Новый",
+                "status_in-progress": "В процессе",
+                "status_resolved": "Решено",
+                "status_viewed": "Просмотрено",
+                "feedback_box_for": "Ящик для отзывов для",
+                "fill_feedback_fields": "Пожалуйста, заполните тип отзыва и ваш отзыв.",
+                "no_institution_selected": "Пожалуйста, сначала выберите учреждение, прежде чем отправлять отзыв.",
+                "feedback_submit_error": "Не удалось отправить отзыв. Пожалуйста, попробуйте еще раз.",
+                "logout_error": "Ошибка при выходе из системы. Пожалуйста, попробуйте еще раз."
             }
         };
 
         var currentLanguage = localStorage.getItem('selectedLanguage') || 'sw'; // Default to Kiswahili
-        var selectedInstitutionId = null; // To store the ID of the selected institution
-        var selectedInstitutionName = ''; // To store the name of the selected institution
-        var emailForVerification = ''; // Global variable to store email for OTP verification
+        var selectedInstitutionId = null; 
+        var selectedInstitutionName = ''; 
 
         // Function to apply translations to elements with data-lang-key
         function applyLanguage(lang) {
@@ -2537,7 +2486,7 @@
                 proceedButton.textContent = translations[currentLanguage]['continue_button']; // Use currentLanguage here
             }
         }
-
+ 
         // --- Global Navigation Logic ---
         function navigateTo(pageId) {
             // Hide all page containers
@@ -2557,6 +2506,63 @@
 
             // Apply current language to the new page
             applyLanguage(currentLanguage);
+
+
+            async function loadInstitutions() {
+                if (!supabase) {
+                    console.error("Supabase client not initialized. Cannot load institutions.");
+                    return;
+                }
+                const { data, error } = await supabase
+                    .from('institutions')
+                    .select('id, name');
+
+                if (error) {
+                    console.error('Error loading institutions:', error);
+                    return;
+                }
+
+                if (institutionSelect) {
+                    // Clear existing options except the default one
+                    institutionSelect.innerHTML = `<option value="">${translations[currentLanguage]['select_institution_default'] || '-- Chagua Taasisi --'}</option>`;
+                    data.forEach(institution => {
+                        const option = document.createElement('option');
+                        option.value = institution.id; // Store institution ID
+                        option.textContent = institution.name;
+                        institutionSelect.appendChild(option);
+                    });
+                }
+            }
+
+            if (selectInstitutionButton) {
+                selectInstitutionButton.addEventListener('click', () => {
+                    const selectedOption = institutionSelect.options[institutionSelect.selectedIndex];
+                    if (!selectedOption || selectedOption.value === "") {
+                        alert(translations[currentLanguage]['select_institution_default'] || "Tafadhali chagua taasisi kwanza.");
+                        return;
+                    }
+                    selectedInstitutionId = selectedOption.value; // Store the ID
+                    selectedInstitutionName = selectedOption.textContent; // Store the name
+
+                    if (confirmationTitle) confirmationTitle.textContent = `${translations[currentLanguage]['feedback_box_for'] || 'Sanduku la Maoni la'} ${selectedInstitutionName}`;
+
+                    if (selectionSection) selectionSection.style.display = 'none';
+                    if (confirmationSection) confirmationSection.style.display = 'block';
+                });
+            }
+
+            if (proceedToFeedbackButton) {
+                proceedToFeedbackButton.addEventListener('click', () => {
+                    if (selectedInstitutionId) {
+                        navigateTo('feedback_form_page');
+                    } else {
+                        alert(translations[currentLanguage]['no_institution_selected'] || "Tafadhali chagua taasisi kwanza.");
+                    }
+                });
+            }
+
+
+
 
             // Perform specific initializations for pages that need it
             if (pageId === 'admin_dashboard_page') {
@@ -2603,13 +2609,10 @@
                 if (institutionRegistrationForm) {
                     institutionRegistrationForm.reset();
                 }
-            } else if (pageId === 'otp_verification_page') {
-                const otpCodeInput = document.getElementById('otpCode');
-                const otpErrorMessage = document.getElementById('otpErrorMessage');
-                if (otpCodeInput) otpCodeInput.value = '';
-                if (otpErrorMessage) otpErrorMessage.style.display = 'none';
             }
         }
+
+ 
 
         // --- All DOMContentLoaded related logic combined here ---
         document.addEventListener('DOMContentLoaded', () => {
@@ -2628,6 +2631,23 @@
                 console.error("Supabase Initialization Error: Hakikisha URL na funguo za Supabase ni sahihi.", e);
                 alert((translations[currentLanguage]['supabase_not_init'] || "Supabase Initialization Error: Hakikisha URL na funguo za Supabase ni sahihi.") + " (Hitilafu: " + e.message + ")");
             }
+    
+            // Example usage of fetchData
+document.addEventListener('DOMContentLoaded', async () => {
+    const feedbackData = await fetchData('feedback'); // Call the function with the appropriate endpoint
+    if (feedbackData) {
+        renderFeedback(feedbackData); // Assuming you have a renderFeedback function to display the data
+    } else {
+        console.error('No feedback data available.');
+    }
+});
+
+// Your existing functions and logic here
+// ...
+
+
+
+
 
             // --- JavaScript from Feedback Form (feedback_form.html) ---
             const anonymousCheckbox = document.getElementById('anonymous');
@@ -2697,6 +2717,8 @@
                         alert(translations[currentLanguage]['no_institution_selected'] || "Tafadhali chagua taasisi kwanza kabla ya kutuma maoni.");
                         return;
                     }
+
+                    
 
                     const feedbackData = {
                         institution_id: selectedInstitutionId, // Add institution ID
@@ -2779,7 +2801,7 @@
                             if (errorMessageDiv) errorMessageDiv.style.display = 'block';
                         } else {
                             console.log('Msimamizi ameingia kwa mafanikio:', data.user);
-                            navigateTo('admin_dashboard_page');
+                            navigateTo('admin_dashboard_page'); // Redirect to admin dashboard
                         }
                     } catch (err) {
                         console.error('Hitilafu isiyotarajiwa:', err.message);
@@ -2813,6 +2835,14 @@
                         const { data: authData, error: authError } = await supabase.auth.signUp({
                             email: adminEmail,
                             password: adminPasswordReg,
+                            options: {
+                                data: {
+                                    full_name: adminName,
+                                    role: 'institution_admin'
+                                },
+                                // Hii inazima uthibitishaji wa barua pepe kwa usajili huu
+                                emailRedirectTo: undefined 
+                            }
                         });
 
                         if (authError) {
@@ -2840,22 +2870,33 @@
                                     admin_email: adminEmail,
                                     admin_user_id: userId // Link to Supabase Auth user ID
                                 }
-                            ]);
+                            ])
+                            .select(); // Hakikisha tunapata data iliyoingizwa
 
                         if (institutionError) {
                             console.error('Error inserting institution data:', institutionError.message);
                             // If institution data insertion fails, you might want to delete the user created in auth
-                            // This requires a service_role key and should ideally be done server-side for security
+                            // (Requires service_role key, ideally done server-side for security)
                             // await supabase.auth.admin.deleteUser(userId); 
                             alert(translations[currentLanguage]['institution_registration_error'] + ' (DB Error: ' + institutionError.message + ')');
                             return;
                         }
 
-                        // Store email for OTP verification globally
-                        emailForVerification = adminEmail;
-                        alert(translations[currentLanguage]['institution_registration_success'] || "Taasisi imesajiliwa kwa mafanikio! Sasa thibitisha barua pepe yako.");
-                        institutionRegistrationForm.reset();
-                        navigateTo('otp_verification_page'); // Redirect to OTP verification page
+                        // Update the user's metadata in Supabase Auth with the institution_id
+                        // This is important if you plan to use RLS based on institution_id
+                        const { error: updateError } = await supabase.auth.updateUser({
+                            data: { institution_id: institutionData[0].id }
+                        });
+
+                        if (updateError) {
+                            console.error('Error updating user metadata with institution ID:', updateError.message);
+                            // Decide how to handle this: log, alert, or ignore if RLS isn't strictly tied to this metadata
+                        }
+
+                        // Ujumbe wa mafanikio na kuelekeza kwenye ukurasa wa kuingia
+                        alert(translations[currentLanguage]['institution_registration_success'] || "Hongera! Taasisi imesajiliwa kwa mafanikio. Sasa unaweza kuingia kama msimamizi.");
+                        institutionRegistrationForm.reset(); // Safisha fomu
+                        navigateTo('admin_login_page'); // Mpeleke kwenye ukurasa wa kuingia
                     } catch (err) {
                         console.error('Unexpected error during institution registration:', err.message);
                         alert(translations[currentLanguage]['unexpected_error'] || 'Kuna hitilafu isiyotarajiwa. Tafadhali jaribu tena.');
@@ -2870,164 +2911,8 @@
             const confirmationSection = document.getElementById('confirmationSection');
             const confirmationTitle = document.getElementById('confirmationTitle');
             const proceedToFeedbackButton = document.getElementById('proceedToFeedbackButton');
-// Function ya kupakia taasisi kutoka Supabase na kuzionyesha kwenye dropdown
-async function loadInstitutions() {
-    console.log('Inapakia taasisi...');
-    const selectElement = document.getElementById('institutionSelect'); // Hakikisha ID ni sahihi
 
-    // Weka chaguo la kupakia wakati data inapakia
-    selectElement.innerHTML = `<option value="">${translations[currentLanguage]['select_institution_placeholder'] || '-- Inapakia Taasisi --'}</option>`;
-
-    if (!supabase) {
-        console.error("Supabase client not initialized. Cannot load institutions.");
-        selectElement.innerHTML = `<option value="">${translations[currentLanguage]['supabase_not_init'] || '-- Supabase haijasanidiwa --'}</option>`;
-        return;
-    }
-
-    const { data: institutions, error } = await supabase
-        .from('institutions') // Hakikisha jina la table ni 'institutions'
-        .select('id, name'); // Hakikisha 'id' na 'name' ni columns sahihi
-
-    // Ondoa option ya "Pakia Taasisi..."
-    selectElement.innerHTML = '';
-
-    if (error) {
-        console.error('Kuna hitilafu wakati wa kupakia taasisi:', error.message);
-        const errorOption = document.createElement('option');
-        errorOption.value = '';
-        errorOption.textContent = translations[currentLanguage]['institution_load_error'] || 'Kuna hitilafu kupakia taasisi';
-        selectElement.appendChild(errorOption);
-    } else {
-        console.log('Taasisi zimepakia:', institutions);
-        // Ongeza option mpya "Chagua Taasisi"
-        const defaultOption = document.createElement('option');
-        defaultOption.value = '';
-        defaultOption.textContent = translations[currentLanguage]['select_institution_default'] || '-- Chagua Taasisi --';
-        defaultOption.disabled = true;
-        defaultOption.selected = true;
-        selectElement.appendChild(defaultOption);
-
-        // Ongeza kila taasisi kwenye dropdown
-        if (institutions && institutions.length > 0) {
-            institutions.forEach(institution => {
-                const option = document.createElement('option');
-                option.value = institution.id; // Thamani ya option ni ID ya taasisi
-                option.textContent = institution.name; // Maandishi yanayoonekana ni jina la taasisi
-                selectElement.appendChild(option);
-            });
-        } else {
-            const noInstitutionsOption = document.createElement('option');
-            noInstitutionsOption.value = '';
-            noInstitutionsOption.textContent = translations[currentLanguage]['no_institutions_found'] || '-- Hakuna Taasisi Zilizopatikana --';
-            noInstitutionsOption.disabled = true;
-            selectElement.appendChild(noInstitutionsOption);
-        }
-    }
-}
-
-
-            if (selectInstitutionButton) {
-                selectInstitutionButton.addEventListener('click', () => {
-                    const selectedOption = institutionSelect.options[institutionSelect.selectedIndex];
-                    if (!selectedOption || selectedOption.value === "") {
-                        alert(translations[currentLanguage]['select_institution_default'] || "Tafadhali chagua taasisi kwanza.");
-                        return;
-                    }
-                    selectedInstitutionId = selectedOption.value; // Store the ID
-                    selectedInstitutionName = selectedOption.textContent; // Store the name
-
-                    if (confirmationTitle) confirmationTitle.textContent = `${translations[currentLanguage]['feedback_box_for'] || 'Sanduku la Maoni la'} ${selectedInstitutionName}`;
-
-                    if (selectionSection) selectionSection.style.display = 'none';
-                    if (confirmationSection) confirmationSection.style.display = 'block';
-                });
-            }
-
-            if (proceedToFeedbackButton) {
-                proceedToFeedbackButton.addEventListener('click', () => {
-                    if (selectedInstitutionId) {
-                        navigateTo('feedback_form_page');
-                    } else {
-                        alert(translations[currentLanguage]['no_institution_selected'] || "Tafadhali chagua taasisi kwanza.");
-                    }
-                });
-            }
-
-            // --- OTP Verification Logic ---
-            const otpCodeInput = document.getElementById('otpCode');
-            const verifyOtpButton = document.getElementById('verifyOtpButton');
-            const resendOtpButton = document.getElementById('resendOtpButton');
-            const otpErrorMessage = document.getElementById('otpErrorMessage');
-
-            if (verifyOtpButton) {
-                verifyOtpButton.addEventListener('click', async () => {
-                    const otp = otpCodeInput.value.trim();
-                    if (!otp) {
-                        displayOtpError(translations[currentLanguage]['otp_code_required'] || "Tafadhali ingiza msimbo wa OTP.");
-                        return;
-                    }
-                    if (!emailForVerification) {
-                        displayOtpError(translations[currentLanguage]['email_required_for_otp'] || "Barua pepe inahitajika kuthibitisha OTP.");
-                        return;
-                    }
-
-                    try {
-                        const { data, error } = await supabase.auth.verifyOtp({
-                            email: emailForVerification,
-                            token: otp,
-                            type: 'email',
-                        });
-
-                        if (error) {
-                            console.error('OTP verification error:', error.message);
-                            displayOtpError(translations[currentLanguage]['otp_error'] || "Msimbo wa OTP si sahihi au umeisha muda wake. Tafadhali jaribu tena.");
-                        } else {
-                            console.log('OTP verified successfully:', data);
-                            alert(translations[currentLanguage]['otp_success'] || "Barua pepe imethibitishwa kwa mafanikio! Sasa unaweza kuingia.");
-                            navigateTo('admin_login_page');
-                        }
-                    } catch (err) {
-                        console.error('Unexpected OTP verification error:', err.message);
-                        displayOtpError(translations[currentLanguage]['unexpected_error'] || 'Kuna hitilafu isiyotarajiwa. Tafadhali jaribu tena.');
-                    }
-                });
-            }
-
-            if (resendOtpButton) {
-                resendOtpButton.addEventListener('click', async () => {
-                    if (!emailForVerification) {
-                        displayOtpError(translations[currentLanguage]['email_required_for_otp'] || "Barua pepe inahitajika kutuma OTP.");
-                        return;
-                    }
-
-                    try {
-                        const { error } = await supabase.auth.resend({
-                            type: 'signup',
-                            email: emailForVerification,
-                        });
-
-                        if (error) {
-                            console.error('Resend OTP error:', error.message);
-                            displayOtpError(translations[currentLanguage]['resend_otp_error'] || "Kuna hitilafu wakati wa kutuma msimbo tena. Tafadhali jaribu tena.");
-                        } else {
-                            alert(translations[currentLanguage]['resend_otp_success'] || "Msimbo mpya wa OTP umetuma kwa barua pepe yako.");
-                            otpErrorMessage.style.display = 'none'; // Clear any previous errors
-                        }
-                    } catch (err) {
-                        console.error('Unexpected resend OTP error:', err.message);
-                        displayOtpError(translations[currentLanguage]['unexpected_error'] || 'Kuna hitilafu isiyotarajiwa. Tafadhali jaribu tena.');
-                    }
-                });
-            }
-
-            function displayOtpError(message) {
-                if (otpErrorMessage) {
-                    otpErrorMessage.textContent = message;
-                    otpErrorMessage.style.display = 'block';
-                }
-            }
-
-
+         
             // --- JavaScript for Admin Dashboard (moved outside DOMContentLoaded to be accessible) ---
             const filterStatus = document.getElementById('filterStatus');
             const filterType = document.getElementById('filterType');
@@ -3039,7 +2924,7 @@ async function loadInstitutions() {
             if (filterAnonymous) filterAnonymous.addEventListener('change', fetchAndRenderFeedback);
             if (search) search.addEventListener('keyup', fetchAndRenderFeedback);
             
-            // Initial page load logic - Always navigate to language selection page
+            // Initial page load logic - Always navigate to intro page first
             const storedLanguage = localStorage.getItem('selectedLanguage') || 'sw'; // Default to sw if nothing stored
             applyLanguage(storedLanguage); 
             const radioToSelect = document.getElementById(`lang_${storedLanguage}`);
@@ -3054,13 +2939,18 @@ async function loadInstitutions() {
         });
 
         // --- JavaScript for Admin Dashboard (moved outside DOMContentLoaded to be accessible) ---
+
+  
+
+
+
+        
+
+
         function getStatusBadgeClass(status) {
             switch (status) {
-                case 'new': return 'status-new';
-                case 'in-progress': return 'status-in-progress';
-                case 'resolved': return 'status-resolved';
-                case 'viewed': return 'status-viewed';
-                default: return '';
+               
+                default: return 'filterStatus';
             }
         }
 
@@ -3083,90 +2973,111 @@ async function loadInstitutions() {
                 console.error('Error updating feedback status:', error);
                 alert(translations[currentLanguage]['status_update_error'] || 'Failed to update status. Please try again. (Error: ' + error.message + ')');
             } else {
-                console.log('Feedback status updated:', data);
+                if (!data) {
+                   console.error('No feedback found for the given id:', id);
+                     alert('No feedback found for the given ID. Please refresh the page.');
+                      return;
+                     }
+                console.log('Button clicked for feedback ID:', feedbackId);
+
                 await fetchAndRenderFeedback();
             }
         }
 
         async function markFeedbackAsChecked(id) {
-            const { data, error } = await supabase
-                .from('feedback')
-                .update({ viewed_at: new Date().toISOString(), status: 'viewed' })
-                .eq('id', id)
-                .is('viewed_at', null);
+    console.log('Marking feedback as checked for id:', id); // Log the ID
+    const { data, error } = await supabase
+        .from('feedback')
+        .update({ viewed_at: new Date().toISOString(), status: 'viewed' })
+        .eq('id', id)
+        .is('viewed_at', null);
+             
 
-            if (error) {
-                console.error('Error marking feedback as checked:', error);
-                alert(translations[currentLanguage]['mark_viewed_error'] || 'Failed to mark feedback as checked. Please try again. (Error: ' + error.message + ')');
-            } else {
-                console.log('Feedback marked as checked:', data);
-                await fetchAndRenderFeedback();
-            }
+    if (error) {
+        console.error('Error marking feedback as checked:', error);
+        alert('Failed to mark feedback as checked. Please try again. (Error: ' + error.message + ')');
+    } else {
+        if (!data) {
+            console.error('No feedback found for the given id:', id);
+            alert('No feedback found for the given ID. Please refresh the page.');
+            return;
         }
+        console.log('Button clicked for feedback ID:', feedbackId);
+
+        await fetchAndRenderFeedback();
+    }
+}
 
         async function summarizeFeedback(feedbackText, buttonElement) {
-            buttonElement.classList.add('loading');
-            buttonElement.disabled = true;
-            const originalButtonText = buttonElement.innerHTML;
-            buttonElement.innerHTML = `<span class="spinner"></span> ${translations[currentLanguage]['summarizing_text'] || 'Inafupisha...'}`;
+    buttonElement.classList.add('loading');
+    buttonElement.disabled = true;
+    const originalButtonText = buttonElement.innerHTML;
+    buttonElement.innerHTML = `<span class="spinner"></span> ${translations[currentLanguage]['summarizing_text'] || 'Inafupisha...'}`;
 
-            const summaryOutputDiv = buttonElement.closest('.feedback-item').querySelector('.summary-output');
-            if (summaryOutputDiv) {
-                summaryOutputDiv.classList.remove('show');
-                summaryOutputDiv.innerText = '';
-            }
+    const summaryOutputDiv = buttonElement.closest('.feedback-item').querySelector('.summary-output');
+    if (summaryOutputDiv) {
+        summaryOutputDiv.classList.remove('show');
+        summaryOutputDiv.innerText = '';
+    }
 
-            try {
-                let chatHistory = [];
-                chatHistory.push({ role: "user", parts: [{ text: `Fupisha maoni haya ya mwanafunzi kwa kifupi, usizidi sentensi 3: "${feedbackText}"` }] });
-                const payload = { contents: chatHistory };
-                const apiKey = ""; // Canvas will provide this API key at runtime
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+    try {
+        let chatHistory = [];
+        chatHistory.push({ role: "user", parts: [{ text: `Fupisha maoni haya ya mwanafunzi kwa kifupi, usizidi sentensi 3: "${feedbackText}"` }] });
+        const payload = { contents: chatHistory };
+        const apiKey = "AIzaSyDJEvAN2Hvu4RC87Qffv-d4SIyNV4TR41w"; // Ensure this is set correctly
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
 
-                const result = await response.json();
-                
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    const summary = result.candidates[0].content.parts[0].text;
-                    if (summaryOutputDiv) {
-                        summaryOutputDiv.innerText = summary;
-                        summaryOutputDiv.classList.add('show');
-                    }
-                } else {
-                    if (summaryOutputDiv) {
-                        summaryOutputDiv.innerText = translations[currentLanguage]['summarize_error'] || 'Imeshindwa kufupisha maoni. Jaribu tena.';
-                        summaryOutputDiv.classList.add('show');
-                    }
-                    console.error('Gemini API response structure unexpected:', result);
-                }
-            } catch (error) {
-                console.error('Error calling Gemini API:', error);
-                if (summaryOutputDiv) {
-                    summaryOutputDiv.innerText = translations[currentLanguage]['network_api_error'] || 'Hitilafu ya mtandao au API. Tafadhali jaribu tena.';
-                    summaryOutputDiv.classList.add('show');
-                }
-            } finally {
-                buttonElement.classList.remove('loading');
-                buttonElement.disabled = false;
-                buttonElement.innerHTML = originalButtonText;
-            }
+        if (!response.ok) {
+            throw new Error(`API Error: ${response.status} ${response.statusText}`);
         }
 
+        const result = await response.json();
+        
+        if (result.candidates && result.candidates.length > 0 &&
+            result.candidates[0].content && result.candidates[0].content.parts &&
+            result.candidates[0].content.parts.length > 0) {
+            const summary = result.candidates[0].content.parts[0].text;
+            if (summaryOutputDiv) {
+                summaryOutputDiv.innerText = summary;
+                summaryOutputDiv.classList.add('show');
+            }
+        } else {
+            if (summaryOutputDiv) {
+                summaryOutputDiv.innerText = translations[currentLanguage]['summarize_error'] || 'Imeshindwa kufupisha maoni. Jaribu tena.';
+                summaryOutputDiv.classList.add('show');
+            }
+            console.error('Gemini API response structure unexpected:', result);
+        }
+    } catch (error) {
+        console.error('Error calling Gemini API:', error);
+        if (summaryOutputDiv) {
+            summaryOutputDiv.innerText = translations[currentLanguage]['network_api_error'] || 'Hitilafu ya mtandao au API. Tafadhali jaribu tena.';
+            summaryOutputDiv.classList.add('show');
+        }
+    } finally {
+        buttonElement.classList.remove('loading');
+        buttonElement.disabled = false;
+        buttonElement.innerHTML = originalButtonText;
+    }
+}
+
+
+        
         async function fetchAndRenderFeedback() {
             const statusFilterElement = document.getElementById('filterStatus');
             const typeFilterElement = document.getElementById('filterType');
             const anonymousFilterElement = document.getElementById('filterAnonymous');
             const searchElement = document.getElementById('search');
+            const dashboardTitleElement = document.getElementById('dashboardTitle'); // Get the dashboard title element
 
-            if (!statusFilterElement || !typeFilterElement || !anonymousFilterElement || !searchElement) {
-                console.warn("Dashboard filter/search elements not found. Skipping feedback fetch.");
+            if (!statusFilterElement || !typeFilterElement || !anonymousFilterElement || !searchElement || !dashboardTitleElement) {
+                console.warn("Dashboard elements not found. Skipping feedback fetch.");
                 return;
             }
 
@@ -3177,6 +3088,71 @@ async function loadInstitutions() {
 
             let query = supabase.from('feedback').select('*');
 
+            // Fetch current user and their institution ID
+            const { data: userData, error: userError } = await supabase.auth.getUser();
+            if (userError || !userData.user) {
+                console.error('Error fetching user:', userError);
+                dashboardTitleElement.textContent = translations[currentLanguage]['admin_dashboard_header'] || 'Dashibodi ya Maoni ya Wanafunzi';
+                renderFeedback([]);
+                updateStats([]);
+                return;
+            }
+
+            const user = userData.user;
+            let adminInstitutionId = null;
+            let adminInstitutionName = translations[currentLanguage]['admin_dashboard_header'] || 'Dashibodi ya Maoni ya Wanafunzi'; // Default title
+
+            // Try to get institution ID from user metadata first
+            if (user.user_metadata && user.user_metadata.institution_id) {
+                adminInstitutionId = user.user_metadata.institution_id;
+            }
+
+            // If not in metadata, fetch from institutions table using admin_user_id
+            if (!adminInstitutionId) {
+                const { data: adminInstitution, error: adminInstitutionError } = await supabase
+                    .from('institutions')
+                    .select('id, name')
+                    .eq('admin_user_id', user.id)
+                    .single();
+
+                if (adminInstitutionError) {
+                    console.error('Error fetching admin institution:', adminInstitutionError);
+                    // alert(translations[currentLanguage]['admin_institution_error'] || 'Kuna hitilafu kupata taasisi ya msimamizi.');
+                    dashboardTitleElement.textContent = translations[currentLanguage]['admin_dashboard_header'] || 'Dashibodi ya Maoni ya Wanafunzi';
+                    renderFeedback([]);
+                    updateStats([]);
+                    return;
+                }
+                if (adminInstitution) {
+                    adminInstitutionId = adminInstitution.id;
+                    adminInstitutionName = adminInstitution.name;
+                } else {
+                    console.warn("Admin user not linked to any institution.");
+                    dashboardTitleElement.textContent = translations[currentLanguage]['admin_dashboard_header'] || 'Dashibodi ya Maoni ya Wanafunzi';
+                    renderFeedback([]); // Show no feedback if admin is not linked to an institution
+                    updateStats([]);
+                    return;
+                }
+            } else {
+                // If institution_id was found in metadata, fetch the institution name
+                const { data: institutionData, error: institutionNameError } = await supabase
+                    .from('institutions')
+                    .select('name')
+                    .eq('id', adminInstitutionId)
+                    .single();
+                
+                if (!institutionNameError && institutionData) {
+                    adminInstitutionName = institutionData.name;
+                } else {
+                    console.warn("Could not fetch institution name for ID:", adminInstitutionId, institutionNameError);
+                }
+            }
+
+            // Update the dashboard title
+            dashboardTitleElement.textContent = `${translations[currentLanguage]['feedback_box_for'] || 'Sanduku la Maoni la'} ${adminInstitutionName}`;
+
+
+            // Apply filters
             if (statusFilter !== 'all') {
                 query = query.eq('status', statusFilter);
             }
@@ -3189,34 +3165,8 @@ async function loadInstitutions() {
                 query = query.eq('is_anonymous', false);
             }
 
-            // Add filter by institution_id for admin dashboard
-            const user = (await supabase.auth.getUser()).data.user;
-            if (user) {
-                const { data: adminInstitution, error: adminInstitutionError } = await supabase
-                    .from('institutions')
-                    .select('id')
-                    .eq('admin_user_id', user.id)
-                    .single();
-
-                if (adminInstitutionError) {
-                    console.error('Error fetching admin institution:', adminInstitutionError);
-                    alert(translations[currentLanguage]['admin_institution_error'] || 'Kuna hitilafu kupata taasisi ya msimamizi.');
-                    return;
-                }
-                if (adminInstitution) {
-                    query = query.eq('institution_id', adminInstitution.id);
-                } else {
-                    console.warn("Admin user not linked to any institution.");
-                    renderFeedback([]); // Show no feedback if admin is not linked to an institution
-                    updateStats([]);
-                    return;
-                }
-            } else {
-                console.warn("User not authenticated. Cannot fetch admin dashboard feedback.");
-                renderFeedback([]); // Show no feedback if not authenticated
-                updateStats([]);
-                return;
-            }
+            // Filter by the admin's institution ID
+            query = query.eq('institution_id', adminInstitutionId);
 
 
             query = query.order('status', { ascending: true, nullsFirst: false });
@@ -3242,6 +3192,7 @@ async function loadInstitutions() {
             updateStats(data);
         }
 
+
         function renderFeedback(feedbackItems) {
             const feedbackListDiv = document.getElementById('feedbackList');
             if (!feedbackListDiv) {
@@ -3266,9 +3217,7 @@ async function loadInstitutions() {
                 const feedbackTime = new Date(item.created_at).toLocaleTimeString(currentLanguage, { hour: '2-digit', minute: '2-digit' });
 
                 const viewedAtText = item.viewed_at 
-                    ? `${translations[currentLanguage]['viewed_at_display'] || 'Imetazamwa'} ${new Date(item.viewed_at).toLocaleDateString(currentLanguage)} ${new Date(item.viewed_at).toLocaleTimeString(currentLanguage, { hour: '2-digit', minute: '2-digit' })}`
-                    : (translations[currentLanguage]['not_viewed_display'] || 'Haijatazamwa');
-
+                 
                 feedbackItemDiv.innerHTML = `
                     <h4>
                         <span>${item.type}</span>
@@ -3285,27 +3234,15 @@ async function loadInstitutions() {
                         <button class="action-button gemini-button" onclick="summarizeFeedback('${item.message.replace(/'/g, "\\'")}', this)">
                             ${translations[currentLanguage]['summarize_button'] || 'Fupisha Maoni'}
                         </button>
-                        <button class="action-button check-button" 
-                                onclick="markFeedbackAsChecked('${item.id}')" 
-                                ${item.viewed_at ? 'disabled data-checked="true"' : ''}>
-                            ${item.viewed_at ? (translations[currentLanguage]['viewed_button'] || 'Imetazamwa') : (translations[currentLanguage]['mark_viewed_button'] || 'Weka Imetazamwa')}
-                        </button>
-                        <button class="action-button in-progress-button" 
-                                onclick="updateFeedbackStatus('${item.id}', 'in-progress')" 
-                                ${item.status === 'in-progress' ? 'disabled' : ''}>
-                            ${translations[currentLanguage]['mark_in_progress_button'] || 'Weka Inaendelea'}
-                        </button>
-                        <button class="action-button resolve-button" 
-                                data-current-status="${item.status}"
-                                onclick="updateFeedbackStatus('${item.id}', '${item.status === 'resolved' ? 'new' : 'resolved'}')">
-                            ${item.status === 'resolved' ? (translations[currentLanguage]['reopen_button'] || 'Fungua Tena') : (translations[currentLanguage]['resolve_button'] || 'Suluhisha')}
-                        </button>
+                     
                     </div>
                     <div class="summary-output"></div>
                 `;
                 feedbackListDiv.appendChild(feedbackItemDiv);
             });
         }
+
+        
 
 
         function updateStats(allFeedback) {
@@ -3365,4 +3302,3 @@ async function loadInstitutions() {
     </script>
 </body>
 </html>
-
